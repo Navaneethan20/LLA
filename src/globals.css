@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-dark: #0B1832;
+  --navy-mid: #112244;
+  --gold: #D4AF37;
+  --gold-light: #F0CE6A;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0B1832;
+  color: white;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #D4AF37, #F5D060, #B8960C, #D4AF37);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+  50% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.5); }
+}
+
+.pulse-gold {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0B1832; }
+::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+
+a, button { cursor: pointer; }
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
