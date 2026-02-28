@@ -51,6 +51,7 @@ import CollegePrograms from './pages/CollegePrograms';
 import CorporatePrograms from './pages/CorporatePrograms';
 import Home from './pages/Home';
 import SchoolPrograms from './pages/SchoolPrograms';
+import FamilyPrograms from './pages/FamilyPrograms'
 import __Layout from './Layout.jsx';
 
 
@@ -59,6 +60,7 @@ export const PAGES = {
     "CorporatePrograms": CorporatePrograms,
     "Home": Home,
     "SchoolPrograms": SchoolPrograms,
+    "FamilyPrograms": FamilyPrograms,
 }
 
 export const pagesConfig = {

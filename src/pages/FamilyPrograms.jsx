@@ -2,33 +2,35 @@ import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppPopup from "../components/WhatsAppPopup";
-import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight, Send } from "lucide-react";
+import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
-// ── data ──────────────────────────────────────────────────────────────────────
 const programs = [
-  { icon: "🎤", title: "Public Speaking Mastery", description: "Conquer stage fear and develop powerful communication skills through structured practice, storytelling techniques, and confidence-building exercises.", outcomes: ["Stage confidence", "Clear articulation", "Storytelling skills"], duration: "2-Day Workshop" },
-  { icon: "🧠", title: "Leadership Bootcamp", description: "Intensive residential camp where students discover their leadership style, learn team dynamics, decision-making, and problem-solving.", outcomes: ["Leadership mindset", "Decision-making", "Team collaboration"], duration: "5-Day Residential" },
-  { icon: "💡", title: "Personality Development", description: "Holistic growth covering body language, etiquette, emotional intelligence and self-awareness for well-rounded personality development.", outcomes: ["Body language", "Emotional IQ", "Self-awareness"], duration: "8-Week Program" },
-  { icon: "🌟", title: "Life Skills Workshop", description: "Practical life skills including time management, stress handling, goal setting and decision-making for everyday challenges.", outcomes: ["Goal setting", "Time management", "Stress resilience"], duration: "1-Day Intensive" },
-  { icon: "🤝", title: "Social Intelligence", description: "Develop empathy, active listening, conflict resolution, and interpersonal skills to thrive in any social environment.", outcomes: ["Empathy", "Active listening", "Conflict resolution"], duration: "3-Day Module" },
-  { icon: "🏆", title: "Young Leaders Summit", description: "Annual flagship event bringing together school leaders for debates, challenges, networking, and recognition of outstanding young talent.", outcomes: ["Networking", "Competitive spirit", "Recognition"], duration: "Annual Event" },
+  { icon: "❤️", title: "Family Bonding Retreat", description: "A weekend immersive experience where families rediscover connection through shared challenges, communication exercises, and trust-building activities.", outcomes: ["Deeper trust", "Open communication", "Shared memories"], duration: "2-Day Retreat" },
+  { icon: "🗣️", title: "Parent-Child Communication", description: "Structured workshops helping parents and children understand each other's perspectives, bridge generational gaps, and build empathy.", outcomes: ["Active listening", "Empathy", "Conflict resolution"], duration: "1-Day Workshop" },
+  { icon: "🧩", title: "Family Leadership Dynamics", description: "Learn how leadership principles apply within the family unit — from decision-making to creating a shared family vision and values.", outcomes: ["Family vision", "Shared values", "Role clarity"], duration: "Half-Day Module" },
+  { icon: "🌱", title: "Parenting Excellence Program", description: "Evidence-based coaching for parents on nurturing leadership qualities, emotional intelligence, and resilience in children.", outcomes: ["Emotional coaching", "Positive discipline", "Growth mindset"], duration: "4-Week Program" },
+  { icon: "💬", title: "Couple Harmony Workshop", description: "Strengthen your partnership through communication tools, conflict resolution frameworks, and aligned goal setting as a couple.", outcomes: ["Relationship alignment", "Conflict tools", "Shared goals"], duration: "Weekend Program" },
+  { icon: "🏡", title: "Multi-Generation Leadership", description: "Unique program for grandparents, parents, and children to build a legacy of leadership, wisdom-sharing, and family culture.", outcomes: ["Legacy building", "Wisdom transfer", "Family culture"], duration: "3-Day Experience" },
 ];
 
 const stories = [
-  { name: "Kaviya Sundaresan", achievement: "Won State-Level Debate Championship", quote: "Before LLA, I couldn't speak in front of 10 people. Today I've won a state championship. The transformation is unreal.", image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" },
-  { name: "Aravind Karthikeyan", achievement: "School Council President — DAV Chennai", quote: "The leadership bootcamp taught me to lead with empathy, not just authority. My team trusts me completely.", image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" },
-  { name: "Nithya Balakrishnan", achievement: "National Youth Leader Award", quote: "LLA didn't just teach me skills — it gave me purpose. I now run a social impact club with 300+ members.", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" },
+  { name: "Ramesh & Priya Sharma", achievement: "Transformed family communication after 15 years", quote: "We came in as a family struggling to talk to each other. We left as a team with a shared vision. LLA's family retreat changed everything.", image: "https://images.unsplash.com/photo-1581952976147-5a2d15560349?w=600&q=80", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" },
+  { name: "Ananya Krishnamurthy", achievement: "Single parent — rebuilt confidence and family bond", quote: "As a single parent, I felt lost. The parenting excellence program gave me a framework and a community. My children now look up to me differently.", image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&q=80", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" },
+  { name: "The Kumar Family", achievement: "3 generations — one unified family vision", quote: "My grandfather, my father, and I attended together. The multi-generation program helped us understand and respect each other in a whole new way.", image: "https://images.unsplash.com/photo-1511895426328-dc8714191011?w=600&q=80", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" },
 ];
 
 const gallery = [
-  "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80",
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80",
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
-  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80",
+  { src: "https://images.unsplash.com/photo-1511895426328-dc8714191011?w=800&q=80", label: "Family Retreat", featured: true },
+  { src: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=500&q=80", label: "Parent-Child Workshop" },
+  { src: "https://images.unsplash.com/photo-1581952976147-5a2d15560349?w=500&q=80", label: "Bonding Activities" },
+  { src: "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=500&q=80", label: "Couple Harmony" },
+  { src: "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=500&q=80", label: "Family Leadership" },
+  { src: "https://images.unsplash.com/photo-1519340333755-56e9c1d04579?w=500&q=80", label: "Multi-Gen Session" },
+  { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80", label: "Team Building" },
+  { src: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=500&q=80", label: "Parenting Excellence" },
+  { src: "https://images.unsplash.com/photo-1470116945706-e6bf5d5a53ca?w=500&q=80", label: "Family Vision" },
 ];
 
-// ── sub components ─────────────────────────────────────────────────────────────
 function ProgramCard({ p, visible, i }) {
   return (
     <div className={`group relative bg-[#112244] rounded-2xl p-5 sm:p-7 border border-white/5 hover:border-[#D4AF37]/40 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`} style={{ transitionDelay: `${i * 100}ms` }}>
@@ -67,21 +69,20 @@ function SubContact() {
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault(); setLoading(true);
     setTimeout(() => { setLoading(false); setSent(true); setForm({ name: "", phone: "", message: "" }); setTimeout(() => setSent(false), 5000); }, 1000);
   };
   return (
-    <section id="contact" className="py-20 sm:py-24 bg-[#080F20] relative overflow  ">
+    <section id="contact" className="py-20 sm:py-24 bg-[#080F20] relative overflow-hidden">
       <div id="enroll" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.08)_0%,_transparent_70%)] pointer-events-none" />
-      <div className=" max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-6">Enroll Today</span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">Ready to join <span className="text-[#D4AF37]">School Programs?</span></h2>
-            <p className="text-white/55 text-sm leading-relaxed mb-8">Fill in your details and our team will get in touch within 24 hours. Programs available across South India.</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">Ready to join <span className="text-[#D4AF37]">Family Programs?</span></h2>
+            <p className="text-white/55 text-sm leading-relaxed mb-8">Fill in your details and our team will get in touch within 24 hours. Programs available across India.</p>
             <div className="space-y-3">
               <a href="tel:+919876543210" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37]/20 transition-all shrink-0"><Phone className="w-5 h-5 text-[#D4AF37]" /></div>
@@ -116,13 +117,68 @@ function SubContact() {
   );
 }
 
+function GallerySection({ imgs, visible }) {
+  const [lightbox, setLightbox] = useState(null);
+  const [hovered, setHovered] = useState(null);
 
-// ── page ──────────────────────────────────────────────────────────────────────
-export default function SchoolPrograms() {
+  const GalleryItem = ({ item, className, delay = 0 }) => (
+    <div
+      onClick={() => setLightbox(item.src)}
+      onMouseEnter={() => setHovered(item.src)}
+      onMouseLeave={() => setHovered(null)}
+      className={`group relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-700 ${visible ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <img src={item.src} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1832]/85 via-[#0B1832]/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className={`absolute inset-0 rounded-xl sm:rounded-2xl border-2 transition-all duration-300 ${hovered === item.src ? "border-[#D4AF37]/60" : "border-transparent"}`} />
+      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-3 group-hover:translate-y-0 transition-transform duration-400">
+        <p className="text-white font-black text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">{item.label}</p>
+        <div className="h-0.5 w-0 group-hover:w-10 bg-[#D4AF37] rounded-full transition-all duration-500 mt-1" />
+      </div>
+      <div className="absolute top-2 right-2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 group-hover:border-[#D4AF37]/60 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
+        <span className="text-[#D4AF37] text-sm font-black">+</span>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Row 1: 1 big + 2 medium */}
+      <div className="grid grid-cols-12 gap-2 sm:gap-3 mb-2 sm:mb-3" style={{ height: "280px" }}>
+        <GalleryItem item={imgs[0]} className="col-span-12 sm:col-span-6" delay={0} />
+        <GalleryItem item={imgs[1]} className="col-span-6 sm:col-span-3" delay={80} />
+        <GalleryItem item={imgs[2]} className="col-span-6 sm:col-span-3" delay={160} />
+      </div>
+      {/* Row 2: 3 equal */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-2 sm:mb-3" style={{ height: "200px" }}>
+        <GalleryItem item={imgs[3]} className="" delay={200} />
+        <GalleryItem item={imgs[4]} className="" delay={260} />
+        <GalleryItem item={imgs[5]} className="" delay={320} />
+      </div>
+      {/* Row 3: 2 + 1 wide */}
+      <div className="grid grid-cols-12 gap-2 sm:gap-3" style={{ height: "200px" }}>
+        <GalleryItem item={imgs[6]} className="col-span-6 sm:col-span-4" delay={360} />
+        <GalleryItem item={imgs[7]} className="col-span-6 sm:col-span-4" delay={420} />
+        <GalleryItem item={imgs[8]} className="hidden sm:block col-span-4" delay={480} />
+      </div>
+
+      {lightbox && (
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setLightbox(null)}>
+          <div className="relative max-w-4xl w-full">
+            <img src={lightbox} alt="" className="w-full rounded-2xl shadow-2xl" />
+            <button className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 border border-white/20 text-white flex items-center justify-center hover:border-[#D4AF37]/60 transition-all">✕</button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+export default function FamilyPrograms() {
   const [visible1, setVisible1] = useState(false);
   const [visible2, setVisible2] = useState(false);
   const [visible3, setVisible3] = useState(false);
-  const [lightbox, setLightbox] = useState(null);
   const ref1 = useRef(null); const ref2 = useRef(null); const ref3 = useRef(null);
 
   useEffect(() => {
@@ -131,9 +187,7 @@ export default function SchoolPrograms() {
       if (ref.current) obs.observe(ref.current);
       return obs;
     };
-    const o1 = observe(ref1, setVisible1);
-    const o2 = observe(ref2, setVisible2);
-    const o3 = observe(ref3, setVisible3);
+    const o1 = observe(ref1, setVisible1); const o2 = observe(ref2, setVisible2); const o3 = observe(ref3, setVisible3);
     return () => { o1.disconnect(); o2.disconnect(); o3.disconnect(); };
   }, []);
 
@@ -143,19 +197,19 @@ export default function SchoolPrograms() {
 
       {/* Hero */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0  blur-sm">
-          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&q=80" alt="School Programs" className="w-full h-full object-cover "  />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1832]/96 via-[#0B1832]/80 to-[#0B1832]/30 bg-black/50 pointer-events-none" />
+        <div className="absolute inset-0 blur-sm">
+          <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1400&q=80" alt="Family Programs" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1832]/96 via-[#0B1832]/80 to-[#0B1832]/30 bg-black/50" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B1832] via-transparent to-[#0B1832]/20" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 mb-6">
-              <span className="text-[#D4AF37] text-xs font-black tracking-widest uppercase">For School Students · Ages 8–18</span>
+              <span className="text-[#D4AF37] text-xs font-black tracking-widest uppercase">For Families · Every Generation</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 leading-tight">School Programs</h1>
-            <p className="text-[#D4AF37] text-base sm:text-xl font-bold mb-4">Shaping Tomorrow's Leaders Today</p>
-            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">Transformative leadership and personality development programs for students aged 8–18. Building confidence, character, and courage from the classroom.</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 leading-tight">Family Programs</h1>
+            <p className="text-[#D4AF37] text-base sm:text-xl font-bold mb-4">Leading Together, Growing Together</p>
+            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">Transformative programs for couples, parents, children, and multi-generational families — building stronger bonds, better communication, and a shared legacy of leadership.</p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <button onClick={() => document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth" })} className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#D4AF37] text-[#0B1832] font-black text-sm hover:bg-[#F0CE6A] transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#D4AF37]/30">Enroll Now</button>
               <button onClick={() => document.getElementById("programs-offered")?.scrollIntoView({ behavior: "smooth" })} className="flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/30 text-white font-bold text-sm hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all">View Programs <ArrowDown className="w-4 h-4" /></button>
@@ -179,24 +233,15 @@ export default function SchoolPrograms() {
       </section>
 
       {/* Gallery */}
-      <section ref={ref2} className="py-20 sm:py-24 bg-[#080F20]">
+      <section id="about" ref={ref2} className="py-20 sm:py-24 bg-[#080F20]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className={`text-center mb-12 transition-all duration-700 ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">In Action</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">School Programs <span className="text-[#D4AF37]">Gallery</span></h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">Family Programs <span className="text-[#D4AF37]">Gallery</span></h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-            {gallery.map((src, i) => (
-              <div key={i} onClick={() => setLightbox(src)} className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ${visible2 ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${i === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`} style={{ transitionDelay: `${i * 80}ms`, aspectRatio: "1" }}>
-                <img src={src} alt="Gallery" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 min-h-[100px]" loading="lazy" />
-                <div className="absolute inset-0 bg-[#0B1832]/0 group-hover:bg-[#0B1832]/50 transition-all duration-300 flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 w-9 h-9 rounded-full border-2 border-[#D4AF37] flex items-center justify-center text-[#D4AF37] text-xl font-black transition-opacity">+</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <GallerySection imgs={gallery} visible={visible2} />
+
         </div>
-        {lightbox && <div className="fixed inset-0 z-50 bg-black/92 flex items-center justify-center p-4" onClick={() => setLightbox(null)}><img src={lightbox} alt="" className="max-w-full max-h-full rounded-2xl" /></div>}
       </section>
 
       {/* Success Stories */}
@@ -214,7 +259,7 @@ export default function SchoolPrograms() {
 
       <SubContact />
       <Footer />
-      <WhatsAppPopup programName="School Programs" groupLink="https://chat.whatsapp.com/livingleadership-school" />
+      <WhatsAppPopup programName="Family Programs" groupLink="https://chat.whatsapp.com/livingleadership-family" />
     </div>
   );
 }

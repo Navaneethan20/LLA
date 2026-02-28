@@ -24,11 +24,11 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-full border-2 border-[#D4AF37] flex items-center justify-center font-black text-[#D4AF37] text-lg">L</div>
               <div>
                 <span className="text-white font-black text-base"><span className="text-[#D4AF37]">Living</span> Leadership</span>
-                <p className="text-white/30 text-[9px] tracking-widest uppercase">Academy · Tamil Nadu</p>
+                <p className="text-white/30 text-[9px] tracking-widest uppercase">Academy · India</p>
               </div>
             </div>
             <p className="text-white/45 text-sm leading-relaxed mb-5">
-              Transforming lives through leadership, based in Chennai, Tamil Nadu. Serving schools, colleges, and corporates across South India.
+              Transforming lives through leadership. Serving schools, colleges, corporates, and families across India.
             </p>
             <div className="flex gap-3">
               {socialLinks.map(({ Icon, href, label }) => (
@@ -48,6 +48,7 @@ export default function Footer() {
                 { label: "School Programs", page: "SchoolPrograms" },
                 { label: "College Programs", page: "CollegePrograms" },
                 { label: "Corporate Programs", page: "CorporatePrograms" },
+                { label: "Family Programs", page: "FamilyPrograms" },
               ].map((p) => (
                 <li key={p.page}>
                   <Link to={createPageUrl(p.page)} className="text-white/50 hover:text-[#D4AF37] text-sm font-semibold transition-colors duration-200 flex items-center gap-1.5 group">
@@ -84,10 +85,10 @@ export default function Footer() {
             <h4 className="text-[#D4AF37] font-black mb-4 text-xs uppercase tracking-widest">Contact Us</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://maps.google.com/?q=Anna+Nagar,+Chennai,+Tamil+Nadu" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors group">
-                  <MapPin className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
-                  <span>Anna Nagar, Chennai — Tamil Nadu, India</span>
-                </a>
+                <a href="https://maps.google.com/?q=Anna+Nagar,+Chennai,+India" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors group">
+                   <MapPin className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
+                   <span>Anna Nagar, Chennai, India</span>
+                 </a>
               </li>
               <li>
                 <a href="tel:+919876543210" className="flex items-center gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors">
@@ -107,7 +108,7 @@ export default function Footer() {
 
         <div className="border-t border-white/8 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/25 text-xs text-center">© 2026 Living Leadership Academy, Chennai. All rights reserved.</p>
-          <p className="text-white/25 text-xs">Crafted with purpose · Made in Tamil Nadu 🙏</p>
+          <p className="text-white/25 text-xs">Crafted with purpose · Made in India 🇮🇳</p>
         </div>
       </div>
     </footer>
