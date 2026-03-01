@@ -5,7 +5,7 @@ export default function HeroSection() {
   const [visible, setVisible] = useState(false);
   useEffect(() => { setTimeout(() => setVisible(true), 100); }, []);
 
-  const words = ["Leaders", "Visionaries", "Changemakers", "Pioneers"];
+  const words = ["Leaders", "Visionaries", "Trend makers", "Pioneers"];
   const [wordIdx, setWordIdx] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setWordIdx((i) => (i + 1) % words.length), 2500);
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div className={`transition-all duration-1000 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-16"}`}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 mb-6">
             <Star className="w-3 h-3 text-[#D4AF37] fill-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-xs font-black tracking-widest uppercase">South India's Premier Leadership Academy</span>
+            <span className="text-[#D4AF37] text-xs font-black tracking-widest uppercase"> India's Premier Leadership Academy</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight mb-4">
@@ -39,7 +39,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 max-w-md">
-            Transformative leadership programs for families, schools, colleges, and corporates — shaping confident, purposeful, and impactful individuals across South India.
+            Transformative leadership programs for families, schools, colleges, and corporates — shaping confident, purposeful, and impactful individuals across India.
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4">

@@ -92,7 +92,7 @@ export default function Navbar() {
               className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl border-2 border-[#D4AF37] object-cover overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#D4AF37]/30"
             />
             <div className="leading-tight">
-              <span className="text-white font-black text-sm sm:text-base tracking-wide">
+              <span className="text-white font-black text-lg sm:text-xl tracking-wide">
                 <span className="text-[#D4AF37] logo-shimmer">Living</span> Leadership
               </span>
               <p className="text-white/30 text-[9px] tracking-widest uppercase hidden sm:block">Academy · India</p>

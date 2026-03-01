@@ -13,7 +13,7 @@ export default function AboutSection() {
 
   const points = [
     "Bilingual programs in English & regional languages",
-    "Certified expert coaches from South India",
+    "Certified expert coaches from India",
     "Tailored for every age — school to C-suite",
     "Real-world leadership simulations & activities",
   ];
@@ -49,10 +49,12 @@ export default function AboutSection() {
             Nurturing <span className="text-[#D4AF37]">Excellence</span> Since a Decade
           </h2>
           <p className="text-white/60 leading-relaxed mb-5 text-sm sm:text-base">
-            Living Leadership Academy (LLA) was founded in Chennai with a mission to bring world-class leadership training to every student and professional. We believe that leadership is not a position — it's a way of life.
+           Living Leadership Academy was founded to address one of the most critical challenges of our time — <span className="text-[#D4AF37]">the growing gap between information and wisdom</span>. While qualifications are increasing, confidence, character, and clarity of purpose are often declining across students, educators, families, and organizations.
+           At Living Leadership Academy, we believe the world does not just need more professionals — <span className="text-[#D4AF37]">it needs better leaders</span>. We see leadership not as a position or title, but as influence — <span className="text-[#D4AF37]">the ability to positively impact people and situations</span>.
           </p>
           <p className="text-white/60 leading-relaxed mb-7 text-sm sm:text-base">
-            From government schools to tech companies across South India — our programs have transformed over 50,000 lives across multiple states.
+            Through transformational training and mentorship, we equip individuals to think clearly, communicate confidently, act responsibly, and lead courageously. Our programs are designed to create real-world impact beyond classrooms and boardrooms. 
+            We are committed to building leaders who strengthen families, transform classrooms, inspire communities, and lead organizations with integrity. Our purpose goes beyond conducting workshops — <span className="text-[#D4AF37]">we are building a leadership movement that transforms society</span>.
           </p>
 
           <ul className="space-y-3 mb-7 grid grid-cols-1 sm:grid-cols-2 gap-x-4">

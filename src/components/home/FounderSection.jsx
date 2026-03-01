@@ -36,7 +36,7 @@ export default function FounderSection() {
 
           <p className="text-white/60 leading-relaxed mb-4 text-sm sm:text-base">
             <span className="text-[#D4AF37] font-semibold">Satheesh Kumar S </span> is an educator, leadership trainer, and mentor with over <span className="text-[#D4AF37] font-semibold">14+ </span> years of 
-            experience in education, leadership development, and teacher training. With a background in 
+            experience in education, leadership development, and teacher training. With a background
             Master’s degree in Philosophy, he brings together practical education experience and deep 
             insight into character, values, and leadership. 
             Throughout his career, Satheesh has worked closely with schools, educators, students, and 
@@ -55,7 +55,7 @@ export default function FounderSection() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            {["TEDx Speaker", "Bestselling Author", "NLP Practitioner", "15+ Years"].map((tag) => (
+            {["Empowering Leaders", "Team Building Expert", "14+ Years"].map((tag) => (
               <span key={tag} className="px-3 py-1.5 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold tracking-wide hover:bg-[#D4AF37]/10 transition-colors">
                 {tag}
               </span>

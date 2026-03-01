@@ -28,7 +28,7 @@ export default function Footer() {
                   </div>
                 </div>
                 <p className="text-white/45 text-sm leading-relaxed mb-5">
-                  Transforming lives through leadership. Serving families, schools, colleges, corporates, and families across India.
+                  Transforming lives through leadership. Serving schools, colleges, corporates, and families across India.
                 </p>
                 <div className="flex gap-3">
                   {socialLinks.map(({ Icon, href, label }) => (

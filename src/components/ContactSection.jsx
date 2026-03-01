@@ -63,7 +63,7 @@ export default function ContactSection() {
             Start Your <span className="text-[#D4AF37]">Leadership</span> Journey
           </h2>
           <p className="text-white/50 max-w-md mx-auto text-sm">
-            Reach out to enroll, inquire, or learn more about any of our programs across South India.
+            Reach out to enroll, inquire, or learn more about any of our programs across India.
           </p>
         </div>
 
