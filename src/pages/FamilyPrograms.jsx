@@ -22,18 +22,18 @@ const stories = [
 
 
 const familyMedia = [
-  { type: "image", src: "public/Family-1.jpg" },
-  { type: "image", src: "public/Family-2.jpg" },
-  { type: "image", src: "public/Family-3.jpg" },
-  { type: "image", src: "public/Family-4.jpg" },
-  { type: "video", src: "public/Family-5.mp4" },
-  { type: "image", src: "public/Family-6.jpg" },
-  { type: "video", src: "public/Family-7.mp4" },
-  { type: "video", src: "public/Family-11.mp4" },
-  { type: "image", src: "public/Family-9.jpg" },
-  { type: "image", src: "public/Family-10.jpg" },
-  { type: "video", src: "public/Family-8.mp4" },
-  { type: "image", src: "public/Family-12.jpg" },
+  { type: "image", src: "/Family-1.jpg" },
+  { type: "image", src: "/Family-2.jpg" },
+  { type: "image", src: "/Family-3.jpg" },
+  { type: "image", src: "/Family-4.jpg" },
+  { type: "video", src: "/Family-5.mp4" },
+  { type: "image", src: "/Family-6.jpg" },
+  { type: "video", src: "/Family-7.mp4" },
+  { type: "video", src: "/Family-11.mp4" },
+  { type: "image", src: "/Family-9.jpg" },
+  { type: "image", src: "/Family-10.jpg" },
+  { type: "video", src: "/Family-8.mp4" },
+  { type: "image", src: "/Family-12.jpg" },
   // Add 15+ easily
 ];
 

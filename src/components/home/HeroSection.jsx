@@ -65,7 +65,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 rounded-3xl border border-[#D4AF37]/10 scale-110" />
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-xs sm:max-w-sm mx-auto lg:max-w-none">
               <img
-                src="public/Homehero 1.jpeg"
+                src="/Homehero 1.jpeg"
                 alt="Leadership Training"
                 className="w-full h-full object-cover"
               />

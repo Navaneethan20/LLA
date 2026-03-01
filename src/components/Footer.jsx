@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Brand */}
                 <div className="col-span-2 md:col-span-2 lg:col-span-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <img src="public/Logo.jpeg" alt="Living Leadership Logo" className="w-10 h-10 rounded-full border-2 border-[#D4AF37]" />
+                  <img src="/Logo.jpeg" alt="Living Leadership Logo" className="w-10 h-10 rounded-full border-2 border-[#D4AF37]" />
                   <div>
                   <span className="text-white font-black text-base"><span className="text-[#D4AF37]">Living</span> Leadership</span>
                   <p className="text-white/30 text-[9px] tracking-widest uppercase">Academy · India</p>

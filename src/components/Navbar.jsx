@@ -85,9 +85,9 @@ export default function Navbar() {
 
           {/* Logo */}
           <button onClick={handleHomeClick} className="flex items-center gap-3 group text-left">
-            {/* Replace the letter logo with an image. Place your image at public/logo.png */}
+            {/* Replace the letter logo with an image. Place your image at /logo.png */}
             <img
-              src="public/Logo.jpeg"
+              src="/Logo.jpeg"
               alt="Living Leadership logo"
               className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl border-2 border-[#D4AF37] object-cover overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#D4AF37]/30"
             />

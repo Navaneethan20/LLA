@@ -75,7 +75,7 @@ export default function FounderSection() {
 
           <div className="relative rounded-3xl overflow-hidden">
             <img
-              src="public/Founder.jpeg"
+              src="/Founder.jpeg"
               alt="Satheesh Kumar S  — Founder"
               className="w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700"
             />

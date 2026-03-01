@@ -7,7 +7,7 @@ import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight, Send } from "lu
 
 // ── data ──────────────────────────────────────────────────────────────────────
 const programs = [
-  { icon: "🧠", title: "Student Leadership Program", description: "Developing confident students who can communicate, lead, and take responsibility.", outcomes: ["Public speaking and presentation skills ", "Leadership mindset and responsibility", "Critical thinking and problem-solving", "Teamwork and collaboration ", " Confidence building and self-expression "], duration: "2-Day Workshop" },
+  { icon: "🧠", title: "Student Leadership Program", description: "Developing confident students who can communicate, lead, and take responsibility.", outcomes: [" speaking and presentation skills ", "Leadership mindset and responsibility", "Critical thinking and problem-solving", "Teamwork and collaboration ", " Confidence building and self-expression "], duration: "2-Day Workshop" },
   { icon: "🏆", title: "Teacher Development Program", description: "Equipping teachers to inspire, engage, and lead students effectively.", outcomes: ["Effective classroom communication mindset", " Student engagement and active learning strategies", "Classroom management and discipline ", "Emotional intelligence for educators ", "Teachers as role models and mentors"], duration: "5-Day Residential" },
   { icon: "🤝", title: "School Leadership Program", description: "Empowering school leaders(Correspondence, Principals, Directors) to build strong educational cultures. ", outcomes: ["Strategic leadership in schools ", "EBuilding a positive school culture", "Coaching and mentoring teachers ", "Conflict resolution and decision-making ", "Leading innovation and academic excellence "], duration: "8-Week Program" },
   { icon: "🌟", title: "Parent Orientation Program", description: "Strengthening collaboration between schools and families.", outcomes: ["Understanding the school’s educational vision", "Supporting children’s learning at home", "Building healthy parent–teacher communication ", "Encouraging discipline and responsibility in children ","Creating a supportive learning environment"], duration: "1-Day Intensive" },
@@ -20,16 +20,16 @@ const stories = [
 ];
 
 const schoolMedia = [
-  { type: "image", src: "public/School-1.jpg" },
-  { type: "image", src: "public/School-2.jpg" },
-  { type: "video", src: "public/School-3.mp4" },
-  { type: "video", src: "public/School-4.mp4" },
-  { type: "image", src: "public/School-5.jpg" },
-  { type: "video", src: "public/School-6.mp4" },
-  { type: "video", src: "public/School-7.mp4" },
-  { type: "video", src: "public/School-8.mp4" },
-  { type: "video", src: "public/School-9.mp4" },
-  { type: "image", src: "public/School-10.jpg" },
+  { type: "image", src: "/School-1.jpg" },
+  { type: "image", src: "/School-2.jpg" },
+  { type: "video", src: "/School-3.mp4" },
+  { type: "video", src: "/School-4.mp4" },
+  { type: "image", src: "/School-5.jpg" },
+  { type: "video", src: "/School-6.mp4" },
+  { type: "video", src: "/School-7.mp4" },
+  { type: "video", src: "/School-8.mp4" },
+  { type: "video", src: "/School-9.mp4" },
+  { type: "image", src: "/School-10.jpg" },
   // Add 15+ easily
 ];
 

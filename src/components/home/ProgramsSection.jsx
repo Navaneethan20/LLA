@@ -17,7 +17,7 @@ const programs = [
     icon: BookOpen,
     title: "School Programs",
     subtitle: "Ages 8–18",
-    description: "Personality development, leadership camps, public speaking, and life skills workshops for school students.",
+    description: "Personality development, leadership camps,  speaking, and life skills workshops for school students.",
     image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80",
     page: "SchoolPrograms",
     accent: "#3B82F6",
