@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin, Youtube } from "luc
 
 const socialLinks = [
   { Icon: Instagram, href: " https://www.instagram.com/livingleadership7?igsh=MW00YnhuNmY4dXljeg==", label: "Instagram" },
-  { Icon: Facebook, href: "https://www.facebook.com", label: "Facebook" },
+  { Icon: Facebook, href: "https://www.facebook.com/share/1DY5gmux5o/", label: "Facebook" },
   { Icon: Linkedin, href: "https://www.linkedin.com/in/satheesh-kumar-s-0143482a?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
   { Icon: Youtube, href: "https://youtube.com/@livingleadershipwithsatz?si=WKViBxy6yxA0oYSy", label: "YouTube" },
 ];
@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Brand */}
                 <div className="col-span-2 md:col-span-2 lg:col-span-1">
                 <div className="flex items-center gap-3 mb-4">
-                  <img src="src/image/Logo.jpeg" alt="Living Leadership Logo" className="w-10 h-10 rounded-full border-2 border-[#D4AF37]" />
+                  <img src="public/Logo.jpeg" alt="Living Leadership Logo" className="w-10 h-10 rounded-full border-2 border-[#D4AF37]" />
                   <div>
                   <span className="text-white font-black text-base"><span className="text-[#D4AF37]">Living</span> Leadership</span>
                   <p className="text-white/30 text-[9px] tracking-widest uppercase">Academy · India</p>

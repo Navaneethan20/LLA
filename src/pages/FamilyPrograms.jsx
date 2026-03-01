@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppPopup from "../components/WhatsAppPopup";
+import MediaGallery from "../components/MediaGallery";
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
@@ -18,17 +19,25 @@ const stories = [
   { name: "The Kumar Family", achievement: "3 generations — one unified family vision", quote: "My grandfather, my father, and I attended together. The multi-generation program helped us understand and respect each other in a whole new way.", image: "https://images.unsplash.com/photo-1511895426328-dc8714191011?w=600&q=80", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" },
 ];
 
-const gallery = [
-  { src: "https://images.unsplash.com/photo-1511895426328-dc8714191011?w=800&q=80", label: "Family Retreat", featured: true },
-  { src: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=500&q=80", label: "Parent-Child Workshop" },
-  { src: "https://images.unsplash.com/photo-1581952976147-5a2d15560349?w=500&q=80", label: "Bonding Activities" },
-  { src: "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=500&q=80", label: "Couple Harmony" },
-  { src: "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=500&q=80", label: "Family Leadership" },
-  { src: "https://images.unsplash.com/photo-1519340333755-56e9c1d04579?w=500&q=80", label: "Multi-Gen Session" },
-  { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80", label: "Team Building" },
-  { src: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=500&q=80", label: "Parenting Excellence" },
-  { src: "https://images.unsplash.com/photo-1470116945706-e6bf5d5a53ca?w=500&q=80", label: "Family Vision" },
+
+
+const familyMedia = [
+  { type: "image", src: "public/Family-1.jpg" },
+  { type: "image", src: "public/Family-2.jpg" },
+  { type: "image", src: "public/Family-3.jpg" },
+  { type: "image", src: "public/Family-4.jpg" },
+  { type: "video", src: "public/Family-5.mp4" },
+  { type: "image", src: "public/Family-6.jpg" },
+  { type: "video", src: "public/Family-7.mp4" },
+  { type: "video", src: "public/Family-11.mp4" },
+  { type: "image", src: "public/Family-9.jpg" },
+  { type: "image", src: "public/Family-10.jpg" },
+  { type: "video", src: "public/Family-8.mp4" },
+  { type: "image", src: "public/Family-12.jpg" },
+  // Add 15+ easily
 ];
+
+
 
 function ProgramCard({ p, visible, i }) {
   return (
@@ -116,63 +125,7 @@ function SubContact() {
   );
 }
 
-function GallerySection({ imgs, visible }) {
-  const [lightbox, setLightbox] = useState(null);
-  const [hovered, setHovered] = useState(null);
 
-  const GalleryItem = ({ item, className, delay = 0 }) => (
-    <div
-      onClick={() => setLightbox(item.src)}
-      onMouseEnter={() => setHovered(item.src)}
-      onMouseLeave={() => setHovered(null)}
-      className={`group relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-700 ${visible ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <img src={item.src} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1832]/85 via-[#0B1832]/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className={`absolute inset-0 rounded-xl sm:rounded-2xl border-2 transition-all duration-300 ${hovered === item.src ? "border-[#D4AF37]/60" : "border-transparent"}`} />
-      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-3 group-hover:translate-y-0 transition-transform duration-400">
-        <p className="text-white font-black text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">{item.label}</p>
-        <div className="h-0.5 w-0 group-hover:w-10 bg-[#D4AF37] rounded-full transition-all duration-500 mt-1" />
-      </div>
-      <div className="absolute top-2 right-2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 group-hover:border-[#D4AF37]/60 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
-        <span className="text-[#D4AF37] text-sm font-black">+</span>
-      </div>
-    </div>
-  );
-
-  return (
-    <>
-      {/* Row 1: 1 big + 2 medium */}
-      <div className="grid grid-cols-12 gap-2 sm:gap-3 mb-2 sm:mb-3" style={{ height: "280px" }}>
-        <GalleryItem item={imgs[0]} className="col-span-12 sm:col-span-6" delay={0} />
-        <GalleryItem item={imgs[1]} className="col-span-6 sm:col-span-3" delay={80} />
-        <GalleryItem item={imgs[2]} className="col-span-6 sm:col-span-3" delay={160} />
-      </div>
-      {/* Row 2: 3 equal */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-2 sm:mb-3" style={{ height: "200px" }}>
-        <GalleryItem item={imgs[3]} className="" delay={200} />
-        <GalleryItem item={imgs[4]} className="" delay={260} />
-        <GalleryItem item={imgs[5]} className="" delay={320} />
-      </div>
-      {/* Row 3: 2 + 1 wide */}
-      <div className="grid grid-cols-12 gap-2 sm:gap-3" style={{ height: "200px" }}>
-        <GalleryItem item={imgs[6]} className="col-span-6 sm:col-span-4" delay={360} />
-        <GalleryItem item={imgs[7]} className="col-span-6 sm:col-span-4" delay={420} />
-        <GalleryItem item={imgs[8]} className="hidden sm:block col-span-4" delay={480} />
-      </div>
-
-      {lightbox && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm" onClick={() => setLightbox(null)}>
-          <div className="relative max-w-4xl w-full">
-            <img src={lightbox} alt="" className="w-full rounded-2xl shadow-2xl" />
-            <button className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 border border-white/20 text-white flex items-center justify-center hover:border-[#D4AF37]/60 transition-all">✕</button>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
 
 export default function FamilyPrograms() {
   const [visible1, setVisible1] = useState(false);
@@ -233,16 +186,11 @@ practical tools to raise confident, responsible, and values-driven children. </p
       </section>
 
       {/* Gallery */}
-      <section id="about" ref={ref2} className="py-20 sm:py-24 bg-[#080F20]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className={`text-center mb-12 transition-all duration-700 ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">In Action</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">Family Programs <span className="text-[#D4AF37]">Gallery</span></h2>
-          </div>
-          <GallerySection imgs={gallery} visible={visible2} />
-
-        </div>
-      </section>
+      <MediaGallery
+  subtitle="In Action"
+  title="Family Programs Gallery"
+  media={familyMedia}
+/>;
 
       {/* Success Stories */}
       <section ref={ref3} className="py-20 sm:py-24 bg-[#0B1832]">

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Quote } from "lucide-react";
-const founderImg = new URL("/src/image/Founder.jpeg", import.meta.url).href;
 
 export default function FounderSection() {
   const ref = useRef(null);
@@ -76,7 +75,7 @@ export default function FounderSection() {
 
           <div className="relative rounded-3xl overflow-hidden">
             <img
-              src={founderImg}
+              src="public/Founder.jpeg"
               alt="Satheesh Kumar S  — Founder"
               className="w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700"
             />

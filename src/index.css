@@ -86,3 +86,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.label-style {
+  @apply text-white/50 text-[10px] uppercase tracking-wider mb-2 block font-bold;
+}
+
+.input-style {
+  @apply w-full bg-[#0B1832] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-white/30 focus:outline-none focus:border-[#D4AF37]/50 transition-colors font-semibold;
+}

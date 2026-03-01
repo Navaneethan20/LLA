@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppPopup from "../components/WhatsAppPopup";
+import MediaGallery from "../components/MediaGallery";
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
@@ -17,12 +18,15 @@ const stories = [
   { name: "Dinesh Rajendran", achievement: "Campus Ambassador — Led 600-person team", quote: "LLA's team leadership program changed how I manage people. I went from being shy to leading a 600-member campus chapter.", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" },
 ];
 
-const gallery = [
-  "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80",
-  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
+
+const collegeMedia = [
+  { type: "image", src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80" },
+  { type: "image", src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80" },
+  { type: "image", src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80" },
+  { type: "image", src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" },
+  { type: "image", src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&q=80" },
+  
+  // Add 15+ easily
 ];
 
 function ProgramCard({ p, visible, i }) {
@@ -155,20 +159,11 @@ export default function CollegePrograms() {
         </div>
       </section>
 
-      <section ref={ref2} className="py-20 sm:py-24 bg-[#080F20]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className={`text-center mb-12 transition-all duration-700 ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}><p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">In Action</p><h2 className="text-3xl sm:text-4xl font-black text-white mb-4">College Programs <span className="text-[#D4AF37]">Gallery</span></h2></div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-            {gallery.map((src, i) => (
-              <div key={i} onClick={() => setLightbox(src)} className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ${visible2 ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${i === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`} style={{ transitionDelay: `${i * 80}ms`, aspectRatio: "1" }}>
-                <img src={src} alt="Gallery" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 min-h-[100px]" loading="lazy" />
-                <div className="absolute inset-0 bg-[#0B1832]/0 group-hover:bg-[#0B1832]/50 transition-all flex items-center justify-center"><span className="opacity-0 group-hover:opacity-100 w-9 h-9 rounded-full border-2 border-[#D4AF37] flex items-center justify-center text-[#D4AF37] text-xl font-black transition-opacity">+</span></div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {lightbox && <div className="fixed inset-0 z-50 bg-black/92 flex items-center justify-center p-4" onClick={() => setLightbox(null)}><img src={lightbox} alt="" className="max-w-full max-h-full rounded-2xl" /></div>}
-      </section>
+     <MediaGallery
+  subtitle="In Action"
+  title="College Programs Gallery"
+  media={collegeMedia}
+/>;
 
       <section ref={ref3} className="py-20 sm:py-24 bg-[#0B1832]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">

@@ -34,7 +34,7 @@ export default function WhatsAppPopup({ groupLink, programName }) {
           </p>
 
           <a
-            href={groupLink}
+            href="https://chat.whatsapp.com/J708cHAWlhwA10UrBXpe2i"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-green-500 text-white font-black text-sm hover:bg-green-400 transition-all hover:shadow-lg hover:shadow-green-500/30"

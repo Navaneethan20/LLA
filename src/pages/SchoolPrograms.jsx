@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppPopup from "../components/WhatsAppPopup";
+import MediaGallery from "../components/MediaGallery";
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight, Send } from "lucide-react";
 
 // ── data ──────────────────────────────────────────────────────────────────────
@@ -18,12 +19,18 @@ const stories = [
   { name: "Nithya Balakrishnan", achievement: "National Youth Leader Award", quote: "LLA didn't just teach me skills — it gave me purpose. I now run a social impact club with 300+ members.", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" },
 ];
 
-const gallery = [
-  "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80",
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80",
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
-  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80",
+const schoolMedia = [
+  { type: "image", src: "public/School-1.jpg" },
+  { type: "image", src: "public/School-2.jpg" },
+  { type: "video", src: "public/School-3.mp4" },
+  { type: "video", src: "public/School-4.mp4" },
+  { type: "image", src: "public/School-5.jpg" },
+  { type: "video", src: "public/School-6.mp4" },
+  { type: "video", src: "public/School-7.mp4" },
+  { type: "video", src: "public/School-8.mp4" },
+  { type: "video", src: "public/School-9.mp4" },
+  { type: "image", src: "public/School-10.jpg" },
+  // Add 15+ easily
 ];
 
 // ── sub components ─────────────────────────────────────────────────────────────
@@ -177,25 +184,12 @@ export default function SchoolPrograms() {
       </section>
 
       {/* Gallery */}
-      <section ref={ref2} className="py-20 sm:py-24 bg-[#080F20]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className={`text-center mb-12 transition-all duration-700 ${visible2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">In Action</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">School Programs <span className="text-[#D4AF37]">Gallery</span></h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-            {gallery.map((src, i) => (
-              <div key={i} onClick={() => setLightbox(src)} className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ${visible2 ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${i === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`} style={{ transitionDelay: `${i * 80}ms`, aspectRatio: "1" }}>
-                <img src={src} alt="Gallery" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 min-h-[100px]" loading="lazy" />
-                <div className="absolute inset-0 bg-[#0B1832]/0 group-hover:bg-[#0B1832]/50 transition-all duration-300 flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 w-9 h-9 rounded-full border-2 border-[#D4AF37] flex items-center justify-center text-[#D4AF37] text-xl font-black transition-opacity">+</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        {lightbox && <div className="fixed inset-0 z-50 bg-black/92 flex items-center justify-center p-4" onClick={() => setLightbox(null)}><img src={lightbox} alt="" className="max-w-full max-h-full rounded-2xl" /></div>}
-      </section>
+
+      <MediaGallery
+  subtitle="In Action"
+  title="School Programs Gallery"
+  media={schoolMedia}
+/>;
 
       {/* Success Stories */}
       <section ref={ref3} className="py-20 sm:py-24 bg-[#0B1832]">
