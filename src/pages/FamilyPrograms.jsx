@@ -5,12 +5,11 @@ import WhatsAppPopup from "../components/WhatsAppPopup";
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
-  { icon: "❤️", title: "Family Bonding Retreat", description: "A weekend immersive experience where families rediscover connection through shared challenges, communication exercises, and trust-building activities.", outcomes: ["Deeper trust", "Open communication", "Shared memories"], duration: "2-Day Retreat" },
-  { icon: "🗣️", title: "Parent-Child Communication", description: "Structured workshops helping parents and children understand each other's perspectives, bridge generational gaps, and build empathy.", outcomes: ["Active listening", "Empathy", "Conflict resolution"], duration: "1-Day Workshop" },
-  { icon: "🧩", title: "Family Leadership Dynamics", description: "Learn how leadership principles apply within the family unit — from decision-making to creating a shared family vision and values.", outcomes: ["Family vision", "Shared values", "Role clarity"], duration: "Half-Day Module" },
-  { icon: "🌱", title: "Parenting Excellence Program", description: "Evidence-based coaching for parents on nurturing leadership qualities, emotional intelligence, and resilience in children.", outcomes: ["Emotional coaching", "Positive discipline", "Growth mindset"], duration: "4-Week Program" },
-  { icon: "💬", title: "Couple Harmony Workshop", description: "Strengthen your partnership through communication tools, conflict resolution frameworks, and aligned goal setting as a couple.", outcomes: ["Relationship alignment", "Conflict tools", "Shared goals"], duration: "Weekend Program" },
-  { icon: "🏡", title: "Multi-Generation Leadership", description: "Unique program for grandparents, parents, and children to build a legacy of leadership, wisdom-sharing, and family culture.", outcomes: ["Legacy building", "Wisdom transfer", "Family culture"], duration: "3-Day Experience" },
+  { icon: "❤️", title: "Mom Empowerment Program", description: "Empowering mothers to nurture confident and emotionally strong children.", outcomes: ["Building emotional strength and resilience in children ", "Balancing motherhood, career, and personal growth", "Developing strong communication with children", "Creating a positive and nurturing home environment ", "Guiding children with wisdom, patience, and leadership "], duration: "2-Day Retreat" },
+  { icon: "🗣️", title: "Fatherlessness Awareness & Mentoring", description: "Addressing the growing challenge of father absence and its impact on children. ", outcomes: ["Understanding the emotional impact of fatherlessness", "The role of fathers in shaping identity and confidence", "Mentorship models for children lacking father figures ", "Building positive male role models in families and communities ", "Supporting children in overcoming emotional gaps "], duration: "1-Day Workshop" },
+  { icon: "🧩", title: "Raising Confident & Resilient Children", description: "Helping parents raise children who can face challenges with courage. ", outcomes: ["Building self-esteem and emotional resilience ", "Teaching children to handle failure and criticism", "Encouraging perseverance and growth mindset", "Helping children develop problem-solving skills ", " Developing independence and responsibility"], duration: "Half-Day Module" },
+  { icon: "🌱", title: "Parenting in the Digital Age", description: "Equipping parents to guide children in a technology-driven world.", outcomes: ["Managing screen time and digital habits", " Protecting children from online risks and distractions", "Building healthy technology boundaries at home ", "Encouraging productive and creative use of technology", "Promoting real-world communication and relationships", ], duration: "4-Week Program" },
+  { icon: "💬", title: "Supporting Children’s Academic & Career Growth", description: "Helping parents guide children toward meaningful education and career choices.", outcomes: ["Understanding children’s strengths and learning styles", "Encouraging curiosity and love for learning ", "Supporting goal-setting and academic motivation", "Reducing unhealthy academic pressure", "Guiding children toward purposeful careers "], duration: "Weekend Program" },
 ];
 
 const stories = [
@@ -84,13 +83,13 @@ function SubContact() {
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">Ready to join <span className="text-[#D4AF37]">Family Programs?</span></h2>
             <p className="text-white/55 text-sm leading-relaxed mb-8">Fill in your details and our team will get in touch within 24 hours. Programs available across India.</p>
             <div className="space-y-3">
-              <a href="tel:+919876543210" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
+              <a href="tel:+916381474857" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37]/20 transition-all shrink-0"><Phone className="w-5 h-5 text-[#D4AF37]" /></div>
-                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Call us</p><p className="text-white font-bold text-sm">+91 98765 43210</p></div>
+                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Call us</p><p className="text-white font-bold text-sm">+91 63814 74857</p></div>
               </a>
-              <a href="mailto:info@livingleadership.in" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
+              <a href="mailto:livingleadership7@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37]/20 transition-all shrink-0"><Mail className="w-5 h-5 text-[#D4AF37]" /></div>
-                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Email us</p><p className="text-white font-bold text-sm">info@livingleadership.in</p></div>
+                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Email us</p><p className="text-white font-bold text-sm">livingleadership7@gmail.com</p></div>
               </a>
             </div>
           </div>
@@ -209,7 +208,8 @@ export default function FamilyPrograms() {
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 leading-tight">Family Programs</h1>
             <p className="text-[#D4AF37] text-base sm:text-xl font-bold mb-4">Leading Together, Growing Together</p>
-            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">Transformative programs for couples, parents, children, and multi-generational families — building stronger bonds, better communication, and a shared legacy of leadership.</p>
+            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">Strong families build strong leaders. Our family programs equip parents and guardians with 
+practical tools to raise confident, responsible, and values-driven children. </p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <button onClick={() => document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth" })} className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#D4AF37] text-[#0B1832] font-black text-sm hover:bg-[#F0CE6A] transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#D4AF37]/30">Enroll Now</button>
               <button onClick={() => document.getElementById("programs-offered")?.scrollIntoView({ behavior: "smooth" })} className="flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/30 text-white font-bold text-sm hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all">View Programs <ArrowDown className="w-4 h-4" /></button>

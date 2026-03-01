@@ -39,7 +39,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-8 max-w-md">
-            Transformative leadership programs for schools, colleges, and corporates — shaping confident, purposeful, and impactful individuals across South India.
+            Transformative leadership programs for families, schools, colleges, and corporates — shaping confident, purposeful, and impactful individuals across South India.
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -71,12 +71,8 @@ export default function HeroSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B1832]/70 via-transparent to-transparent" />
             </div>
-            <div className="absolute -bottom-4 -left-4 bg-[#0B1832] border border-[#D4AF37]/40 rounded-2xl p-3 sm:p-4 shadow-xl">
-              <p className="text-[#D4AF37] font-black text-lg sm:text-xl">98%</p>
-              <p className="text-white/60 text-[10px] sm:text-xs">Satisfaction Rate</p>
-            </div>
             <div className="absolute -top-4 -right-4 bg-[#D4AF37] rounded-2xl p-3 sm:p-4 shadow-xl">
-              <p className="text-[#0B1832] font-black text-lg sm:text-xl">15+</p>
+              <p className="text-[#0B1832] font-black text-lg sm:text-xl">14+</p>
               <p className="text-[#0B1832]/70 text-[10px] sm:text-xs font-bold">Years</p>
             </div>
           </div>

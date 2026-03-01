@@ -21,7 +21,7 @@ export default function CountdownSection() {
     tick();
     const t = setInterval(tick, 1000);
     return () => clearInterval(t);
-  }, []);
+  }, []); 
 
   return (
     <section className="py-24 relative overflow-hidden bg-[#0B1832]">

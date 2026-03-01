@@ -5,12 +5,10 @@ import WhatsAppPopup from "../components/WhatsAppPopup";
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
-  { icon: "👑", title: "Executive Leadership Coaching", description: "One-on-one and group coaching for C-suite and senior leaders to amplify strategic thinking, executive presence, and influence.", outcomes: ["Strategic vision", "Executive presence", "Organisational impact"], duration: "3-Month Program" },
-  { icon: "🔥", title: "High-Performance Team Building", description: "Experiential outdoor and indoor team challenges that build trust, communication, collaboration, and psychological safety.", outcomes: ["Team trust", "Psychological safety", "Peak performance"], duration: "1–2 Day Offsite" },
-  { icon: "🧭", title: "Leadership Culture Transformation", description: "Organisation-wide culture change programs that embed leadership behaviours and values across all levels.", outcomes: ["Culture alignment", "Values leadership", "Change management"], duration: "6-Month Engagement" },
-  { icon: "📊", title: "Manager Excellence Program", description: "Upskilling first-time and mid-level managers with practical tools for performance management, delegation, and team motivation.", outcomes: ["Delegation", "Feedback culture", "Performance management"], duration: "4-Week Module" },
-  { icon: "⚡", title: "Sales Leadership Mastery", description: "Elevate your sales leadership with influence strategies, consultative selling, and high-ticket closing techniques.", outcomes: ["Consultative selling", "Influence skills", "Revenue leadership"], duration: "2-Day Workshop" },
-  { icon: "🎙️", title: "Communication & Presence Workshop", description: "Executive communication training covering boardroom presence, stakeholder management, and crisis communication.", outcomes: ["Boardroom presence", "Stakeholder influence", "Crisis comms"], duration: "1-Day Intensive" },
+  { icon: "🔥", title: "Professional Skills Program", description: "Enhancing workplace effectiveness and communication.", outcomes: ["Business communication and presentation skills", "Professional email and workplace communication", "Time management and productivity ", "Workplace etiquette and professionalism ", "Collaboration and teamwork "], duration: "3-Month Program" },
+  { icon: "👑", title: "Leadership Development Program ", description: "Preparing managers and leaders to lead with clarity and impact.", outcomes: ["Leadership mindset and decision-making", "Coaching and mentoring teams", "Strategic thinking and problem-solving", "Conflict resolution and negotiation ", "Building high-performance teams"], duration: "1–2 Day Offsite" },
+  { icon: "⚡", title: "Culture & People Development Program", description: "Creating positive and productive organizational environments.", outcomes: ["Emotional intelligence in the workplace", "Building trust and collaboration ", "Employee engagement and motivation ", "Managing stress and workplace challenges ", "Strengthening organizational culture"], duration: "6-Month Engagement" },
+  { icon: "📊", title: "Shaping Principles & Values Program", description: "Developing ethical leaders and principled organizations.", outcomes: ["Integrity and ethical decision-making ", "Values-based leadership ", "Personal accountability and responsibility", "Building trust and credibility ", "Leading with purpose and character"], duration: "4-Week Module" },
 ];
 
 const stories = [
@@ -76,13 +74,13 @@ function SubContact() {
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">Ready to join <span className="text-[#D4AF37]">Corporate Programs?</span></h2>
             <p className="text-white/55 text-sm leading-relaxed mb-8">Fill in your details and our team will get in touch within 24 hours.</p>
             <div className="space-y-3">
-              <a href="tel:+919876543210" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
+              <a href="tel:+916381474857" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37]/20 shrink-0"><Phone className="w-5 h-5 text-[#D4AF37]" /></div>
-                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Call us</p><p className="text-white font-bold text-sm">+91 98765 43210</p></div>
+                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Call us</p><p className="text-white font-bold text-sm">+91 63814 74857</p></div>
               </a>
-              <a href="mailto:info@livingleadership.in" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
+              <a href="mailto:livingleadership7@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37]/20 shrink-0"><Mail className="w-5 h-5 text-[#D4AF37]" /></div>
-                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Email us</p><p className="text-white font-bold text-sm">info@livingleadership.in</p></div>
+                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Email us</p><p className="text-white font-bold text-sm">livingleadership7@gmail.com</p></div>
               </a>
             </div>
           </div>
@@ -140,7 +138,8 @@ export default function CorporatePrograms() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 mb-6"><span className="text-[#D4AF37] text-xs font-black tracking-widest uppercase">For Organisations & Working Professionals</span></div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 leading-tight">Corporate Programs</h1>
             <p className="text-[#D4AF37] text-base sm:text-xl font-bold mb-4">Forging Leaders Who Drive Results</p>
-            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">World-class leadership development for teams, managers, and executives. Custom-built programs that transform individuals into organisational catalysts.</p>
+            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">Helping organizations develop strong leaders, productive teams, and healthy workplace 
+cultures. </p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <button onClick={() => document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth" })} className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#D4AF37] text-[#0B1832] font-black text-sm hover:bg-[#F0CE6A] transition-all hover:scale-105">Enroll Now</button>
               <button onClick={() => document.getElementById("programs-offered")?.scrollIntoView({ behavior: "smooth" })} className="flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/30 text-white font-bold text-sm hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all">View Programs <ArrowDown className="w-4 h-4" /></button>

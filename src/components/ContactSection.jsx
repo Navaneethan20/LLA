@@ -67,39 +67,39 @@ export default function ContactSection() {
           {/* Info Column */}
           <div className="lg:col-span-2 space-y-3">
             {/* Phone */}
-            <a href="tel:+919876543210"
+            <a href="tel:+916381474857"
               className="flex items-start gap-4 p-4 rounded-2xl bg-[#112244] border border-white/5 hover:border-[#D4AF37]/30 transition-all group">
               <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shrink-0 group-hover:bg-[#D4AF37]/20 transition-all">
                 <Phone className="w-4 h-4 text-[#D4AF37]" />
               </div>
               <div>
                 <p className="text-white/40 text-[10px] uppercase tracking-wider mb-1 font-bold">Call Us</p>
-                <p className="text-white font-bold text-sm">+91 98765 43210</p>
+                <p className="text-white font-bold text-sm">+91 63814 74857</p>
               </div>
             </a>
 
             {/* Email */}
-            <a href="mailto:info@livingleadership.in"
+            <a href="mailto:livingleadership7@gmail.com"
               className="flex items-start gap-4 p-4 rounded-2xl bg-[#112244] border border-white/5 hover:border-[#D4AF37]/30 transition-all group">
               <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shrink-0 group-hover:bg-[#D4AF37]/20 transition-all">
                 <Mail className="w-4 h-4 text-[#D4AF37]" />
               </div>
               <div>
                 <p className="text-white/40 text-[10px] uppercase tracking-wider mb-1 font-bold">Email Us</p>
-                <p className="text-white font-bold text-sm">info@livingleadership.in</p>
+                <p className="text-white font-bold text-sm">livingleadership7@gmail.com</p>
               </div>
             </a>
 
             {/* Visit Us + Compact Map */}
             <div className="rounded-2xl bg-[#112244] border border-white/5 overflow-hidden">
-              <a href="https://maps.google.com/?q=Anna+Nagar+Chennai+Tamil+Nadu" target="_blank" rel="noopener noreferrer"
+              <a href="https://maps.app.goo.gl/6RFkgKUxqCpxwTf37" target="_blank" rel="noopener noreferrer"
                 className="flex items-start gap-4 p-4 hover:bg-[#D4AF37]/5 transition-all group">
                 <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shrink-0 group-hover:bg-[#D4AF37]/20 transition-all">
                   <MapPin className="w-4 h-4 text-[#D4AF37]" />
                 </div>
                 <div>
                   <p className="text-white/40 text-[10px] uppercase tracking-wider mb-1 font-bold">Visit Us</p>
-                  <p className="text-white font-bold text-sm">Anna Nagar, Chennai — 600040</p>
+                  <p className="text-white font-bold text-sm"> Koyambedu, Chennai — 600107</p>
                 </div>
               </a>
             </div>
@@ -108,7 +108,7 @@ export default function ContactSection() {
             <div className="h-50 border-t border-white/5">
                 <iframe
                   title="LLA Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.4535!2d80.2089!3d13.0850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526614f1c5c3f7%3A0x7e59bac5d8e0c1a0!2sAnna%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3886.3428510441386!2d80.1907222!3d13.0774444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDA0JzM4LjgiTiA4MMKwMTEnMjYuNiJF!5e0!3m2!1sen!2sin!4v1772345785626!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0, filter: "invert(88%) hue-rotate(180deg) brightness(0.85) contrast(1.1)" }}
@@ -181,6 +181,7 @@ export default function ContactSection() {
               className="w-full bg-[#0B1832] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4AF37]/50 transition-colors font-semibold"
             >
               <option value="">Select a Program</option>
+              <option>Family Programs</option>
               <option>School Programs</option>
               <option>College Programs</option>
               <option>Corporate Programs</option>

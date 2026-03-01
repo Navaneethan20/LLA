@@ -1,14 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { createPageUrl } from "../utils";
+// Use Vite compatible URL for static image in src to avoid TS/loader issues
+const logoImg = new URL("../image/Logo.jpeg", import.meta.url).href;
 import { ChevronDown, Menu, X, GraduationCap, BookOpen, Briefcase, Heart, Sparkles, Zap } from "lucide-react";
 
 const programs = [
+  { label: "Family Programs", page: "FamilyPrograms", icon: Heart, desc: "All Ages · Bonds & Legacy", color: "from-rose-500/20 to-rose-600/5" },
   { label: "School Programs", page: "SchoolPrograms", icon: BookOpen, desc: "Ages 8–18 · Confidence & Character", color: "from-blue-500/20 to-blue-600/5" },
   { label: "College Programs", page: "CollegePrograms", icon: GraduationCap, desc: "Ages 18–25 · Career & Leadership", color: "from-indigo-500/20 to-indigo-600/5" },
   { label: "Corporate Programs", page: "CorporatePrograms", icon: Briefcase, desc: "Professionals · Executive Growth", color: "from-amber-500/20 to-amber-600/5" },
-  { label: "Family Programs", page: "FamilyPrograms", icon: Heart, desc: "All Ages · Bonds & Legacy", color: "from-rose-500/20 to-rose-600/5" },
-];
+  ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -84,10 +86,12 @@ export default function Navbar() {
 
           {/* Logo */}
           <button onClick={handleHomeClick} className="flex items-center gap-3 group text-left">
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl border-2 border-[#D4AF37] flex items-center justify-center font-black text-[#D4AF37] text-base overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#D4AF37]/30">
-              <div className="absolute inset-0 bg-[#D4AF37]/0 group-hover:bg-[#D4AF37] transition-all duration-300" />
-              <span className="relative z-10 group-hover:text-[#0B1832] transition-colors duration-300 text-lg font-black">L</span>
-            </div>
+            {/* Replace the letter logo with an image. Place your image at public/logo.png */}
+            <img
+              src={logoImg}
+              alt="Living Leadership logo"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl border-2 border-[#D4AF37] object-cover overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#D4AF37]/30"
+            />
             <div className="leading-tight">
               <span className="text-white font-black text-sm sm:text-base tracking-wide">
                 <span className="text-[#D4AF37] logo-shimmer">Living</span> Leadership

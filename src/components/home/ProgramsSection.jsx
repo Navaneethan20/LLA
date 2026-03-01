@@ -4,6 +4,15 @@ import { createPageUrl } from "../../utils";
 import { ArrowRight, GraduationCap, BookOpen, Briefcase, Heart } from "lucide-react";
 
 const programs = [
+    {
+    icon: Heart,
+    title: "Family Programs",
+    subtitle: "Every Generation",
+    description: "Bonding retreats, parent-child workshops, and multi-generational programs building stronger families and lasting legacies.",
+    image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1400&q=80",
+    page: "FamilyPrograms",
+    accent: "#EC4899",
+  },
   {
     icon: BookOpen,
     title: "School Programs",
@@ -30,15 +39,6 @@ const programs = [
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
     page: "CorporatePrograms",
     accent: "#D4AF37",
-  },
-  {
-    icon: Heart,
-    title: "Family Programs",
-    subtitle: "Every Generation",
-    description: "Bonding retreats, parent-child workshops, and multi-generational programs building stronger families and lasting legacies.",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191011?w=600&q=80",
-    page: "FamilyPrograms",
-    accent: "#EC4899",
   },
 ];
 

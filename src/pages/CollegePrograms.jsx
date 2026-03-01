@@ -5,13 +5,11 @@ import WhatsAppPopup from "../components/WhatsAppPopup";
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
-  { icon: "🚀", title: "Career Launch Bootcamp", description: "Preparing college students for campus placements, GDs, and interviews at top companies.", outcomes: ["Interview skills", "GD techniques", "Resume building"], duration: "3-Day Intensive" },
-  { icon: "💼", title: "Entrepreneurship Workshop", description: "Learn ideation, validation, and pitching. Build a startup mindset before you graduate.", outcomes: ["Ideation tools", "Pitch skills", "Business models"], duration: "2-Day Workshop" },
-  { icon: "🧩", title: "Team Leadership Dynamics", description: "Experiential learning on building high-performing teams and collaborative problem-solving.", outcomes: ["Team synergy", "Conflict resolution", "Leadership styles"], duration: "1-Day Module" },
-  { icon: "📣", title: "Communication Excellence", description: "Advanced communication coaching covering executive presence, persuasion, and professional articulation.", outcomes: ["Executive presence", "Persuasion", "Professional tone"], duration: "Weekend Program" },
-  { icon: "🎯", title: "Goal Mastery & Productivity", description: "Strategic goal setting using OKRs and deep work principles for college students.", outcomes: ["OKRs", "Deep work", "Productivity hacks"], duration: "1-Day Workshop" },
-  { icon: "🌍", title: "Social Impact Leadership", description: "Empowering students to lead change through social entrepreneurship and design thinking.", outcomes: ["Design thinking", "Social change", "Impact metrics"], duration: "4-Week Program" },
-];
+  { icon: "💼", title: "Employability Skills Program", description: "Helping students transition from classroom learning to workplace success.", outcomes: ["Professional communication skills ", "Resume building and interview preparation ", "Group discussion and presentation skills ", "Workplace etiquette and professionalism ", "Problem-solving and adaptability "], duration: "3-Day Intensive" },
+  { icon: "🎯", title: "Youth Leadership Program", description: "Developing responsible young leaders for society and organizations.", outcomes: ["Personal leadership and self-awareness ", "Emotional intelligence and self-management ", "Decision-making and critical thinking ", "Time management and productivity ", "Collaboration and team leadership "], duration: "2-Day Workshop" },
+  { icon: "🌍", title: "Entrepreneurship Program", description: "Encouraging students to think creatively and develop entrepreneurial mindset. ", outcomes: ["Opportunity identification and innovation", "Basics of starting a business  ", "Financial literacy and business planning ", "Leadership for entrepreneurs ", "Risk-taking and resilience"], duration: "1-Day Module" },
+  { icon: "🚀", title: "Personality Development Program ", description: "Helping students build confidence and a strong personal identity.", outcomes: ["Self-confidence and positive mindset", "Communication and body language ", "Personal grooming and professional presence", "Stress management and emotional balance", "Developing a growth-oriented attitude"], duration: "Weekend Program" },
+  ];
 
 const stories = [
   { name: "Vishnu Prasad", achievement: "Placed at Google — Package: ₹42 LPA", quote: "The career launch bootcamp transformed how I communicate. Got placed at Google from PSG College, Coimbatore!", image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" },
@@ -76,13 +74,13 @@ function SubContact() {
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">Ready to join <span className="text-[#D4AF37]">College Programs?</span></h2>
             <p className="text-white/55 text-sm leading-relaxed mb-8">Fill in your details and our team will get in touch within 24 hours.</p>
             <div className="space-y-3">
-              <a href="tel:+919876543210" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
+              <a href="tel:+916381474857" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37]/20 shrink-0"><Phone className="w-5 h-5 text-[#D4AF37]" /></div>
-                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Call us</p><p className="text-white font-bold text-sm">+91 98765 43210</p></div>
+                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Call us</p><p className="text-white font-bold text-sm">+91 63814 74857</p></div>
               </a>
-              <a href="mailto:info@livingleadership.in" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
+              <a href="mailto:livingleadership7@gmail.com" className="flex items-center gap-4 p-4 rounded-2xl bg-[#112244]/50 border border-[#D4AF37]/15 hover:border-[#D4AF37]/40 transition-all group">
                 <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center group-hover:bg-[#D4AF37]/20 shrink-0"><Mail className="w-5 h-5 text-[#D4AF37]" /></div>
-                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Email us</p><p className="text-white font-bold text-sm">info@livingleadership.in</p></div>
+                <div><p className="text-white/40 text-[10px] uppercase tracking-wider font-bold">Email us</p><p className="text-white font-bold text-sm">livingleadership7@gmail.com</p></div>
               </a>
             </div>
           </div>
@@ -140,7 +138,7 @@ export default function CollegePrograms() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 mb-6"><span className="text-[#D4AF37] text-xs font-black tracking-widest uppercase">For College Students · Ages 18–25</span></div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 leading-tight">College Programs</h1>
             <p className="text-[#D4AF37] text-base sm:text-xl font-bold mb-4">From Campus to Career — Lead the Way</p>
-            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">High-impact leadership and career-readiness programs for college students aged 18–25. Prepare for the real world with skills that matter.</p>
+            <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">Preparing young adults to become confident professionals and responsible leaders. </p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <button onClick={() => document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth" })} className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#D4AF37] text-[#0B1832] font-black text-sm hover:bg-[#F0CE6A] transition-all hover:scale-105">Enroll Now</button>
               <button onClick={() => document.getElementById("programs-offered")?.scrollIntoView({ behavior: "smooth" })} className="flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/30 text-white font-bold text-sm hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all">View Programs <ArrowDown className="w-4 h-4" /></button>

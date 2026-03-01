@@ -3,10 +3,10 @@ import { createPageUrl } from "../utils";
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 
 const socialLinks = [
-  { Icon: Instagram, href: "https://www.instagram.com", label: "Instagram" },
+  { Icon: Instagram, href: " https://www.instagram.com/livingleadership7?igsh=MW00YnhuNmY4dXljeg==", label: "Instagram" },
   { Icon: Facebook, href: "https://www.facebook.com", label: "Facebook" },
-  { Icon: Linkedin, href: "https://www.linkedin.com", label: "LinkedIn" },
-  { Icon: Youtube, href: "https://www.youtube.com", label: "YouTube" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/satheesh-kumar-s-0143482a?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+  { Icon: Youtube, href: "https://youtube.com/@livingleadershipwithsatz?si=WKViBxy6yxA0oYSy", label: "YouTube" },
 ];
 
 export default function Footer() {
@@ -19,36 +19,36 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full border-2 border-[#D4AF37] flex items-center justify-center font-black text-[#D4AF37] text-lg">L</div>
-              <div>
-                <span className="text-white font-black text-base"><span className="text-[#D4AF37]">Living</span> Leadership</span>
-                <p className="text-white/30 text-[9px] tracking-widest uppercase">Academy · India</p>
-              </div>
-            </div>
-            <p className="text-white/45 text-sm leading-relaxed mb-5">
-              Transforming lives through leadership. Serving schools, colleges, corporates, and families across India.
-            </p>
-            <div className="flex gap-3">
-              {socialLinks.map(({ Icon, href, label }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#D4AF37] hover:text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
-          </div>
+                <div className="col-span-2 md:col-span-2 lg:col-span-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <img src="src/image/Logo.jpeg" alt="Living Leadership Logo" className="w-10 h-10 rounded-full border-2 border-[#D4AF37]" />
+                  <div>
+                  <span className="text-white font-black text-base"><span className="text-[#D4AF37]">Living</span> Leadership</span>
+                  <p className="text-white/30 text-[9px] tracking-widest uppercase">Academy · India</p>
+                  </div>
+                </div>
+                <p className="text-white/45 text-sm leading-relaxed mb-5">
+                  Transforming lives through leadership. Serving families, schools, colleges, corporates, and families across India.
+                </p>
+                <div className="flex gap-3">
+                  {socialLinks.map(({ Icon, href, label }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+                    className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-[#D4AF37] hover:text-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300">
+                    <Icon className="w-4 h-4" />
+                  </a>
+                  ))}
+                </div>
+                </div>
 
-          {/* Programs */}
+                {/* Programs */}
           <div>
             <h4 className="text-[#D4AF37] font-black mb-4 text-xs uppercase tracking-widest">Programs</h4>
             <ul className="space-y-2.5">
               {[
+                { label: "Family Programs", page: "FamilyPrograms" },
                 { label: "School Programs", page: "SchoolPrograms" },
                 { label: "College Programs", page: "CollegePrograms" },
-                { label: "Corporate Programs", page: "CorporatePrograms" },
-                { label: "Family Programs", page: "FamilyPrograms" },
+                { label: "Corporate Programs", page: "CorporatePrograms" },                
               ].map((p) => (
                 <li key={p.page}>
                   <Link to={createPageUrl(p.page)} className="text-white/50 hover:text-[#D4AF37] text-sm font-semibold transition-colors duration-200 flex items-center gap-1.5 group">
@@ -85,21 +85,21 @@ export default function Footer() {
             <h4 className="text-[#D4AF37] font-black mb-4 text-xs uppercase tracking-widest">Contact Us</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://maps.google.com/?q=Anna+Nagar,+Chennai,+India" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors group">
+                <a href="https://maps.app.goo.gl/6RFkgKUxqCpxwTf37" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors group">
                    <MapPin className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
-                   <span>Anna Nagar, Chennai, India</span>
+                   <span>Koyambedu, Chennai, India</span>
                  </a>
               </li>
               <li>
-                <a href="tel:+919876543210" className="flex items-center gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors">
+                <a href="tel:+916381474857" className="flex items-center gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors">
                   <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>+91 98765 43210</span>
+                  <span>+91 63814 74857</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:info@livingleadership.in" className="flex items-center gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors">
+                <a href="mailto:livingleadership7@gmail.com" className="flex items-center gap-3 text-white/50 hover:text-[#D4AF37] text-sm transition-colors">
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>info@livingleadership.in</span>
+                  <span>livingleadership7@gmail.com</span>
                 </a>
               </li>
             </ul>

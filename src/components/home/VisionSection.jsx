@@ -15,17 +15,17 @@ export default function VisionSection() {
     {
       icon: Eye,
       title: "Our Vision",
-      text: "To be South India's most transformative leadership institution — building a generation of empowered, compassionate, and impactful leaders.",
+      text: "To build a generation of confident, principled, and impactful leaders who influence their families, institutions, and society with wisdom, character, and purpose.",
     },
     {
       icon: Target,
       title: "Our Mission",
-      text: "To deliver world-class leadership experiences that combine practical skills, emotional intelligence, and purposeful living for every participant.",
+      text: "Living Leadership Academy exists to equip individuals with the mindset, skills, and values needed for effective leadership in life and work. ",
     },
     {
       icon: Heart,
       title: "Our Values",
-      text: "Integrity, Excellence, Empathy, Innovation, and Service — the core values that drive every program, interaction, and outcome at LLA.",
+      text: "Living Leadership Academy promotes leadership rooted in strong character, responsibility, continuous growth, selfless service, and a commitment to excellence in every area of life.",
     },
   ];
 

@@ -44,10 +44,9 @@ export default function StatsSection() {
   }, []);
 
   const stats = [
-    { value: 500, suffix: "+", label: "Programs Delivered", delay: 0 },
-    { value: 50000, suffix: "+", label: "Lives Transformed", delay: 150 },
-    { value: 15, suffix: "+", label: "Years of Excellence", delay: 300 },
-    { value: 98, suffix: "%", label: "Satisfaction Rate", delay: 450 },
+    { value: 1000, suffix: "+", label: "Schools Visted PAN-India", delay: 0 },
+    { value: 10000, suffix: "+", label: "Teachers empowered", delay: 150 },
+    { value: 100000, suffix: "+", label: "Students impacted", delay: 300 },     
   ];
 
   return (
@@ -57,7 +56,7 @@ export default function StatsSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.06)_0%,_transparent_70%)]" />
 
       <div className={`max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-[#D4AF37]/10 md:divide-x">
+        <div className="grid grid-cols-2 md:grid-cols-3 divide-[#D4AF37]/10 md:divide-x">
           {stats.map((s) => (
             <StatCard key={s.label} {...s} started={visible} />
           ))}
