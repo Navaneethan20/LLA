@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppPopup from "../components/WhatsAppPopup";
 import MediaGallery from "../components/MediaGallery";
+import emailjs from "@emailjs/browser"
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
@@ -61,11 +62,41 @@ function StoryCard({ s, visible, i }) {
 }
 
 function SubContact() {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "",program: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); setLoading(true); setTimeout(() => { setLoading(false); setSent(true); setForm({ name: "", phone: "", message: "" }); setTimeout(() => setSent(false), 5000); }, 1000); };
+  const handleSubmit = (e) => { e.preventDefault(); setLoading(true); 
+    emailjs
+    .send(
+      "service_vt57q96",      // from EmailJS dashboard
+      "template_t5t41xr",     // from EmailJS template
+      {
+        from_name: form.name,
+        phone: form.phone,
+        program: form.program,
+        message: form.message,
+      },
+      "IOkjwU2XYn-lTl6Wh"       // from EmailJS account
+    )
+    .then(
+      (result) => {
+        alert("Message sent successfully ✅");
+        setForm({
+          name: "",
+          phone: "",
+          program: "Corporate Program",
+          message: "",
+        });
+        setLoading(false);
+      },
+      (error) => {
+        alert("Something went wrong ❌");
+        setLoading(false);
+      }
+    );
+    
+    setTimeout(() => { setLoading(false); setSent(true); setForm({ name: "", phone: "",program: "", message: "" }); setTimeout(() => setSent(false), 5000); }, 1000); };
   return (
     <section id="contact" className="py-20 sm:py-24 bg-[#080F20] relative overflow-hidden">
       <div id="enroll" />
@@ -130,7 +161,7 @@ export default function CorporatePrograms() {
   return (
     <div className="min-h-screen bg-[#0B1832]">
       <Navbar />
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section id="Home" className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 blur-sm">
           <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80" alt="Corporate Programs" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B1832]/96 via-[#0B1832]/80 to-[#0B1832]/30 bg-black/50" />
@@ -152,7 +183,7 @@ cultures. </p>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
       </section>
 
-      <section id="programs-offered" ref={ref1} className="py-20 sm:py-24 bg-[#0B1832]">
+      <section id="about" ref={ref1} className="py-20 sm:py-24 bg-[#0B1832]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className={`text-center mb-12 transition-all duration-700 ${visible1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}><p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">What We Offer</p><h2 className="text-3xl sm:text-4xl font-black text-white mb-4">Programs <span className="text-[#D4AF37]">Offered</span></h2></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">{programs.map((p, i) => <ProgramCard key={p.title} p={p} visible={visible1} i={i} />)}</div>

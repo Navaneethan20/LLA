@@ -13,7 +13,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-[#0B1832]">
+    <section id="Home" className="relative min-h-screen flex items-center overflow-hidden bg-[#0B1832]">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#D4AF37]/5 blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full bg-[#1a3a7a]/40 blur-3xl" />
@@ -51,11 +51,39 @@ export default function HeroSection() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-              className="flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-[#D4AF37]/40 text-white font-bold text-sm hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all hover:scale-105"
-            >
-              Discover More
-            </button>
+  onClick={() =>
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
+  }
+  className="group relative overflow-hidden px-8 py-4 rounded-full
+             font-bold text-sm tracking-wide text-white
+             transition-all duration-300 ease-out
+             bg-gradient-to-r from-[#0F172A] via-[#111827] to-[#0F172A]
+             border border-[#D4AF37]/50
+             shadow-[0_0_15px_rgba(212,175,55,0.3)]
+             hover:border-[#D4AF37]
+             hover:shadow-[0_0_35px_rgba(212,175,55,0.8)]
+             hover:scale-110
+             active:scale-95
+             animate-[pulseGlow_3s_infinite]"
+>
+  {/* Soft Hover Background */}
+  <span className="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+
+  {/* Shine Sweep Effect */}
+  <span className="absolute top-0 -left-full w-full h-full 
+                   bg-gradient-to-r from-transparent via-white/20 to-transparent
+                   group-hover:left-full
+                   transition-all duration-700 ease-in-out">
+  </span>
+
+  {/* Text + Arrow */}
+  <span className="relative z-10 flex items-center gap-2">
+    Discover More
+    <span className="transition-transform duration-300 group-hover:translate-x-2">
+      →
+    </span>
+  </span>
+</button>
           </div>
         </div>
 

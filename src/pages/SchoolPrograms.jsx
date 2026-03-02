@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppPopup from "../components/WhatsAppPopup";
 import MediaGallery from "../components/MediaGallery";
+import emailjs from "@emailjs/browser"
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight, Send } from "lucide-react";
 
 // ── data ──────────────────────────────────────────────────────────────────────
@@ -67,14 +68,46 @@ function StoryCard({ s, visible, i }) {
 }
 
 function SubContact() {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "",program: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSent(true); setForm({ name: "", phone: "", message: "" }); setTimeout(() => setSent(false), 5000); }, 1000);
+
+    
+    emailjs
+    .send(
+      "service_vt57q96",      // from EmailJS dashboard
+      "template_t5t41xr",     // from EmailJS template
+      {
+        from_name: form.name,
+        phone: form.phone,
+        program: form.program,
+        message: form.message,
+      },
+      "IOkjwU2XYn-lTl6Wh"       // from EmailJS account
+    )
+    .then(
+      (result) => {
+        alert("Message sent successfully ✅");
+        setForm({
+          name: "",
+          phone: "",
+          program: "School Program",
+          message: "",
+        });
+        setLoading(false);
+      },
+      (error) => {
+        alert("Something went wrong ❌");
+        setLoading(false);
+      }
+    );
+
+
+    setTimeout(() => { setLoading(false); setSent(true); setForm({ name: "", phone: "",program: "", message: "" }); setTimeout(() => setSent(false), 5000); }, 1000);
   };
   return (
     <section id="contact" className="py-20 sm:py-24 bg-[#080F20] relative overflow  ">
@@ -147,7 +180,7 @@ export default function SchoolPrograms() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section id="Home" className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0  blur-sm">
           <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&q=80" alt="School Programs" className="w-full h-full object-cover "  />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B1832]/96 via-[#0B1832]/80 to-[#0B1832]/30 bg-black/50 pointer-events-none" />
@@ -171,7 +204,7 @@ export default function SchoolPrograms() {
       </section>
 
       {/* Programs Offered */}
-      <section id="programs-offered" ref={ref1} className="py-20 sm:py-24 bg-[#0B1832]">
+      <section id="about" ref={ref1} className="py-20 sm:py-24 bg-[#0B1832]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className={`text-center mb-12 transition-all duration-700 ${visible1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">What We Offer</p>

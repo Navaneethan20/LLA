@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppPopup from "../components/WhatsAppPopup";
 import MediaGallery from "../components/MediaGallery";
+import emailjs from "@emailjs/browser";
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
@@ -16,7 +17,7 @@ const programs = [
 const stories = [
   { name: "Ramesh & Priya Sharma", achievement: "Transformed family communication after 15 years", quote: "We came in as a family struggling to talk to each other. We left as a team with a shared vision. LLA's family retreat changed everything.", image: "https://images.unsplash.com/photo-1581952976147-5a2d15560349?w=600&q=80", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" },
   { name: "Ananya Krishnamurthy", achievement: "Single parent — rebuilt confidence and family bond", quote: "As a single parent, I felt lost. The parenting excellence program gave me a framework and a community. My children now look up to me differently.", image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=600&q=80", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" },
-  { name: "The Kumar Family", achievement: "3 generations — one unified family vision", quote: "My grandfather, my father, and I attended together. The multi-generation program helped us understand and respect each other in a whole new way.", image: "https://images.unsplash.com/photo-1511895426328-dc8714191011?w=600&q=80", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" },
+  { name: "The Kumar Family", achievement: "3 generations — one unified family vision", quote: "My grandfather, my father, and I attended together. The multi-generation program helped us understand and respect each other in a whole new way.", image: "https://www.shutterstock.com/image-photo/family-celebrating-diwali-lots-gift-260nw-2516080907.jpg?w=600&q=80", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" },
 ];
 
 
@@ -72,13 +73,43 @@ function StoryCard({ s, visible, i }) {
 }
 
 function SubContact() {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "",program:"", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault(); setLoading(true);
-    setTimeout(() => { setLoading(false); setSent(true); setForm({ name: "", phone: "", message: "" }); setTimeout(() => setSent(false), 5000); }, 1000);
+
+    emailjs
+    .send(
+      "service_vt57q96",      // from EmailJS dashboard
+      "template_t5t41xr",     // from EmailJS template
+      {
+        from_name: form.name,
+        phone: form.phone,
+        program: form.program,
+        message: form.message,
+      },
+      "IOkjwU2XYn-lTl6Wh"       // from EmailJS account
+    )
+    .then(
+      (result) => {
+        alert("Message sent successfully ✅");
+        setForm({
+          name: "",
+          phone: "",
+          program: "Family Program",
+          message: "",
+        });
+        setLoading(false);
+      },
+      (error) => {
+        alert("Something went wrong ❌");
+        setLoading(false);
+      }
+    );
+
+    setTimeout(() => { setLoading(false); setSent(true); setForm({ name: "", phone: "",program: "", message: "" }); setTimeout(() => setSent(false), 5000); }, 1000);
   };
   return (
     <section id="contact" className="py-20 sm:py-24 bg-[#080F20] relative overflow-hidden">
@@ -148,7 +179,7 @@ export default function FamilyPrograms() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section id="Home" className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 blur-sm">
           <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1400&q=80" alt="Family Programs" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B1832]/96 via-[#0B1832]/80 to-[#0B1832]/30 bg-black/50" />
@@ -173,7 +204,7 @@ practical tools to raise confident, responsible, and values-driven children. </p
       </section>
 
       {/* Programs Offered */}
-      <section id="programs-offered" ref={ref1} className="py-20 sm:py-24 bg-[#0B1832]">
+      <section id="about" ref={ref1} className="py-20 sm:py-24 bg-[#0B1832]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className={`text-center mb-12 transition-all duration-700 ${visible1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <p className="text-[#D4AF37] text-xs font-black uppercase tracking-widest mb-3">What We Offer</p>

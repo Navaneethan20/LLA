@@ -1,9 +1,49 @@
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle } from "lucide-react";
 
+const images = [
+  {
+    id: 1,
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
+    alt: "Character"
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80",
+    alt: "Confidence"
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
+    alt: "Communication"
+  },
+  {
+    id: 4,
+    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=8",
+    alt: "Contribution"
+  }
+];
+
+
 export default function AboutSection() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [showMain, setShowMain] = useState(false);
+
+  useEffect(() => {
+  const interval = setInterval(() => {
+    setShowMain(true);
+
+    setTimeout(() => {
+      setShowMain(false);
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 4000); // Big image visible for 4 seconds
+
+  }, 8000); // Total cycle 8 seconds
+
+  return () => clearInterval(interval);
+}, []);
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.2 });
@@ -22,25 +62,42 @@ export default function AboutSection() {
     <section id="about" ref={ref} className="py-20 sm:py-24 bg-[#0B1832] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-80 h-80 bg-[#D4AF37]/5 rounded-full blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        {/* Images Collage */}
-        <div className={`relative transition-all duration-1000 ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <div className="rounded-2xl overflow-hidden aspect-square">
-              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80" alt="Students learning" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
-            </div>
-            <div className="rounded-2xl overflow-hidden aspect-square mt-6 sm:mt-8">
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt="Leadership event" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
-            </div>
-            <div className="rounded-2xl overflow-hidden aspect-square -mt-6 sm:-mt-8">
-              <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80" alt="Workshop" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
-            </div>
-            <div className="rounded-2xl overflow-hidden aspect-square">
-              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80" alt="Youth leaders" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
-            </div>
-          </div>
-          <div className="absolute -bottom-4 -left-4 w-20 h-20 sm:w-24 sm:h-24 border-4 border-[#D4AF37] rounded-2xl -z-10" />
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+        {/* LEFT SIDE UPDATED ONLY */}
+        <div className="relative h-[450px] flex items-center justify-center overflow-hidden">
+
+           {/* Main Big Image */}
+  <img
+    src="/img5.jpeg"
+    alt="Leadership Model"
+    className={`absolute max-h-full max-w-full object-contain transition-all duration-1000 ease-in-out
+    ${showMain ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-90 rotate-3"}`}
+  />
+             
+
+          {/* Small Images Grid */}
+          {/* Small Images Grid */}
+  <div
+    className={`grid grid-cols-2 gap-6 w-full h-full place-items-center transition-all duration-1000
+    ${showMain ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}
+  >
+    {images.map((img, index) => (
+      <img
+        key={img.id}
+        src={img.src}
+        alt={img.alt}
+        className={`w-[180px] h-[180px] md:w-[300px] md:h-[210px] object-cover rounded-xl border-2 transition-all duration-700
+        ${
+          activeIndex === index
+            ? "border-[#D4AF37] scale-110 shadow-2xl shadow-[#D4AF37]/40"
+            : "border-white/20"
+        }`}
+      />
+    ))}
+  </div>
         </div>
+
 
         {/* Text */}
         <div className={`transition-all duration-1000 delay-200 ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}>
@@ -49,12 +106,11 @@ export default function AboutSection() {
             Nurturing <span className="text-[#D4AF37]">Excellence</span> Since a Decade
           </h2>
           <p className="text-white/60 leading-relaxed mb-5 text-sm sm:text-base">
-           Living Leadership Academy was founded to address one of the most critical challenges of our time — <span className="text-[#D4AF37]">the growing gap between information and wisdom</span>. While qualifications are increasing, confidence, character, and clarity of purpose are often declining across students, educators, families, and organizations.
-           At Living Leadership Academy, we believe the world does not just need more professionals — <span className="text-[#D4AF37]">it needs better leaders</span>. We see leadership not as a position or title, but as influence — <span className="text-[#D4AF37]">the ability to positively impact people and situations</span>.
+           Living Leadership Academy was founded to address one of the most critical challenges of our time — <span className="text-[#D4AF37]">the growing gap between information and wisdom</span>. 
+         
           </p>
           <p className="text-white/60 leading-relaxed mb-7 text-sm sm:text-base">
-            Through transformational training and mentorship, we equip individuals to think clearly, communicate confidently, act responsibly, and lead courageously. Our programs are designed to create real-world impact beyond classrooms and boardrooms. 
-            We are committed to building leaders who strengthen families, transform classrooms, inspire communities, and lead organizations with integrity. Our purpose goes beyond conducting workshops — <span className="text-[#D4AF37]">we are building a leadership movement that transforms society</span>.
+            Through transformational training and mentorship, we equip individuals to think clearly, communicate confidently, act responsibly, and lead courageously. we are building a leadership movement that transforms society.
           </p>
 
           <ul className="space-y-3 mb-7 grid grid-cols-1 sm:grid-cols-2 gap-x-4">

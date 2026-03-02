@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Send, Phone, Mail, MapPinned } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -23,6 +24,36 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    emailjs
+    .send(
+      "service_vt57q96",      // from EmailJS dashboard
+      "template_t5t41xr",     // from EmailJS template
+      {
+        from_name: form.name,
+        from_email: form.email,
+        phone: form.phone,
+        program: form.program,
+        message: form.message,
+      },
+      "IOkjwU2XYn-lTl6Wh"       // from EmailJS account
+    )
+    .then(
+      (result) => {
+        alert("Message sent successfully ✅");
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          program: "",
+          message: "",
+        });
+        setLoading(false);
+      },
+      (error) => {
+        alert("Something went wrong ❌");
+        setLoading(false);
+      }
+    );
 
     setTimeout(() => {
       console.log("Form Submitted:", form);

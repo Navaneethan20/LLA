@@ -55,7 +55,7 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { label: "Home", action: handleHomeClick },
+    { label: "Home", action: () => handleHomeClick()  },
     { label: "About", action: () => scrollToSection("about") },
     { label: "Contact", action: () => scrollToSection("contact") },
   ];
@@ -84,7 +84,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
 
           {/* Logo */}
-          <button onClick={handleHomeClick} className="flex items-center gap-3 group text-left">
+          <button id="Home" className="flex items-center gap-3 group text-left">
             {/* Replace the letter logo with an image. Place your image at /logo.png */}
             <img
               src="/Logo.jpeg"
@@ -95,7 +95,7 @@ export default function Navbar() {
               <span className="text-white font-black text-lg sm:text-xl tracking-wide">
                 <span className="text-[#D4AF37] logo-shimmer">Living</span> Leadership
               </span>
-              <p className="text-white/30 text-[9px] tracking-widest uppercase hidden sm:block">Academy · India</p>
+              <p className="text-white font-semibold text-[10px] tracking-widest uppercase hidden sm:block">Academy · India</p>
             </div>
           </button>
 
