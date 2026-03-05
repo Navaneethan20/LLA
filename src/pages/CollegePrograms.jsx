@@ -7,9 +7,9 @@ import emailjs from "@emailjs/browser"
 import { CheckCircle, Quote, ArrowDown, Phone, Mail, ArrowRight } from "lucide-react";
 
 const programs = [
-  { icon: "💼", title: "Employability Skills Program", description: "Helping students transition from classroom learning to workplace success.", outcomes: ["Professional communication skills ", "Resume building and interview preparation ", "Group discussion and presentation skills ", "Workplace etiquette and professionalism ", "Problem-solving and adaptability "], duration: "3-Day Intensive" },
-  { icon: "🎯", title: "Youth Leadership Program", description: "Developing responsible young leaders for society and organizations.", outcomes: ["Personal leadership and self-awareness ", "Emotional intelligence and self-management ", "Decision-making and critical thinking ", "Time management and productivity ", "Collaboration and team leadership "], duration: "2-Day Workshop" },
-  { icon: "🌍", title: "Entrepreneurship Program", description: "Encouraging students to think creatively and develop entrepreneurial mindset. ", outcomes: ["Opportunity identification and innovation", "Basics of starting a business  ", "Financial literacy and business planning ", "Leadership for entrepreneurs ", "Risk-taking and resilience"], duration: "1-Day Module" },
+  { icon: "💼", title: "Employability Skills Program", description: "Helping students transition from classroom learning to workplace success.", outcomes: ["Professional communication skills ", "Resume building and interview preparation ", "Group discussion and presentation skills ", "Workplace etiquette and professionalism ", "Problem-solving and adaptability "], duration: "12 Weeks" },
+  { icon: "🎯", title: "Youth Leadership Program", description: "Developing responsible young leaders for society and organizations.", outcomes: ["Personal leadership and self-awareness ", "Emotional intelligence and self-management ", "Decision-making and critical thinking ", "Time management and productivity ", "Collaboration and team leadership "], duration: "12 Weeks" },
+  { icon: "🌍", title: "Entrepreneurship Program", description: "Encouraging students to think creatively and develop entrepreneurial mindset. ", outcomes: ["Opportunity identification and innovation", "Basics of starting a business  ", "Financial literacy and business planning ", "Leadership for entrepreneurs ", "Risk-taking and resilience"], duration: "12 Weeks" },
   { icon: "🚀", title: "Personality Development Program ", description: "Helping students build confidence and a strong personal identity.", outcomes: ["Self-confidence and positive mindset", "Communication and body language ", "Personal grooming and professional presence", "Stress management and emotional balance", "Developing a growth-oriented attitude"], duration: "Weekend Program" },
   ];
 
@@ -172,7 +172,7 @@ export default function CollegePrograms() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 mb-6"><span className="text-[#D4AF37] text-xs font-black tracking-widest uppercase">For College Students · Ages 18–25</span></div>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 leading-tight">College Programs</h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 leading-tight">Campus Programs</h1>
             <p className="text-[#D4AF37] text-base sm:text-xl font-bold mb-4">From Campus to Career — Lead the Way</p>
             <p className="text-white/60 text-sm sm:text-lg leading-relaxed mb-8 max-w-lg">Preparing young adults to become confident professionals and responsible leaders. </p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
