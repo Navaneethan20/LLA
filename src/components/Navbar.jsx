@@ -42,10 +42,15 @@ export default function Navbar() {
   const scrollToSection = (id) => {
     setMobileOpen(false);
     setDropdownOpen(false);
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+
+    if (location.pathname === "/" || location.pathname.toLowerCase().includes("home")) {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      navigate(`/#${id}`);
+    }
   };
 
   const handleHomeClick = () => {
@@ -54,9 +59,18 @@ export default function Navbar() {
     else window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const isLinkActive = (label) => {
+    if (label === "Home") return location.pathname === "/" || location.pathname === "/Home";
+    if (label === "Assessment") return location.pathname.toLowerCase().startsWith("/Assessment") || location.pathname.toLowerCase() === "/Assessment";
+    if (label === "About") return !isSubPage && location.hash === "#about";
+    if (label === "Contact") return !isSubPage && location.hash === "#contact";
+    return false;
+  };
+
   const navLinks = [
     { label: "Home", action: () => handleHomeClick()  },
     { label: "About", action: () => scrollToSection("about") },
+    { label: "Assessment", action: () => navigate(createPageUrl("Assessment")) },
     { label: "Contact", action: () => scrollToSection("contact") },
   ];
 
@@ -101,18 +115,23 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map(({ label, action }) => (
-              <button
-                key={label}
-                onClick={action}
-                onMouseEnter={() => setActiveLink(label)}
-                onMouseLeave={() => setActiveLink(null)}
-                className="relative px-4 py-2 text-white/80 hover:text-[#D4AF37] font-bold text-sm tracking-wide transition-all duration-200 rounded-lg hover:bg-white/5 nav-underline"
-              >
-                {label}
-                {activeLink === label && <span className="absolute inset-0 rounded-lg bg-white/5" />}
-              </button>
-            ))}
+            {navLinks.map(({ label, action }) => {
+              const active = isLinkActive(label);
+              return (
+                <button
+                  key={label}
+                  onClick={action}
+                  onMouseEnter={() => setActiveLink(label)}
+                  onMouseLeave={() => setActiveLink(null)}
+                  className={`relative px-4 py-2 font-bold text-sm tracking-wide transition-all duration-200 rounded-lg nav-underline ${
+                    active ? "text-[#D4AF37] bg-[#D4AF37]/10" : "text-white/80 hover:text-[#D4AF37] hover:bg-white/5"
+                  }`}
+                >
+                  {label}
+                  {(active || activeLink === label) && <span className="absolute inset-0 rounded-lg bg-white/5" />}
+                </button>
+              );
+            })}
 
             {/* Programs Dropdown */}
             <div className="relative mx-1" ref={dropdownRef}>

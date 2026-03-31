@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "../utils";
 import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 
@@ -10,8 +10,15 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const goToSection = (id) => {
+    if (location.pathname === "/" || location.pathname.toLowerCase().includes("home")) {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${id}`);
+    }
   };
 
   return (
@@ -65,10 +72,11 @@ export default function Footer() {
             <h4 className="text-[#D4AF37] font-black mb-4 text-xs uppercase tracking-widest">Quick Links</h4>
             <ul className="space-y-2.5">
               {[
-                { label: "Home", action: () => document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" }), isBtn: true },
-                { label: "About Us", action: () => scrollTo("about"), isBtn: true },
-                { label: "Gallery", action: () => scrollTo("gallery"), isBtn: true },
-                { label: "Contact", action: () => scrollTo("contact"), isBtn: true },
+                { label: "Home", action: () => navigate("/"), isBtn: true },
+                { label: "About Us", action: () => goToSection("about"), isBtn: true },
+                { label: "Gallery", action: () => goToSection("gallery"), isBtn: true },
+                { label: "Contact", action: () => goToSection("contact"), isBtn: true },
+                { label: "Assessment", action: () => window.location.assign("/Assessment"), isBtn: true },
               ].map((item) => (
                 <li key={item.label}>
                   <button onClick={item.action} className="text-white/50 hover:text-[#D4AF37] text-sm font-semibold transition-colors duration-200 flex items-center gap-1.5 group text-left">

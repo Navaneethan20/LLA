@@ -52,6 +52,11 @@ import CorporatePrograms from './pages/CorporatePrograms';
 import Home from './pages/Home';
 import SchoolPrograms from './pages/SchoolPrograms';
 import FamilyPrograms from './pages/FamilyPrograms'
+import Quiz from './pages/Quiz.jsx';
+import StudentQuiz from './pages/StudentQuiz.jsx';
+import CampusQuiz from './pages/CampusQuiz.jsx';
+import ParentQuizt from './pages/ParentQuiz.jsx';
+import TeacherQuiz from './pages/TeacherQuiz.jsx';
 import __Layout from './Layout.jsx';
 
 
@@ -61,6 +66,11 @@ export const PAGES = {
     "Home": Home,
     "SchoolPrograms": SchoolPrograms,
     "FamilyPrograms": FamilyPrograms,
+    "Assessment": Quiz,
+    "student-Assessment": StudentQuiz,
+    "campus-Assessment": CampusQuiz,
+    "parent-Assessment": ParentQuizt,
+    "teacher-Assessment": TeacherQuiz,
 }
 
 export const pagesConfig = {
