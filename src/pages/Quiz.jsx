@@ -345,9 +345,42 @@ export default function Quiz() {
           Discover Your Leadership Style
         </div>
         <h1>Which <span>Leader</span><br />Are You?</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16, marginBottom: 0 }}>
+          <Link to="/campus-Assessment" className="take-assessment-btn">
+            Take Assessment
+          </Link>
+        </div>
         <p>Take our scientifically-designed leadership Assessments. 12 questions. Instant results. Personalized insights for your growth journey.</p>
         <p className="hero-note">Free · Takes 5–7 minutes · No signup required to take the Assessment</p>
       </section>
+
+      <style>
+        {`
+          .take-assessment-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #0d1b3e;
+            background: linear-gradient(90deg, #f5c518 0%, #ffe066 100%);
+            border: none;
+            border-radius: 24px;
+            box-shadow: 0 0 8px 2px rgba(245,197,24,0.25);
+            cursor: pointer;
+            text-decoration: none;
+            transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
+            outline: none;
+            position: relative;
+            z-index: 2;
+          }
+          .take-assessment-btn:hover, .take-assessment-btn:focus {
+            background: linear-gradient(90deg, #ffe066 0%, #f5c518 100%);
+            box-shadow: 0 0 16px 4px rgba(245,197,24,0.35);
+            transform: translateY(-1px) scale(1.03);
+          }
+        `}
+      </style>
 
       <div className="stats-bar">
         <div className="stat"><div className="stat-num">1,000+</div><div className="stat-label">Schools Visited</div></div>

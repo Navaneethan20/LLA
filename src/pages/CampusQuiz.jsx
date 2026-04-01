@@ -230,13 +230,13 @@ ${result.remark.replace(/<[^>]+>/g, '')}
     `;
 
     try {
-      await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+      await emailjs.send('service_vt57q96', 'template_t5t41xr', {
         to_email: OWNER_EMAIL,
         from_name: name,
         user_email: email,
-        user_phone: phone,
+        phone: phone,
         message: emailBody
-      }, 'YOUR_PUBLIC_KEY');
+      }, 'IOkjwU2XYn-lTl6Wh');
       setEmailStatus('✅ Results sent to owner!');
     } catch (e) {
       setEmailStatus('❌ Failed to send email.');
