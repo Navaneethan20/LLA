@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const ASSESSMENT_TYPE = "Campus Student Leadership Assessment";
 const OWNER_EMAIL = "livingleadership7@gmail.com";
-const BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1280&q=80"; // Unsplash: campus
+const BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1561089489-f13d5e730d72?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGNvbGxlZ2V8ZW58MHx8MHx8fDA%3D"; // Unsplash: campus
 
 const questionVariants = {
   initial: { opacity: 0, x: 50 },
