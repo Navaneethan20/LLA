@@ -61,8 +61,8 @@ export default function Navbar() {
 
   const isLinkActive = (label) => {
     if (label === "Home") return location.pathname === "/" || location.pathname === "/Home";
-    if (label === "Assessment") return location.pathname.toLowerCase().startsWith("/Assessment") || location.pathname.toLowerCase() === "/Assessment";
     if (label === "About") return !isSubPage && location.hash === "#about";
+    if (label === "Assessment") return location.pathname.toLowerCase().startsWith("/Assessment") || location.pathname.toLowerCase() === "/Assessment";
     if (label === "Contact") return !isSubPage && location.hash === "#contact";
     return false;
   };
@@ -70,8 +70,6 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", action: () => handleHomeClick()  },
     { label: "About", action: () => scrollToSection("about") },
-    { label: "Assessment", action: () => navigate(createPageUrl("Assessment")) },
-    { label: "Contact", action: () => scrollToSection("contact") },
   ];
 
   return (
@@ -181,6 +179,32 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Assessment Button */}
+            <button
+              onClick={() => navigate(createPageUrl("Assessment"))}
+              onMouseEnter={() => setActiveLink("Assessment")}
+              onMouseLeave={() => setActiveLink(null)}
+              className={`relative px-4 py-2 font-bold text-sm tracking-wide transition-all duration-200 rounded-lg nav-underline ${
+                isLinkActive("Assessment") ? "text-[#D4AF37] bg-[#D4AF37]/10" : "text-white/80 hover:text-[#D4AF37] hover:bg-white/5"
+              }`}
+            >
+              Assessment
+              {(isLinkActive("Assessment") || activeLink === "Assessment") && <span className="absolute inset-0 rounded-lg bg-white/5" />}
+            </button>
+
+            {/* Contact Button */}
+            <button
+              onClick={() => scrollToSection("contact")}
+              onMouseEnter={() => setActiveLink("Contact")}
+              onMouseLeave={() => setActiveLink(null)}
+              className={`relative px-4 py-2 font-bold text-sm tracking-wide transition-all duration-200 rounded-lg nav-underline ${
+                isLinkActive("Contact") ? "text-[#D4AF37] bg-[#D4AF37]/10" : "text-white/80 hover:text-[#D4AF37] hover:bg-white/5"
+              }`}
+            >
+              Contact
+              {(isLinkActive("Contact") || activeLink === "Contact") && <span className="absolute inset-0 rounded-lg bg-white/5" />}
+            </button>
+
             <button
               onClick={() => scrollToSection("enroll")}
               className="ml-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C4A028] text-[#0B1832] font-black text-sm hover:from-[#F0CE6A] hover:to-[#D4AF37] transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:scale-105 active:scale-95"
@@ -227,6 +251,16 @@ export default function Navbar() {
                 ))}
               </div>
             </div>
+
+            {/* Assessment Button */}
+            <button onClick={() => { navigate(createPageUrl("Assessment")); setMobileOpen(false); }} className="w-full text-left flex items-center px-5 py-3.5 text-white font-bold text-sm border-b border-white/5 hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] transition-all duration-200">
+              Assessment
+            </button>
+
+            {/* Contact Button */}
+            <button onClick={() => { scrollToSection("contact"); setMobileOpen(false); }} className="w-full text-left flex items-center px-5 py-3.5 text-white font-bold text-sm border-b border-white/5 hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] transition-all duration-200">
+              Contact
+            </button>
 
             <div className="p-3">
               <button onClick={() => { scrollToSection("enroll"); setMobileOpen(false); }} className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C4A028] text-[#0B1832] font-black text-sm text-center hover:from-[#F0CE6A] hover:to-[#D4AF37] transition-all">

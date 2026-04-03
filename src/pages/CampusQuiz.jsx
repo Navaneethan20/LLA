@@ -4,7 +4,120 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const ASSESSMENT_TYPE = "Campus Student Leadership Assessment";
 const OWNER_EMAIL = "livingleadership7@gmail.com";
-const BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1561089489-f13d5e730d72?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGNvbGxlZ2V8ZW58MHx8MHx8fDA%3D"; // Unsplash: campus
+const BACKGROUND_IMAGE = "https://images.unsplash.com/photo-1561089489-f13d5e730d72?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGNvbGxlZ2V8ZW58MHx8MHx8fDA%3D";
+
+/* ─────────────────────────────────────────
+   CERTIFICATE STYLES (From StudentQuiz)
+───────────────────────────────────────── */
+const certCSS = `
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+  @keyframes certIn {
+    0%   { opacity:0; transform:scale(0.86) translateY(28px); }
+    65%  { opacity:1; transform:scale(1.02) translateY(-4px); }
+    100% { opacity:1; transform:scale(1) translateY(0); }
+  }
+  @keyframes shimmerMove {
+    0%   { background-position: -500px 0; }
+    100% { background-position: 500px 0; }
+  }
+  @keyframes sealGlow {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.5), 0 6px 24px rgba(0,0,0,0.4); }
+    50%      { box-shadow: 0 0 0 10px rgba(201,162,39,0), 0 6px 24px rgba(0,0,0,0.4); }
+  }
+  @keyframes dotPulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:0.5; transform:scale(0.7); }
+  }
+
+  .cert-root { animation: certIn 0.75s cubic-bezier(.22,.68,0,1.2) both; }
+  .cert-card {
+    position: relative;
+    background: linear-gradient(160deg,#fffef8 0%,#fdf6e3 35%,#fef8ed 65%,#fffdf7 100%);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #c9a227, 0 0 0 6px rgba(201,162,39,0.14), 0 32px 90px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.95);
+  }
+  .cert-ring1 { position:absolute; inset:10px; border:2px solid rgba(201,162,39,0.55); border-radius:14px; pointer-events:none; z-index:2; }
+  .cert-ring2 { position:absolute; inset:15px; border:1px solid rgba(201,162,39,0.22); border-radius:10px; pointer-events:none; z-index:2; }
+  .cert-texture { position:absolute; inset:0; pointer-events:none; z-index:0; background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(201,162,39,0.04) 28px, rgba(201,162,39,0.04) 29px); }
+  .cert-watermark { position:absolute; inset:0; z-index:0; pointer-events:none; display:flex; align-items:center; justify-content:center; font-family:'Cinzel',serif; font-size:180px; font-weight:900; color:#8a6a00; opacity:0.03; user-select:none; letter-spacing:-6px; line-height:1; }
+  .cert-corner { position:absolute; width:56px; height:56px; z-index:3; }
+  .cert-corner svg { width:100%; height:100%; }
+  .cert-corner.tl { top:20px; left:20px; }
+  .cert-corner.tr { top:20px; right:20px; transform:scaleX(-1); }
+  .cert-corner.bl { bottom:20px; left:20px; transform:scaleY(-1); }
+  .cert-corner.br { bottom:20px; right:20px; transform:scale(-1,-1); }
+  .cert-shimmer { height:4px; position:relative; z-index:10; border-radius:22px 22px 0 0; background:linear-gradient(90deg,#8a6200,#d4a800,#ffe566,#f5c518,#d4a800,#8a6200); background-size:500px 100%; animation:shimmerMove 3s linear infinite; }
+  .cert-header { position:relative; z-index:5; background:linear-gradient(135deg,#09152c 0%,#0d1b3e 45%,#13224a 100%); padding:24px 36px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .cert-header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,#f5c518 20%,#c9a227 50%,#f5c518 80%,transparent); }
+  .cert-logo-row { display:flex; align-items:center; gap:14px; }
+  .cert-logo-img { width:54px; height:54px; border-radius:11px; border:2px solid #c9a227; object-fit:cover; flex-shrink:0; box-shadow:0 4px 14px rgba(0,0,0,0.4); }
+  .cert-logo-name { font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#f5c518; letter-spacing:0.5px; line-height:1.2; display:block; }
+  .cert-logo-tagline { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:rgba(245,197,24,0.5); display:block; margin-top:3px; }
+  .cert-header-right { text-align:right; }
+  .cert-cert-of { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,197,24,0.45); display:block; margin-bottom:3px; }
+  .cert-cert-title { font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#f5c518; letter-spacing:1px; }
+  .cert-body { position:relative; z-index:4; padding:40px 52px 36px; text-align:center; }
+  .cert-certifies-line { font-family:'Playfair Display',serif; font-style:italic; font-size:13px; color:rgba(122,95,0,0.75); letter-spacing:1.5px; margin-bottom:12px; display:block; }
+  .cert-name { font-family:'Cinzel',serif; font-weight:700; font-size:clamp(24px,4.5vw,38px); line-height:1.15; background:linear-gradient(135deg,#7a4f00 0%,#b8860b 35%,#d4a800 55%,#8a6200 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:6px; display:block; letter-spacing:0.5px; }
+  .cert-org-line { font-family:'DM Sans',sans-serif; font-size:11px; color:#8a7040; letter-spacing:1px; margin-bottom:22px; display:block; }
+  .cert-orn { display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto 22px; }
+  .cert-orn-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,#c9a227 40%,#c9a227 60%,transparent); }
+  .cert-orn-star { font-size:13px; color:#c9a227; line-height:1; }
+  .cert-badge { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,#09152c,#0d1b3e,#13224a); border:1.5px solid #c9a227; border-radius:40px; padding:9px 26px; margin-bottom:18px; box-shadow:0 4px 20px rgba(201,162,39,0.25); }
+  .cert-badge-icon { font-size:18px; line-height:1; }
+  .cert-badge-text { font-family:'Cinzel',serif; font-size:11px; font-weight:700; color:#f5c518; letter-spacing:3px; text-transform:uppercase; }
+  .cert-badge-dot { width:7px; height:7px; border-radius:50%; background:#f5c518; animation:dotPulse 2s ease-in-out infinite; }
+  .cert-profile-title { font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(20px,3.5vw,30px); line-height:1.25; color:#1a1000; margin-bottom:16px; }
+  .cert-profile-title span { color:#b8860b; }
+  .cert-remark { font-family:'DM Sans',sans-serif; font-size:13.5px; color:#3d2e00; line-height:1.9; max-width:500px; margin:0 auto 28px; }
+  .cert-insights-title { font-family:'Cinzel',serif; font-size:9px; letter-spacing:3.5px; text-transform:uppercase; color:#8a6200; margin-bottom:16px; display:block; }
+  .cert-insights-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:500px; margin:0 auto 28px; text-align:left; }
+  .cert-insight { background:rgba(201,162,39,0.07); border:1px solid rgba(201,162,39,0.32); border-radius:10px; padding:13px 15px; }
+  .cert-insight-h { font-family:'Cinzel',serif; font-size:8px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#8a6200; display:block; margin-bottom:5px; }
+  .cert-insight-b { font-family:'DM Sans',sans-serif; font-size:12px; color:#3d2e00; line-height:1.55; }
+  .cert-assessment-note { font-family:'DM Sans',sans-serif; font-size:10px; color:rgba(122,95,0,0.6); letter-spacing:0.8px; margin-top:6px; }
+  .cert-footer { position:relative; z-index:5; background:linear-gradient(135deg,#09152c 0%,#0d1b3e 45%,#13224a 100%); border-top:2px solid #c9a227; padding:20px 48px; display:flex; align-items:center; justify-content:space-between; gap:16px; border-radius:0 0 20px 20px; }
+  .cert-sig { text-align:center; }
+  .cert-sig-name { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:#f5c518; display:block; margin-bottom:6px; }
+  .cert-sig-line { width:130px; height:1px; background:linear-gradient(90deg,transparent,rgba(245,197,24,0.5),transparent); margin:0 auto 6px; }
+  .cert-sig-role { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,197,24,0.45); }
+  .cert-seal { width:72px; height:72px; border-radius:50%; background:radial-gradient(circle,#1e3060 0%,#0a1630 100%); border:2px solid #c9a227; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; animation:sealGlow 3s ease-in-out infinite; }
+  .cert-seal-icon { font-size:26px; line-height:1; display:block; }
+  .cert-seal-label { font-family:'Cinzel',serif; font-size:6px; font-weight:700; color:#c9a227; letter-spacing:1.5px; text-transform:uppercase; margin-top:3px; }
+  .cert-date { text-align:right; }
+  .cert-date-label { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,197,24,0.45); display:block; margin-bottom:4px; }
+  .cert-date-value { font-family:'Cinzel',serif; font-size:12px; font-weight:600; color:#f5c518; }
+  .cert-actions { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:22px; }
+  .cert-btn-enroll { background:linear-gradient(135deg,#f5c518,#e6b800); color:#0d1b3e; padding:13px 34px; border-radius:40px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:700; text-decoration:none; display:inline-block; border:none; cursor:pointer; box-shadow:0 6px 28px rgba(245,197,24,0.32); transition:transform 0.2s,box-shadow 0.2s; }
+  .cert-btn-enroll:hover { transform:translateY(-2px); box-shadow:0 10px 36px rgba(245,197,24,0.42); }
+  .cert-btn-retake { background:transparent; color:#f5c518; padding:12px 28px; border-radius:40px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; border:1.5px solid rgba(245,197,24,0.4); cursor:pointer; transition:border-color 0.2s,background 0.2s; }
+  .cert-btn-retake:hover { border-color:#f5c518; background:rgba(245,197,24,0.06); }
+  .cert-website-note { text-align:center; margin-top:14px; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(245,197,24,0.3); }
+
+  @media(max-width:620px){
+    .cert-header{ padding:18px 20px; }
+    .cert-body{ padding:30px 22px 26px; }
+    .cert-insights-grid{ grid-template-columns:1fr; }
+    .cert-footer{ padding:18px 22px; flex-direction:column; align-items:center; text-align:center; }
+    .cert-sig{ display:none; }
+    .cert-date{ text-align:center; }
+    .cert-corner{ width:40px; height:40px; }
+  }
+`;
+
+const Corner = () => (
+  <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 3 L26 3 L26 7 L7 7 L7 26 L3 26 Z" fill="#c9a227" opacity="0.75"/>
+    <path d="M5 5 L22 5 L22 8 L8 8 L8 22 L5 22 Z" fill="none" stroke="#c9a227" strokeWidth="0.75" opacity="0.45"/>
+    <circle cx="4.5" cy="4.5" r="3.5" fill="#c9a227" opacity="0.85"/>
+    <circle cx="26" cy="4.5" r="1.8" fill="#c9a227" opacity="0.55"/>
+    <circle cx="4.5" cy="26" r="1.8" fill="#c9a227" opacity="0.55"/>
+    <path d="M30 3 L33 3 L33 5 L30 5 Z" fill="#c9a227" opacity="0.35"/>
+    <path d="M3 30 L5 30 L5 33 L3 33 Z" fill="#c9a227" opacity="0.35"/>
+  </svg>
+);
 
 const questionVariants = {
   initial: { opacity: 0, x: 50 },
@@ -18,138 +131,108 @@ const optionVariants = {
   selected: { opacity: 1, y: 0, scale: 1.05, boxShadow: "0 0 20px rgba(245,197,24,0.5)" }
 };
 
+/* ─────────────────────────────────────────
+   CAMPUS DATA (Preserved from CampusQuiz)
+───────────────────────────────────────── */
 const questions = [
-  {
-    q: "When faced with a situation where no one is watching…",
-    options: ["I choose to do what is right", "I usually do the right thing", "I do what is convenient", "I don't think much about it"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "What drives your decisions in life?",
-    options: ["Values and long-term purpose", "Balance between values and success", "Immediate results", "External pressure"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "How do you handle situations where you are wrong?",
-    options: ["I accept, learn, and improve", "I accept but feel uncomfortable", "I justify my actions", "I avoid responsibility"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "How do you manage your time and priorities?",
-    options: ["I plan and follow consistently", "I manage most of the time", "I struggle but try", "I often procrastinate"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "How intentional are you about your personal growth?",
-    options: ["I actively learn and improve regularly", "I learn when needed", "I depend on experience", "I rarely focus on growth"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "When you face failure or setbacks…",
-    options: ["I reflect, learn, and grow stronger", "I recover after some time", "I feel discouraged", "I blame external situations"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "In group work or teamwork…",
-    options: ["I contribute actively and support others", "I do my part responsibly", "I participate when needed", "I avoid involvement"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "How do you communicate your ideas?",
-    options: ["Clearly and confidently", "With some hesitation", "Only when required", "I avoid expressing"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "How do you handle disagreements?",
-    options: ["I try to understand and resolve", "I express my view and move on", "I avoid conflict", "I react emotionally"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "How do you contribute beyond yourself?",
-    options: ["I actively help and contribute to others", "I support when possible", "I focus mainly on myself", "I rarely think about it"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "How do you define success?",
-    options: ["Purpose, growth, and impact", "Growth and stability", "Achievement and results", "Security"],
-    scores: [5, 4, 3, 2]
-  },
-  {
-    q: "What impact do you want to create in the future?",
-    options: ["Make a meaningful difference in society", "Be successful and responsible", "Build a stable career", "Live comfortably"],
-    scores: [5, 4, 3, 2]
-  }
+  { q: "When faced with a situation where no one is watching…", options: ["I choose to do what is right", "I usually do the right thing", "I do what is convenient", "I don't think much about it"], scores: [5, 4, 3, 2] },
+  { q: "What drives your decisions in life?", options: ["Values and long-term purpose", "Balance between values and success", "Immediate results", "External pressure"], scores: [5, 4, 3, 2] },
+  { q: "How do you handle situations where you are wrong?", options: ["I accept, learn, and improve", "I accept but feel uncomfortable", "I justify my actions", "I avoid responsibility"], scores: [5, 4, 3, 2] },
+  { q: "How do you manage your time and priorities?", options: ["I plan and follow consistently", "I manage most of the time", "I struggle but try", "I often procrastinate"], scores: [5, 4, 3, 2] },
+  { q: "How intentional are you about your personal growth?", options: ["I actively learn and improve regularly", "I learn when needed", "I depend on experience", "I rarely focus on growth"], scores: [5, 4, 3, 2] },
+  { q: "When you face failure or setbacks…", options: ["I reflect, learn, and grow stronger", "I recover after some time", "I feel discouraged", "I blame external situations"], scores: [5, 4, 3, 2] },
+  { q: "In group work or teamwork…", options: ["I contribute actively and support others", "I do my part responsibly", "I participate when needed", "I avoid involvement"], scores: [5, 4, 3, 2] },
+  { q: "How do you communicate your ideas?", options: ["Clearly and confidently", "With some hesitation", "Only when required", "I avoid expressing"], scores: [5, 4, 3, 2] },
+  { q: "How do you handle disagreements?", options: ["I try to understand and resolve", "I express my view and move on", "I avoid conflict", "I react emotionally"], scores: [5, 4, 3, 2] },
+  { q: "How do you contribute beyond yourself?", options: ["I actively help and contribute to others", "I support when possible", "I focus mainly on myself", "I rarely think about it"], scores: [5, 4, 3, 2] },
+  { q: "How do you define success?", options: ["Purpose, growth, and impact", "Growth and stability", "Achievement and results", "Security"], scores: [5, 4, 3, 2] },
+  { q: "What impact do you want to create in the future?", options: ["Make a meaningful difference in society", "Be successful and responsible", "Build a stable career", "Live comfortably"], scores: [5, 4, 3, 2] }
 ];
 
 const results = [
   {
-    min: 91,
-    max: 100,
-    icon: "🔥",
-    badge: "FUTURE LEADER",
-    title: "You Are a <span>Future Leader</span>",
-    remark: "You demonstrate exceptional leadership potential! You're purpose-driven, strategic, and ready to take on significant leadership roles. Your vision and character make you a natural leader who can inspire and guide others toward meaningful change.",
+    min: 0, max: 40,
+    icon: "🌱", badge: "DIRECTION SEEKER", level: "Level 1",
+    title: "You Are a <span>Direction Seeker</span>",
+    journeyTitle: "Your Journey Begins Here",
+    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are at a stage where life feels unclear and uncertain. You may be doing things… but not fully knowing why.\n\nAnd that's okay.\n\nBecause this is where real discovery begins.",
+    meaning: "Right now, you are exploring, searching, and still discovering yourself. But direction is still forming.",
+    remark: "You're exploring leadership and need more clarity and guidance. This is a normal starting point — focus on developing your character and building self-discipline.",
+    reflections: ["What do I really want in life?", "Am I choosing… or just following?"],
+    nextStep: "Move from confusion → to clarity.",
     tips: [
-      { h: "Strengths", b: "Visionary thinking, strong character, transformational mindset" },
-      { h: "Growth Areas", b: "Delegation, managing complexity" },
-      { h: "Next Steps", b: "Lead major initiatives, mentor others" },
-      { h: "Impact", b: "Shape campus culture and future leaders" }
+      { h: "Growth Edge", b: "Lack of clarity about future, low self-awareness, dependence on external direction" },
+      { h: "Next Level Path", b: "Discover your strengths · Build self-awareness · Seek guidance intentionally" },
+      { h: "Strengths", b: "Openness to learning, potential for growth" },
+      { h: "Impact", b: "Personal development is where it all begins" }
     ]
   },
   {
-    min: 76,
-    max: 90,
-    icon: "🌟",
-    badge: "INFLUENTIAL STUDENT",
-    title: "You Are an <span>Influential Student</span>",
-    remark: "You're confident, proactive, and already influencing your peers! You have strong leadership foundations and the ability to motivate others. With your relational skills and societal awareness, you're positioned to drive positive change in your community.",
-    tips: [
-      { h: "Strengths", b: "Confidence, influence, proactive nature" },
-      { h: "Growth Areas", b: "Strategic planning, long-term vision" },
-      { h: "Next Steps", b: "Take leadership roles, build networks" },
-      { h: "Impact", b: "Influence peers and campus initiatives" }
-    ]
-  },
-  {
-    min: 61,
-    max: 75,
-    icon: "🌳",
-    badge: "DEVELOPING LEADER",
-    title: "You Are a <span>Developing Leader</span>",
-    remark: "You show responsibility and are building strong leadership habits! You're developing self-awareness and relational skills. With continued growth in character and societal leadership, you'll become a well-rounded leader who can effectively guide teams and contribute to your community.",
-    tips: [
-      { h: "Strengths", b: "Responsibility, growing awareness, teamwork" },
-      { h: "Growth Areas", b: "Confidence, transformational thinking" },
-      { h: "Next Steps", b: "Practice leadership, seek feedback" },
-      { h: "Impact", b: "Support team success and community initiatives" }
-    ]
-  },
-  {
-    min: 41,
-    max: 60,
-    icon: "🌿",
-    badge: "EMERGING INDIVIDUAL",
+    min: 41, max: 60,
+    icon: "🌿", badge: "EMERGING INDIVIDUAL", level: "Level 2",
     title: "You Are an <span>Emerging Individual</span>",
-    remark: "You're growing in self-awareness and developing leadership potential! You have a foundation in character and self-leadership, but need more discipline and confidence. Focus on building relational skills and societal awareness to become a more effective leader.",
+    journeyTitle: "Your Journey Begins Here",
+    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are beginning to wake up to your potential. You are more aware than before.\n\nBut consistency is still a challenge.",
+    meaning: "You are becoming aware, trying to improve, and taking small steps — but discipline is still building.",
+    remark: "You're growing in self-awareness and developing leadership potential. Focus on building relational skills and consistency to become a more effective leader.",
+    reflections: ["What stops me from being consistent?", "Do I start strong but stop halfway?"],
+    nextStep: "Move from awareness → to action.",
     tips: [
-      { h: "Strengths", b: "Growing awareness, basic responsibility" },
-      { h: "Growth Areas", b: "Discipline, confidence, relational skills" },
-      { h: "Next Steps", b: "Build habits, practice communication" },
+      { h: "Growth Edge", b: "Inconsistent habits, lack of discipline, easily distracted" },
+      { h: "Next Level Path", b: "Build daily discipline · Create clear goals · Stay consistent" },
+      { h: "Strengths", b: "Growing awareness, basic responsibility, desire to improve" },
       { h: "Impact", b: "Contribute to teams and small initiatives" }
     ]
   },
   {
-    min: 0,
-    max: 40,
-    icon: "🌱",
-    badge: "DIRECTION SEEKER",
-    title: "You Are a <span>Direction Seeker</span>",
-    remark: "You're exploring leadership and need more clarity and guidance! This is a normal starting point for many. Focus on developing your character, building self-discipline, and understanding how leadership can make a positive impact. Everyone grows at their own pace.",
+    min: 61, max: 75,
+    icon: "🌳", badge: "DEVELOPING LEADER", level: "Level 3",
+    title: "You Are a <span>Developing Leader</span>",
+    journeyTitle: "Your Journey Begins Here",
+    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are no longer just thinking —\n👉 You are taking responsibility.\n\nYou are building habits that matter.",
+    meaning: "You show responsibility, effort, and a growth mindset. You are stepping into leadership. But here's the deeper question: 👉 Are you leading yourself… or preparing to lead others?",
+    remark: "You show responsibility and are building strong leadership habits. With continued growth in confidence and societal leadership, you'll become a well-rounded leader.",
+    reflections: ["Do others see me as a leader?", "Am I influencing or just participating?"],
+    nextStep: "Move from self-growth → to influence.",
     tips: [
-      { h: "Strengths", b: "Openness to learning, potential for growth" },
-      { h: "Growth Areas", b: "Clarity, discipline, confidence" },
-      { h: "Next Steps", b: "Seek guidance, try new experiences" },
-      { h: "Impact", b: "Focus on personal development first" }
+      { h: "Growth Edge", b: "Are you leading yourself… or preparing to lead others?" },
+      { h: "Next Level Path", b: "Strengthen leadership habits · Improve communication · Take initiative in groups" },
+      { h: "Strengths", b: "Responsibility, growing awareness, teamwork" },
+      { h: "Impact", b: "Support team success and community initiatives" }
+    ]
+  },
+  {
+    min: 76, max: 90,
+    icon: "🌟", badge: "INFLUENTIAL STUDENT", level: "Level 4",
+    title: "You Are an <span>Influential Student</span>",
+    journeyTitle: "Your Journey Begins Here",
+    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are confident. You take initiative. People notice you.\n\n👉 Your presence has influence.",
+    meaning: "You demonstrate confidence, proactiveness, and peer influence. You are already leading — even without a title. But influence must become: 👉 Purpose-driven leadership.",
+    remark: "You're confident, proactive, and already influencing your peers. With your relational skills, you're positioned to drive positive change in your community.",
+    reflections: ["What am I influencing others towards?", "Am I leading with purpose or popularity?"],
+    nextStep: "Move from influence → to purpose.",
+    tips: [
+      { h: "Growth Edge", b: "Influence must become purpose-driven leadership" },
+      { h: "Next Level Path", b: "Develop clear purpose · Lead meaningful initiatives · Use influence responsibly" },
+      { h: "Strengths", b: "Confidence, influence, proactive nature" },
+      { h: "Impact", b: "Influence peers and campus initiatives" }
+    ]
+  },
+  {
+    min: 91, max: 100,
+    icon: "🔥", badge: "FUTURE LEADER", level: "Level 5",
+    title: "You Are a <span>Future Leader</span>",
+    journeyTitle: "Your Journey Begins Here",
+    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are not just preparing for success…\n👉 You are preparing for impact.\n\nYou think beyond yourself. You act with purpose.",
+    meaning: "You demonstrate purpose-driven thinking, a leadership mindset, and responsibility for impact. You are ready for leadership roles.",
+    remark: "You demonstrate exceptional leadership potential! You're purpose-driven, strategic, and ready to take on significant leadership roles that can inspire and guide others toward meaningful change.",
+    reflections: ["What difference will I make in the world?", "Who will grow because of me?"],
+    nextStep: "Lead with purpose. Impact with intention.",
+    tips: [
+      { h: "Growth Edge", b: "Growth must become legacy — your impact must extend beyond campus" },
+      { h: "Next Level Path", b: "Lead real-world projects · Mentor peers · Create impact beyond campus" },
+      { h: "Strengths", b: "Visionary thinking, strong character, transformational mindset" },
+      { h: "Impact", b: "Shape campus culture and future leaders" }
     ]
   }
 ];
@@ -160,336 +243,332 @@ export default function CampusQuiz() {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPhone, setUserPhone] = useState('');
+  const [userState, setUserState] = useState('');
+  const [userCity, setUserCity] = useState('');
+  const [userPincode, setUserPincode] = useState('');
+  const [userOrganization, setUserOrganization] = useState('');
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState(null);
   const [emailStatus, setEmailStatus] = useState('');
 
-  const selectOption = (i) => {
-    const newAnswers = [...answers];
-    newAnswers[current] = i;
-    setAnswers(newAnswers);
-  };
-
-  const nextQ = () => {
-    if (current < 12) setCurrent(current + 1);
-  };
-
-  const prevQ = () => {
-    if (current > 0) setCurrent(current - 1);
-  };
+  const selectOption = (i) => { const n = [...answers]; n[current] = i; setAnswers(n); };
+  const nextQ = () => { if (current < 12) setCurrent(current + 1); };
+  const prevQ = () => { if (current > 0) setCurrent(current - 1); };
 
   const submitAssessment = () => {
-    if (!userName.trim()) {
-      alert('Please enter your name.');
-      return;
-    }
-    if (!userEmail.trim() || !/\S+@\S+\.\S+/.test(userEmail)) {
-      alert('Please enter a valid email.');
-      return;
-    }
-    if (!userPhone.trim() || !/^[0-9+\-() ]{7,20}$/.test(userPhone)) {
-      alert('Please enter a valid contact number.');
-      return;
-    }
+    if (!userName.trim()) { alert('Please enter your name.'); return; }
+    if (!userEmail.trim() || !/\S+@\S+\.\S+/.test(userEmail)) { alert('Please enter a valid email.'); return; }
+    if (!userPhone.trim() || !/^[0-9+\-() ]{7,20}$/.test(userPhone)) { alert('Please enter a valid contact number.'); return; }
+    if (!userState.trim()) { alert('Please enter your state.'); return; }
+    if (!userCity.trim()) { alert('Please enter your city.'); return; }
+    if (!userPincode.trim()) { alert('Please enter your pincode.'); return; }
+    if (!userOrganization.trim()) { alert('Please enter your organization/institution.'); return; }
 
     const totalScore = answers.reduce((sum, a, i) => a !== null ? sum + questions[i].scores[a] : sum, 0);
     const scaledScore = Math.round((totalScore / 60) * 100);
     const assessmentResult = results.find(r => scaledScore >= r.min && scaledScore <= r.max) || results[4];
     setResult(assessmentResult);
     setShowResult(true);
-
-    sendResultEmail(userName, userEmail, userPhone, scaledScore, assessmentResult, answers);
+    sendResultEmail(userName, userEmail, userPhone, userState, userCity, userPincode, userOrganization, scaledScore, assessmentResult, answers);
   };
 
-  const sendResultEmail = async (name, email, phone, score, result, ans) => {
+  const sendResultEmail = async (name, email, phone, state, city, pincode, org, score, res, ans) => {
     setEmailStatus('📧 Sending results...');
-
-    const answerDetails = questions.map((q, i) => {
-      const chosen = q.options[ans[i]];
-      const pts = q.scores[ans[i]];
-      return `Q${i + 1}: ${q.q}\n   Answer: ${chosen} (${pts} pts)`;
-    }).join('\n\n');
-
-    const emailBody = `
-NEW ASSESSMENT RESULT — ${ASSESSMENT_TYPE}
-=====================================
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Assessment: ${ASSESSMENT_TYPE}
-Total Score: ${score} / 100
-Leadership Profile: ${result.badge}
-Date: ${new Date().toLocaleString('en-IN')}
-
-DETAILED ANSWERS:
-${answerDetails}
-
-PROFILE REMARK:
-${result.remark.replace(/<[^>]+>/g, '')}
-=====================================
-    `;
-
+    const details = questions.map((q, i) => `Q${i+1}: ${q.q}\n   Answer: ${q.options[ans[i]]} (${q.scores[ans[i]]} pts)`).join('\n\n');
+    const body = `NEW ASSESSMENT RESULT — ${ASSESSMENT_TYPE}\n=====================================\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nState: ${state}\nCity: ${city}\nPincode: ${pincode}\nOrganization: ${org}\nTotal Score: ${score} / 100\nProfile: ${res.badge} (${res.level})\nDate: ${new Date().toLocaleString('en-IN')}\n\nANSWERS:\n${details}\n\nREMARK:\n${res.remark}\n\nNEXT STEP:\n${res.nextStep}`;
     try {
-      await emailjs.send('service_vt57q96', 'template_t5t41xr', {
-        to_email: OWNER_EMAIL,
-        from_name: name,
-        user_email: email,
-        phone: phone,
-        message: emailBody
-      }, 'IOkjwU2XYn-lTl6Wh');
-      setEmailStatus('✅ Results sent to owner!');
-    } catch (e) {
-      setEmailStatus('❌ Failed to send email.');
+      await emailjs.send('service_vt57q96','template_t5t41xr',{ to_email:OWNER_EMAIL, from_name:name, user_email:email, phone, message:body },'IOkjwU2XYn-lTl6Wh');
+    } catch(e) { 
+      console.error('Failed to send email:', e); 
     }
   };
 
   const retakeAssessment = () => {
-    setCurrent(0);
-    setAnswers(Array(12).fill(null));
-    setUserName('');
-    setUserEmail('');
-    setUserPhone('');
-    setShowResult(false);
-    setResult(null);
-    setEmailStatus('');
+    setCurrent(0); setAnswers(Array(12).fill(null));
+    setUserName(''); setUserEmail(''); setUserPhone('');
+    setUserState(''); setUserCity(''); setUserPincode(''); setUserOrganization('');
+    setShowResult(false); setResult(null); setEmailStatus('');
   };
 
   const progressPercent = ((current + 1) / 13) * 100;
+  const currentDate = new Date().toLocaleDateString('en-IN',{ day:'numeric', month:'long', year:'numeric' });
 
   return (
     <div className="min-h-screen relative text-white font-['DM_Sans'] overflow-hidden">
+      <style>{certCSS}</style>
       <div className="absolute inset-0 bg-[#0d1b3e]/90 -z-10"></div>
+
       <header className="bg-[#0b1832] text-white py-2 text-center border-b border-[#f5c518]/20">
         <p className="text-sm font-bold">Living Leadership Academy</p>
       </header>
+
       <main className="max-w-[1200px] mx-auto px-4 py-8">
         <div className="grid gap-6">
+
+          {/* Hero image panel */}
           <aside className="rounded-3xl overflow-hidden h-64 md:h-[420px] lg:h-[520px] relative">
-            <img
-              src={BACKGROUND_IMAGE}
-              alt="Campus Leadership"
-              className="w-full h-full object-cover"
-            />
+            <img src={BACKGROUND_IMAGE} alt="Campus Leadership" className="w-full h-full object-cover"/>
             <div className="absolute inset-0 bg-gradient-to-t from-[#0b1832]/90 via-[#0b1832]/50 to-transparent"></div>
-            <div className="absolute bottom-4 left-4 text-white">
+            <div className="absolute bottom-4 left-4">
               <p className="text-sm md:text-base font-semibold">Campus Leadership</p>
               <p className="text-xs md:text-sm text-[#d3d8ee]">Take the assessment and uncover your leadership strengths.</p>
             </div>
           </aside>
+
+          {/* Main quiz section */}
           <section className="bg-[#111e3d] border border-[rgba(245,197,24,0.12)] rounded-3xl p-6 lg:p-8">
 
-        {/* Assessment Header */}
-        <div className="text-center mb-6 mt-2">
-          <a href="/Assessment" className="inline-flex items-center gap-2 text-[#8fa0c0] text-sm no-underline mb-6 hover:text-[#f5c518] transition-colors">
-            ← Back to Assessment Selection
-          </a>
-          <div className="inline-flex items-center gap-2 bg-[rgba(245,197,24,0.1)] border border-[rgba(245,197,24,0.3)] text-[#f5c518] px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider mb-5">
-            🎓 Campus Leadership Assessment
-          </div>
-          <h1 className="font-['Playfair_Display'] text-3xl md:text-4xl font-black mb-2 leading-tight">
-            Discover Your <span className="text-[#f5c518]">Campus Leadership</span>
-          </h1>
-          <p className="text-[#8fa0c0] text-sm leading-relaxed max-w-md mx-auto">
-            Answer 12 questions to uncover your leadership potential in college life.
-          </p>
-        </div>
-
-        {/* Progress */}
-        {!showResult && (
-          <div className="bg-[#111e3d] border border-[rgba(245,197,24,0.1)] rounded-xl p-5 mb-9">
-            <div className="flex justify-between items-center mb-3">
-              <span className="text-xs text-[#8fa0c0]">Progress</span>
-              <span className="text-xs font-semibold text-[#f5c518]">{Math.min(current + 1, 13)} of 13</span>
-            </div>
-            <div className="h-1.5 bg-[rgba(255,255,255,0.08)] rounded-lg overflow-hidden">
-              <motion.div
-                className="h-full bg-[#f5c518] rounded-lg"
-                animate={{ width: `${progressPercent}%` }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              ></motion.div>
-            </div>
-          </div>
-        )}
-
-        {/* Assessment Area */}
-        <AnimatePresence mode="wait">
-          {!showResult && current < 12 && (
-            <motion.div
-              key={current}
-              variants={questionVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.3 }}
-              className="bg-[#111e3d] border border-[rgba(245,197,24,0.12)] rounded-2xl p-9 mb-6"
-            >
-              <div className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-4">
-                Question {Math.min(current + 1, 13)} of 13
-              </div>
-              <h2 className="font-['Playfair_Display'] text-xl font-bold leading-relaxed mb-7">
-                {questions[current].q}
-              </h2>
-              <div className="space-y-3">
-                {questions[current].options.map((option, i) => (
-                  <motion.div
-                    key={i}
-                    variants={optionVariants}
-                    initial="initial"
-                    animate={answers[current] === i ? "selected" : "animate"}
-                    whileHover={{ scale: 1.02, boxShadow: "0 0 15px rgba(245,197,24,0.3)" }}
-                    whileTap={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className={`flex items-start gap-4 bg-[rgba(255,255,255,0.03)] border-2 border-[rgba(255,255,255,0.1)] rounded-xl p-4 cursor-pointer transition-all duration-200 hover:border-[rgba(245,197,24,0.4)] hover:bg-[rgba(245,197,24,0.05)] ${
-                      answers[current] === i ? 'border-[#f5c518] bg-[rgba(245,197,24,0.1)]' : ''
-                    }`}
-                    onClick={() => selectOption(i)}
-                  >
-                    <div className={`w-7 h-7 min-w-7 rounded-lg border-2 flex items-center justify-center text-xs font-semibold transition-all duration-200 ${
-                      answers[current] === i
-                        ? 'bg-[#f5c518] border-[#f5c518] text-[#0d1b3e]'
-                        : 'border-[rgba(255,255,255,0.2)] text-[#8fa0c0]'
-                    }`}>
-                      {String.fromCharCode(65 + i)}
-                    </div>
-                    <div className="text-sm leading-relaxed pt-1 text-[#e8ecf5]">
-                      {option}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* Contact Form */}
-          {!showResult && current === 12 && (
-            <motion.div
-              key={current}
-              variants={questionVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.3 }}
-              className="bg-[#111e3d] border-2 border-[rgba(245,197,24,0.2)] rounded-2xl p-9 mb-6"
-            >
-              <h3 className="font-['Playfair_Display'] text-2xl font-bold mb-2">Almost Done!</h3>
-              <p className="text-[#8fa0c0] text-sm mb-7 leading-relaxed">
-                Enter your details to receive your personalized leadership profile via email.
-              </p>
-              <div className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-4">
-                Question 13 of 13
-              </div>
-              <div className="space-y-5">
-                <div>
-                  <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
-                    className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
-                    placeholder="Enter your full name"
-                  />
+            {/* Header */}
+            {!showResult && (
+              <div className="text-center mb-6 mt-2">
+                <a href="/Assessment" className="inline-flex items-center gap-2 text-[#8fa0c0] text-sm no-underline mb-6 hover:text-[#f5c518] transition-colors">
+                  ← Back to Assessment Selection
+                </a>
+                <div className="inline-flex items-center gap-2 bg-[rgba(245,197,24,0.1)] border border-[rgba(245,197,24,0.3)] text-[#f5c518] px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider mb-5">
+                  🎓 Campus Leadership Assessment
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">
-                    Contact Number
-                  </label>
-                  <input
-                    type="tel"
-                    value={userPhone}
-                    onChange={(e) => setUserPhone(e.target.value)}
-                    className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
-                    className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
-                    placeholder="Enter your email address"
-                  />
-                </div>
+                <h1 className="font-['Playfair_Display'] text-3xl md:text-4xl font-black mb-2 leading-tight">
+                  Discover Your <span className="text-[#f5c518]">Campus Leadership</span>
+                </h1>
+                <p className="text-[#8fa0c0] text-sm leading-relaxed max-w-md mx-auto">
+                  Answer 12 questions to uncover your leadership potential in college life.
+                </p>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Result Card */}
-        {showResult && result && (
-          <div className="bg-[#111e3d] border-4 border-[#f5c518] rounded-3xl p-12 text-center animate-fadeIn">
-            <div className="text-6xl mb-5">{result.icon}</div>
-            <div className="inline-block bg-[#f5c518] text-[#0d1b3e] text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-2xl mb-5">
-              {result.badge}
-            </div>
-            <h2 className="font-['Playfair_Display'] text-3xl font-black mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: result.title }}></h2>
-            <p className="text-base text-[#e8ecf5] leading-relaxed max-w-lg mx-auto mb-8" dangerouslySetInnerHTML={{ __html: result.remark }}></p>
-            <div className="h-px bg-[rgba(245,197,24,0.2)] my-7"></div>
-            <h4 className="text-xs uppercase tracking-wider text-[#f5c518] mb-4 font-semibold">Your Leadership Insights</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
-              {result.tips.map((tip, i) => (
-                <div key={i} className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-xl p-4 text-xs text-[#e8ecf5] leading-relaxed">
-                  <strong className="text-[#f5c518] block mb-1 uppercase tracking-wide">{tip.h}</strong>
-                  {tip.b}
-                </div>
-              ))}
-            </div>
-            <div className="mt-9 flex gap-3 justify-center flex-wrap">
-              <a href="/CollegePrograms" className="bg-[#f5c518] text-[#0d1b3e] px-6 py-3 rounded-2xl text-sm font-bold no-underline inline-block hover:bg-[#e6b800] transition-colors">
-                Enroll in Program
-              </a>
-              <button
-                onClick={retakeAssessment}
-                className="border-2 border-[rgba(245,197,24,0.4)] text-[#f5c518] px-5 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer bg-transparent hover:border-[#f5c518] transition-colors"
-              >
-                Retake Assessment
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Buttons */}
-        {!showResult && (
-          <div className="flex justify-between items-center gap-4 flex-wrap">
-            <motion.button
-              onClick={prevQ}
-              disabled={current === 0}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-transparent border-2 border-[rgba(255,255,255,0.15)] text-[#8fa0c0] px-5 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer hover:border-[#f5c518] hover:text-[#f5c518] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              Previous
-            </motion.button>
-            {current < 12 ? (
-              <motion.button
-                onClick={nextQ}
-                disabled={answers[current] === null}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-[#f5c518] text-[#0d1b3e] px-7 py-3 rounded-2xl text-sm font-bold cursor-pointer hover:bg-[#e6b800] hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                Next Question
-              </motion.button>
-            ) : (
-              <motion.button
-                onClick={submitAssessment}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-[#f5c518] text-[#0d1b3e] px-7 py-3 rounded-2xl text-sm font-bold cursor-pointer hover:bg-[#e6b800] hover:-translate-y-0.5 transition-all"
-              >
-                Get My Results
-              </motion.button>
             )}
-          </div>
-        )}
+
+            {/* Progress bar */}
+            {!showResult && (
+              <div className="bg-[#111e3d] border border-[rgba(245,197,24,0.1)] rounded-xl p-5 mb-9">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-xs text-[#8fa0c0]">Progress</span>
+                  <span className="text-xs font-semibold text-[#f5c518]">{Math.min(current + 1, 13)} of 13</span>
+                </div>
+                <div className="h-1.5 bg-[rgba(255,255,255,0.08)] rounded-lg overflow-hidden">
+                  <motion.div className="h-full bg-[#f5c518] rounded-lg"
+                    animate={{ width: `${progressPercent}%` }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}/>
+                </div>
+              </div>
+            )}
+
+            {/* Questions + Contact form */}
+            <AnimatePresence mode="wait">
+              {!showResult && current < 12 && (
+                <motion.div key={current} variants={questionVariants}
+                  initial="initial" animate="animate" exit="exit"
+                  transition={{ duration: 0.3 }}
+                  className="bg-[#111e3d] border border-[rgba(245,197,24,0.12)] rounded-2xl p-9 mb-6">
+                  <div className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-4">Question {Math.min(current+1,13)} of 13</div>
+                  <h2 className="font-['Playfair_Display'] text-xl font-bold leading-relaxed mb-7">{questions[current].q}</h2>
+                  <div className="space-y-3">
+                    {questions[current].options.map((option, i) => (
+                      <motion.div key={i} variants={optionVariants} initial="initial"
+                        animate={answers[current]===i?"selected":"animate"}
+                        whileHover={{scale:1.02,boxShadow:"0 0 15px rgba(245,197,24,0.3)"}}
+                        whileTap={{scale:1.05}} transition={{duration:0.2}}
+                        className={`flex items-start gap-4 bg-[rgba(255,255,255,0.03)] border-2 border-[rgba(255,255,255,0.1)] rounded-xl p-4 cursor-pointer transition-all duration-200 hover:border-[rgba(245,197,24,0.4)] hover:bg-[rgba(245,197,24,0.05)] ${answers[current]===i?'border-[#f5c518] bg-[rgba(245,197,24,0.1)]':''}`}
+                        onClick={()=>selectOption(i)}>
+                        <div className={`w-7 h-7 min-w-7 rounded-lg border-2 flex items-center justify-center text-xs font-semibold transition-all duration-200 ${answers[current]===i?'bg-[#f5c518] border-[#f5c518] text-[#0d1b3e]':'border-[rgba(255,255,255,0.2)] text-[#8fa0c0]'}`}>
+                          {String.fromCharCode(65+i)}
+                        </div>
+                        <div className="text-sm leading-relaxed pt-1 text-[#e8ecf5]">{option}</div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {!showResult && current === 12 && (
+                <motion.div key={current} variants={questionVariants}
+                  initial="initial" animate="animate" exit="exit"
+                  transition={{ duration: 0.3 }}
+                  className="bg-[#111e3d] border-2 border-[rgba(245,197,24,0.2)] rounded-2xl p-9 mb-6">
+                  <h3 className="font-['Playfair_Display'] text-2xl font-bold mb-2">Almost Done!</h3>
+                  <p className="text-[#8fa0c0] text-sm mb-7 leading-relaxed">Enter your details to receive your personalized leadership profile via email.</p>
+                  <div className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-4">Question 13 of 13</div>
+                  <div className="space-y-5">
+                    {[
+                      { label:'Full Name', type:'text', val:userName, set:setUserName, ph:'Enter your full name' },
+                      { label:'Contact Number', type:'tel', val:userPhone, set:setUserPhone, ph:'Enter your phone number' },
+                      { label:'Email Address', type:'email', val:userEmail, set:setUserEmail, ph:'Enter your email address' },
+                      { label:'State', type:'text', val:userState, set:setUserState, ph:'Enter your state' },
+                      { label:'City', type:'text', val:userCity, set:setUserCity, ph:'Enter your city' },
+                      { label:'Pincode', type:'text', val:userPincode, set:setUserPincode, ph:'Enter your pincode' },
+                      { label:'Organization / Institution', type:'text', val:userOrganization, set:setUserOrganization, ph:'Enter your organization/institution' },
+                    ].map(({ label, type, val, set, ph }) => (
+                      <div key={label}>
+                        <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">{label}</label>
+                        <input type={type} value={val} onChange={e=>set(e.target.value)}
+                          className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
+                          placeholder={ph}/>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* ════════════════════════════════════════
+                CERTIFICATE RESULT CARD (Premium Design)
+            ════════════════════════════════════════ */}
+            {showResult && result && (
+              <div className="cert-root">
+
+                <div className="cert-card">
+                  <div className="cert-shimmer"></div>
+                  <div className="cert-texture"></div>
+                  <div className="cert-ring1"></div>
+                  <div className="cert-ring2"></div>
+                  <div className="cert-watermark">LLA</div>
+
+                  <div className="cert-corner tl"><Corner/></div>
+                  <div className="cert-corner tr"><Corner/></div>
+                  <div className="cert-corner bl"><Corner/></div>
+                  <div className="cert-corner br"><Corner/></div>
+
+                  <div className="cert-header">
+                    <div className="cert-logo-row">
+                      <img src="/Logo.jpeg" alt="Living Leadership Academy" className="cert-logo-img"/>
+                      <div>
+                        <span className="cert-logo-name">Living Leadership</span>
+                        <span className="cert-logo-tagline">Academy · India</span>
+                      </div>
+                    </div>
+                    <div className="cert-header-right">
+                      <span className="cert-cert-of">Certificate of</span>
+                      <span className="cert-cert-title">Campus Leadership Profile</span>
+                    </div>
+                  </div>
+
+                  <div className="cert-body">
+                    <span className="cert-certifies-line">— This certifies that —</span>
+                    <span className="cert-name">{userName}</span>
+                    <span className="cert-org-line">
+                      {userOrganization && <>{userOrganization} &nbsp;·&nbsp; </>}
+                      {userCity && userState ? `${userCity}, ${userState}` : (userCity || userState)}
+                    </span>
+
+                    <div className="cert-orn">
+                      <div className="cert-orn-line"></div>
+                      <span className="cert-orn-star">✦</span>
+                      <div className="cert-orn-line"></div>
+                      <span className="cert-orn-star">✦</span>
+                      <div className="cert-orn-line"></div>
+                    </div>
+
+                    <div style={{marginBottom:'16px'}}>
+                      <div className="cert-badge">
+                        <span className="cert-badge-dot"></span>
+                        <span className="cert-badge-icon">{result.icon}</span>
+                        <span className="cert-badge-text">{result.badge}</span>
+                        <span className="cert-badge-dot"></span>
+                      </div>
+                      <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'10px',color:'rgba(122,95,0,0.6)',letterSpacing:'1.5px',textTransform:'uppercase',marginTop:'6px'}}>{result.level}</p>
+                    </div>
+
+                    <h3 className="cert-profile-title" dangerouslySetInnerHTML={{ __html: result.title }}/>
+                    <div className="cert-orn">
+                      <div className="cert-orn-line"></div>
+                      <span className="cert-orn-star">✦</span>
+                      <div className="cert-orn-line"></div>
+                    </div>
+
+                    {/* Journey / Welcome */}
+                    <div style={{textAlign:'left',maxWidth:'500px',margin:'0 auto 20px',background:'rgba(201,162,39,0.07)',border:'1px solid rgba(201,162,39,0.28)',borderRadius:'12px',padding:'16px 20px'}}>
+                      <p style={{fontFamily:'Cinzel,serif',fontSize:'9px',fontWeight:'700',letterSpacing:'2px',textTransform:'uppercase',color:'#8a6200',marginBottom:'8px'}}>❤️ {result.journeyTitle}</p>
+                      <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'12.5px',color:'#3d2e00',lineHeight:'1.85',whiteSpace:'pre-line'}}>{result.journeyBody}</p>
+                    </div>
+
+                    {/* What This Means */}
+                    <div style={{textAlign:'left',maxWidth:'500px',margin:'0 auto 20px',background:'rgba(201,162,39,0.04)',border:'1px solid rgba(201,162,39,0.18)',borderRadius:'12px',padding:'16px 20px'}}>
+                      <p style={{fontFamily:'Cinzel,serif',fontSize:'9px',fontWeight:'700',letterSpacing:'2px',textTransform:'uppercase',color:'#8a6200',marginBottom:'8px'}}>🧠 What This Means About You</p>
+                      <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'12.5px',color:'#3d2e00',lineHeight:'1.8'}}>{result.meaning}</p>
+                    </div>
+
+                    <span className="cert-insights-title">✦ &nbsp; Leadership Insights &nbsp; ✦</span>
+                    <div className="cert-insights-grid">
+                      {result.tips.map((tip,i)=>(
+                        <div key={i} className="cert-insight">
+                          <span className="cert-insight-h">{tip.h}</span>
+                          <span className="cert-insight-b">{tip.b}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Personal Reflection */}
+                    <div style={{textAlign:'left',maxWidth:'500px',margin:'0 auto 20px',background:'rgba(201,162,39,0.04)',border:'1px solid rgba(201,162,39,0.18)',borderRadius:'12px',padding:'16px 20px'}}>
+                      <p style={{fontFamily:'Cinzel,serif',fontSize:'9px',fontWeight:'700',letterSpacing:'2px',textTransform:'uppercase',color:'#8a6200',marginBottom:'10px'}}>🔥 Personal Reflection</p>
+                      {result.reflections.map((r,i)=>(
+                        <p key={i} style={{fontFamily:'DM Sans,sans-serif',fontSize:'12.5px',color:'#3d2e00',lineHeight:'1.8',marginBottom:'6px'}}>• {r}</p>
+                      ))}
+                    </div>
+
+                    {/* Next Step */}
+                    <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'12px',color:'rgba(122,95,0,0.7)',fontStyle:'italic',marginBottom:'16px'}}>👉 {result.nextStep}</p>
+                    <p className="cert-assessment-note">
+                      {ASSESSMENT_TYPE} &nbsp;·&nbsp; www.livingleadershipacademy.com
+                    </p>
+                  </div>
+
+                  <div className="cert-footer">
+                    <div className="cert-sig">
+                      <span className="cert-sig-name">Satheesh Kumar S</span>
+                      <div className="cert-sig-line"></div>
+                      <span className="cert-sig-role">Founder &amp; CEO</span>
+                    </div>
+                    <div className="cert-seal">
+                      <span className="cert-seal-icon">🦁</span>
+                      <span className="cert-seal-label">Official</span>
+                    </div>
+                    <div className="cert-date">
+                      <span className="cert-date-label">Issued on</span>
+                      <span className="cert-date-value">{currentDate}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {emailStatus && (
+                  <p style={{textAlign:'center',marginTop:'12px',fontSize:'12px',color:emailStatus.startsWith('✅')?'#4ade80':'#8fa0c0'}}>
+                    {emailStatus}
+                  </p>
+                )}
+
+                <div className="cert-actions">
+                  <a href="/CollegePrograms" className="cert-btn-enroll">Enroll in Program →</a>
+                  <button onClick={retakeAssessment} className="cert-btn-retake">Retake Assessment</button>
+                </div>
+                <p className="cert-website-note">www.livingleadershipacademy.com</p>
+              </div>
+            )}
+
+            {/* Navigation buttons */}
+            {!showResult && (
+              <div className="flex justify-between items-center gap-4 flex-wrap">
+                <motion.button onClick={prevQ} disabled={current===0}
+                  whileHover={{scale:1.05}} whileTap={{scale:0.95}}
+                  className="bg-transparent border-2 border-[rgba(255,255,255,0.15)] text-[#8fa0c0] px-5 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer hover:border-[#f5c518] hover:text-[#f5c518] transition-all disabled:opacity-40 disabled:cursor-not-allowed">
+                  Previous
+                </motion.button>
+                {current < 12 ? (
+                  <motion.button onClick={nextQ} disabled={answers[current]===null}
+                    whileHover={{scale:1.05}} whileTap={{scale:0.95}}
+                    className="bg-[#f5c518] text-[#0d1b3e] px-7 py-3 rounded-2xl text-sm font-bold cursor-pointer hover:bg-[#e6b800] hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed">
+                    Next Question
+                  </motion.button>
+                ):(
+                  <motion.button onClick={submitAssessment}
+                    whileHover={{scale:1.05}} whileTap={{scale:0.95}}
+                    className="bg-[#f5c518] text-[#0d1b3e] px-7 py-3 rounded-2xl text-sm font-bold cursor-pointer hover:bg-[#e6b800] hover:-translate-y-0.5 transition-all">
+                    Get My Results
+                  </motion.button>
+                )}
+              </div>
+            )}
+
           </section>
         </div>
       </main>
+
       <footer className="bg-[#0b1832] text-white py-3 text-center border-t border-[#f5c518]/20">
         <p className="text-xs opacity-75">© 2026 Living Leadership Academy. All rights reserved.</p>
       </footer>

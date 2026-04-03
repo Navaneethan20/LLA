@@ -88,12 +88,22 @@ const results = [
     icon: "🔥",
     badge: "TRANSFORMATIONAL LEADER",
     title: "You Are a <span>Transformational Leader</span>",
-    remark: "You are a top-level educator who builds character, shapes future leaders, and creates societal impact. Your teaching goes beyond academics to transform lives and inspire the next generation of leaders.",
+    levelLabel: "Level 5 (91–100)",
+    welcome: "Welcome to the Living Leadership Family. You are not just an educator… You are a life shaper. Your students don't just remember lessons — They remember who they became because of you.",
+    realityTitle: "Your Leadership Reality",
+    reality: "You demonstrate strong character, emotional intelligence, and purpose-driven leadership. You are building something bigger than a classroom.",
+    blindSpotTitle: "Your Blind Spot",
+    blindSpot: "Even at this level: Impact must become legacy.",
+    growthTitle: "Your Growth Journey",
+    growth: ["Mentoring educators", "Building leadership systems", "Expanding societal impact"],
+    reflectionTitle: "Personal Reflection",
+    reflection: ["How can I build leaders who build others?", "What impact will continue after me?"],
+    commitment: "Lead Beyond Yourself",
     tips: [
-      { h: "Strengths", b: "Character building, leadership development, societal impact" },
-      { h: "Growth Areas", b: "Scaling impact, mentoring systems" },
-      { h: "Next Steps", b: "Lead educational initiatives, influence policy" },
-      { h: "Impact", b: "Shapes future citizens and leaders" }
+      { h: "Leadership Reality", b: "Strong character, emotional intelligence, purpose-driven leadership" },
+      { h: "Blind Spot", b: "Impact must become legacy" },
+      { h: "Growth Journey", b: "Mentoring educators, building leadership systems, expanding societal impact" },
+      { h: "Personal Reflection", b: "How can I build leaders who build others?" }
     ]
   },
   {
@@ -102,26 +112,46 @@ const results = [
     icon: "🌟",
     badge: "INFLUENTIAL EDUCATOR",
     title: "You Are an <span>Influential Educator</span>",
-    remark: "You inspire students with strong communication and leadership presence. Your teaching creates lasting impact and motivates students to become better versions of themselves.",
+    levelLabel: "Level 4 (76–90)",
+    welcome: "Welcome to the Living Leadership Family. You are not just teaching… You are shaping lives. Students remember you. They are influenced by you. That is rare and powerful.",
+    realityTitle: "Your Leadership Reality",
+    reality: "You demonstrate strong communication, leadership presence, and the ability to inspire. You are already a leader in your environment.",
+    blindSpotTitle: "Your Blind Spot",
+    blindSpot: "But leadership at this level demands more: Influence must become impact.",
+    growthTitle: "Your Growth Journey",
+    growth: ["Mentoring students as leaders", "Expanding influence beyond classroom", "Creating systems of impact"],
+    reflectionTitle: "Personal Reflection",
+    reflection: ["Who is becoming a leader because of me?", "What legacy am I building as an educator?"],
+    commitment: "Multiply Your Leadership Impact",
     tips: [
-      { h: "Strengths", b: "Inspiration, communication, leadership presence" },
-      { h: "Growth Areas", b: "Character focus, transformational thinking" },
-      { h: "Next Steps", b: "Develop leadership programs, mentor students" },
-      { h: "Impact", b: "Student motivation and growth" }
+      { h: "Leadership Reality", b: "Strong communication, leadership presence, ability to inspire" },
+      { h: "Blind Spot", b: "Influence must become impact" },
+      { h: "Growth Journey", b: "Mentoring students as leaders, expanding influence, creating systems of impact" },
+      { h: "Personal Reflection", b: "Who is becoming a leader because of me?" }
     ]
   },
   {
     min: 61,
     max: 75,
     icon: "🌳",
-    badge: "ENGAGING TEACHER",
-    title: "You Are an <span>Engaging Teacher</span>",
-    remark: "You excel at student connection and take responsibility for their development. Your engaging style creates a positive learning environment where students feel supported and motivated.",
+    badge: "ENGAGING EDUCATOR",
+    title: "You Are an <span>Engaging Educator</span>",
+    levelLabel: "Level 3 (61–75)",
+    welcome: "Welcome to the Living Leadership Family. Students don't just learn from you… They feel connected to you. Your classroom has life. Your presence has warmth. And that is powerful.",
+    realityTitle: "Your Leadership Reality",
+    reality: "You are strong in student connection, responsibility, and engagement. You are already influencing — whether you realize it or not.",
+    blindSpotTitle: "Your Blind Spot",
+    blindSpot: "You are engaging students… But are you developing leaders?",
+    growthTitle: "Your Growth Journey",
+    growth: ["Leadership expansion", "Influence beyond classroom", "Student leadership development"],
+    reflectionTitle: "Personal Reflection",
+    reflection: ["Am I creating followers or future leaders?", "How far does my influence go beyond my class?"],
+    commitment: "Step Into Leadership Influence",
     tips: [
-      { h: "Strengths", b: "Student connection, responsibility, engagement" },
-      { h: "Growth Areas", b: "Leadership expansion, societal impact" },
-      { h: "Next Steps", b: "Expand influence beyond classroom" },
-      { h: "Impact", b: "Positive classroom environment" }
+      { h: "Leadership Reality", b: "Strong student connection, responsibility, and engagement" },
+      { h: "Blind Spot", b: "Engaging students — but are you developing leaders?" },
+      { h: "Growth Journey", b: "Leadership expansion, influence beyond classroom, student leadership development" },
+      { h: "Personal Reflection", b: "Am I creating followers or future leaders?" }
     ]
   },
   {
@@ -130,12 +160,22 @@ const results = [
     icon: "🌿",
     badge: "DEVELOPING EDUCATOR",
     title: "You Are a <span>Developing Educator</span>",
-    remark: "You are improving your teaching and beginning to reflect on your impact. Focus on building consistency and relational growth to become a more effective educational leader.",
+    levelLabel: "Level 2 (41–60)",
+    welcome: "Welcome to the Living Leadership Family. You are growing. You are trying. You are becoming aware. And that's a powerful place to be. You are no longer just teaching… You are beginning to think like a leader.",
+    realityTitle: "Your Leadership Reality",
+    reality: "You are improving your teaching and beginning reflection. You care. You are making an effort. But consistency is still forming.",
+    blindSpotTitle: "Your Blind Spot",
+    blindSpot: "Inconsistent leadership behavior, emotional reactions under pressure, and limited relational depth.",
+    growthTitle: "Your Growth Journey",
+    growth: ["Consistency in behavior", "Stronger emotional control", "Deeper student relationships"],
+    reflectionTitle: "Personal Reflection",
+    reflection: ["When I am stressed, do I respond or react?", "Do my students trust me or just listen to me?"],
+    commitment: "Unlock Your Next Level as an Educator",
     tips: [
-      { h: "Strengths", b: "Teaching improvement, reflection" },
-      { h: "Growth Areas", b: "Consistency, relational growth" },
-      { h: "Next Steps", b: "Build daily habits, focus on relationships" },
-      { h: "Impact", b: "Better teaching effectiveness" }
+      { h: "Leadership Reality", b: "Improving teaching, beginning reflection, making consistent effort" },
+      { h: "Blind Spot", b: "Inconsistent leadership behavior, emotional reactions under pressure" },
+      { h: "Growth Journey", b: "Consistency in behavior, stronger emotional control, deeper student relationships" },
+      { h: "Personal Reflection", b: "Do my students trust me or just listen to me?" }
     ]
   },
   {
@@ -144,15 +184,26 @@ const results = [
     icon: "🌱",
     badge: "INSTRUCTOR",
     title: "You Are an <span>Instructor</span>",
-    remark: "You focus on content delivery with limited leadership awareness. Consider a mindset shift and developing emotional intelligence to grow into a more impactful educator.",
+    levelLabel: "Level 1 (0–40)",
+    welcome: "Welcome to the Living Leadership Family. You are showing up. You are teaching. You are doing your responsibility. And that matters more than you think. But deep inside… there may be a question: \"Am I truly impacting my students… or just completing lessons?\"",
+    realityTitle: "Your Leadership Reality",
+    reality: "Right now, your focus is on content delivery. Your classroom is functional — but leadership is still developing. Students are learning subjects… But are they learning from you?",
+    blindSpotTitle: "Your Blind Spot",
+    blindSpot: "Limited leadership awareness, low emotional connection, and reactive teaching under pressure.",
+    growthTitle: "Your Growth Journey",
+    growth: ["Mindset shift (Teacher → Leader)", "Emotional intelligence", "Awareness of student needs"],
+    reflectionTitle: "Personal Reflection",
+    reflection: ["What do my students feel when they enter my class?", "Do they remember my lessons… or my impact?"],
+    commitment: "Start Your Leadership Transformation",
     tips: [
-      { h: "Strengths", b: "Content knowledge, basic delivery" },
-      { h: "Growth Areas", b: "Mindset shift, emotional intelligence" },
-      { h: "Next Steps", b: "Reflect on impact, learn leadership skills" },
-      { h: "Impact", b: "Academic content delivery" }
+      { h: "Leadership Reality", b: "Focus on content delivery; classroom is functional but leadership is developing" },
+      { h: "Blind Spot", b: "Limited leadership awareness, low emotional connection, reactive under pressure" },
+      { h: "Growth Journey", b: "Mindset shift to leader, emotional intelligence, awareness of student needs" },
+      { h: "Personal Reflection", b: "Do they remember my lessons… or my impact?" }
     ]
   }
 ];
+
 
 export default function TeacherQuiz() {
   const [current, setCurrent] = useState(0);
@@ -160,6 +211,10 @@ export default function TeacherQuiz() {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPhone, setUserPhone] = useState('');
+  const [userState, setUserState] = useState('');
+  const [userCity, setUserCity] = useState('');
+  const [userPincode, setUserPincode] = useState('');
+  const [userOrganization, setUserOrganization] = useState('');
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState(null);
   const [emailStatus, setEmailStatus] = useState('');
@@ -191,6 +246,22 @@ export default function TeacherQuiz() {
       alert('Please enter a valid contact number.');
       return;
     }
+    if (!userState.trim()) {
+      alert('Please enter your state.');
+      return;
+    }
+    if (!userCity.trim()) {
+      alert('Please enter your city.');
+      return;
+    }
+    if (!userPincode.trim()) {
+      alert('Please enter your pincode.');
+      return;
+    }
+    if (!userOrganization.trim()) {
+      alert('Please enter your organization/institution.');
+      return;
+    }
 
     const totalScore = answers.reduce((sum, a, i) => a !== null ? sum + questions[i].scores[a] : sum, 0);
     const scaledScore = Math.round((totalScore / 60) * 100);
@@ -198,10 +269,10 @@ export default function TeacherQuiz() {
     setResult(AssessmentResult);
     setShowResult(true);
 
-    sendResultEmail(userName, userEmail, userPhone, scaledScore, AssessmentResult, answers);
+    sendResultEmail(userName, userEmail, userPhone, userState, userCity, userPincode, userOrganization, scaledScore, AssessmentResult, answers);
   };
 
-  const sendResultEmail = async (name, email, phone, score, result, ans) => {
+  const sendResultEmail = async (name, email, phone, state, city, pincode, organization, score, result, ans) => {
     setEmailStatus('📧 Sending results...');
 
     const answerDetails = questions.map((q, i) => {
@@ -216,6 +287,10 @@ NEW Assessment RESULT — ${ASSESSMENT_TYPE}
 Name: ${name}
 Email: ${email}
 Phone: ${phone}
+State: ${state}
+City: ${city}
+Pincode: ${pincode}
+Organization/Institution: ${organization}
 Assessment: ${ASSESSMENT_TYPE}
 Total Score: ${score} / 100
 Leadership Profile: ${result.badge}
@@ -224,8 +299,12 @@ Date: ${new Date().toLocaleString('en-IN')}
 DETAILED ANSWERS:
 ${answerDetails}
 
-PROFILE REMARK:
-${result.remark.replace(/<[^>]+>/g, '')}
+PROFILE SUMMARY:
+${result.welcome}
+
+Blind Spot: ${result.blindSpot}
+Growth Journey: ${result.growth.join(', ')}
+Commitment: ${result.commitment}
 =====================================
     `;
 
@@ -249,6 +328,10 @@ ${result.remark.replace(/<[^>]+>/g, '')}
     setUserName('');
     setUserEmail('');
     setUserPhone('');
+    setUserState('');
+    setUserCity('');
+    setUserPincode('');
+    setUserOrganization('');
     setShowResult(false);
     setResult(null);
     setEmailStatus('');
@@ -414,6 +497,54 @@ ${result.remark.replace(/<[^>]+>/g, '')}
                     placeholder="Enter your email address"
                   />
                 </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">
+                    State
+                  </label>
+                  <input
+                    type="text"
+                    value={userState}
+                    onChange={(e) => setUserState(e.target.value)}
+                    className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
+                    placeholder="Enter your state"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    value={userCity}
+                    onChange={(e) => setUserCity(e.target.value)}
+                    className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
+                    placeholder="Enter your city"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">
+                    Pincode
+                  </label>
+                  <input
+                    type="text"
+                    value={userPincode}
+                    onChange={(e) => setUserPincode(e.target.value)}
+                    className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
+                    placeholder="Enter your pincode"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#f5c518] uppercase tracking-wide mb-2">
+                    Organization/Institution
+                  </label>
+                  <input
+                    type="text"
+                    value={userOrganization}
+                    onChange={(e) => setUserOrganization(e.target.value)}
+                    className="w-full bg-[rgba(255,255,255,0.05)] border-2 border-[rgba(255,255,255,0.12)] rounded-xl px-4 py-3 text-white text-sm font-['DM_Sans'] outline-none focus:border-[#f5c518] transition-colors"
+                    placeholder="Enter your organization/institution"
+                  />
+                </div>
               </div>
             </motion.div>
           )}
@@ -421,33 +552,77 @@ ${result.remark.replace(/<[^>]+>/g, '')}
 
         {/* Result Card */}
         {showResult && result && (
-          <div className="bg-[#111e3d] border-4 border-[#f5c518] rounded-3xl p-12 text-center animate-fadeIn">
-            <div className="text-6xl mb-5">{result.icon}</div>
-            <div className="inline-block bg-[#f5c518] text-[#0d1b3e] text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-2xl mb-5">
-              {result.badge}
+          <div className="bg-[#111e3d] border-4 border-[#f5c518] rounded-3xl p-8 md:p-12 animate-fadeIn">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <div className="text-6xl mb-5">{result.icon}</div>
+              <div className="inline-block bg-[#f5c518] text-[#0d1b3e] text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-2xl mb-2">
+                {result.badge}
+              </div>
+              <p className="text-[#8fa0c0] text-xs mb-4">{result.levelLabel}</p>
+              <h2 className="font-['Playfair_Display'] text-3xl font-black mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: result.title }}></h2>
             </div>
-            <h2 className="font-['Playfair_Display'] text-3xl font-black mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: result.title }}></h2>
-            <p className="text-base text-[#e8ecf5] leading-relaxed max-w-lg mx-auto mb-8" dangerouslySetInnerHTML={{ __html: result.remark }}></p>
-            <div className="h-px bg-[rgba(245,197,24,0.2)] my-7"></div>
-            <h4 className="text-xs uppercase tracking-wider text-[#f5c518] mb-4 font-semibold">Your Leadership Insights</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
-              {result.tips.map((tip, i) => (
-                <div key={i} className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-xl p-4 text-xs text-[#e8ecf5] leading-relaxed">
-                  <strong className="text-[#f5c518] block mb-1 uppercase tracking-wide">{tip.h}</strong>
-                  {tip.b}
-                </div>
-              ))}
+
+            {/* What We See In You */}
+            <div className="bg-[rgba(245,197,24,0.06)] border border-[rgba(245,197,24,0.2)] rounded-2xl p-6 mb-5">
+              <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">What We See in You</h4>
+              <p className="text-sm text-[#e8ecf5] leading-relaxed">{result.welcome}</p>
             </div>
-            <div className="mt-9 flex gap-3 justify-center flex-wrap">
-              <a href="/CorporatePrograms" className="bg-[#f5c518] text-[#0d1b3e] px-6 py-3 rounded-2xl text-sm font-bold no-underline inline-block hover:bg-[#e6b800] transition-colors">
-                Enroll in Program
-              </a>
-              <button
-                onClick={retakeQuiz}
-                className="border-2 border-[rgba(245,197,24,0.4)] text-[#f5c518] px-5 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer bg-transparent hover:border-[#f5c518] transition-colors"
-              >
-                Retake Assessment
-              </button>
+
+            {/* 2-col: Reality + Blind Spot */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+              <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5">
+                <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.realityTitle}</h4>
+                <p className="text-sm text-[#e8ecf5] leading-relaxed">{result.reality}</p>
+              </div>
+              <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5">
+                <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.blindSpotTitle}</h4>
+                <p className="text-sm text-[#e8ecf5] leading-relaxed">{result.blindSpot}</p>
+              </div>
+            </div>
+
+            {/* Growth Journey */}
+            <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5 mb-5">
+              <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.growthTitle}</h4>
+              <ul className="space-y-2">
+                {result.growth.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-[#e8ecf5]">
+                    <span className="text-[#f5c518] mt-0.5">→</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Personal Reflection */}
+            <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5 mb-8">
+              <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.reflectionTitle}</h4>
+              <ul className="space-y-2">
+                {result.reflection.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-[#e8ecf5] italic">
+                    <span className="text-[#f5c518] not-italic mt-0.5">●</span>
+                    <span>"{item}"</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="h-px bg-[rgba(245,197,24,0.2)] mb-8"></div>
+
+            {/* Commitment CTA */}
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-wider text-[#8fa0c0] mb-4 font-semibold">Your Commitment</p>
+              <div className="flex gap-3 justify-center flex-wrap">
+                <a href="/CorporatePrograms" className="bg-[#f5c518] text-[#0d1b3e] px-6 py-3 rounded-2xl text-sm font-bold no-underline inline-block hover:bg-[#e6b800] transition-colors">
+                  {result.commitment}
+                </a>
+                <button
+                  onClick={retakeQuiz}
+                  className="border-2 border-[rgba(245,197,24,0.4)] text-[#f5c518] px-5 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer bg-transparent hover:border-[#f5c518] transition-colors"
+                >
+                  Retake Assessment
+                </button>
+              </div>
             </div>
           </div>
         )}

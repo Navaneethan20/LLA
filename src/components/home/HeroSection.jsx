@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
@@ -43,13 +44,13 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-3 sm:gap-4">
-            <button
-              onClick={() => document.getElementById("enroll")?.scrollIntoView({ behavior: "smooth" })}
+            <Link
+              to="/Assessment"
               className="group flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#D4AF37] text-[#0B1832] font-black text-sm hover:bg-[#F0CE6A] transition-all pulse-gold hover:shadow-xl hover:shadow-[#D4AF37]/30 hover:scale-105"
             >
-              Enroll Now
+              Take Assessment
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
             <button
   onClick={() =>
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
