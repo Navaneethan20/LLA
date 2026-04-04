@@ -152,14 +152,9 @@ const questions = [
 const results = [
   {
     min: 0, max: 40,
-    icon: "🌱", badge: "DIRECTION SEEKER", level: "Level 1",
-    title: "You Are a <span>Direction Seeker</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are at a stage where life feels unclear and uncertain. You may be doing things… but not fully knowing why.\n\nAnd that's okay.\n\nBecause this is where real discovery begins.",
-    meaning: "Right now, you are exploring, searching, and still discovering yourself. But direction is still forming.",
+    badge: "DIRECTION SEEKER",
+    title: "Direction Seeker",
     remark: "You're exploring leadership and need more clarity and guidance. This is a normal starting point — focus on developing your character and building self-discipline.",
-    reflections: ["What do I really want in life?", "Am I choosing… or just following?"],
-    nextStep: "Move from confusion → to clarity.",
     tips: [
       { h: "Growth Edge", b: "Lack of clarity about future, low self-awareness, dependence on external direction" },
       { h: "Next Level Path", b: "Discover your strengths · Build self-awareness · Seek guidance intentionally" },
@@ -169,14 +164,9 @@ const results = [
   },
   {
     min: 41, max: 60,
-    icon: "🌿", badge: "EMERGING INDIVIDUAL", level: "Level 2",
-    title: "You Are an <span>Emerging Individual</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are beginning to wake up to your potential. You are more aware than before.\n\nBut consistency is still a challenge.",
-    meaning: "You are becoming aware, trying to improve, and taking small steps — but discipline is still building.",
+    badge: "EMERGING INDIVIDUAL",
+    title: "Emerging Individual",
     remark: "You're growing in self-awareness and developing leadership potential. Focus on building relational skills and consistency to become a more effective leader.",
-    reflections: ["What stops me from being consistent?", "Do I start strong but stop halfway?"],
-    nextStep: "Move from awareness → to action.",
     tips: [
       { h: "Growth Edge", b: "Inconsistent habits, lack of discipline, easily distracted" },
       { h: "Next Level Path", b: "Build daily discipline · Create clear goals · Stay consistent" },
@@ -186,14 +176,9 @@ const results = [
   },
   {
     min: 61, max: 75,
-    icon: "🌳", badge: "DEVELOPING LEADER", level: "Level 3",
-    title: "You Are a <span>Developing Leader</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are no longer just thinking —\n👉 You are taking responsibility.\n\nYou are building habits that matter.",
-    meaning: "You show responsibility, effort, and a growth mindset. You are stepping into leadership. But here's the deeper question: 👉 Are you leading yourself… or preparing to lead others?",
+    badge: "DEVELOPING LEADER",
+    title: "Developing Leader",
     remark: "You show responsibility and are building strong leadership habits. With continued growth in confidence and societal leadership, you'll become a well-rounded leader.",
-    reflections: ["Do others see me as a leader?", "Am I influencing or just participating?"],
-    nextStep: "Move from self-growth → to influence.",
     tips: [
       { h: "Growth Edge", b: "Are you leading yourself… or preparing to lead others?" },
       { h: "Next Level Path", b: "Strengthen leadership habits · Improve communication · Take initiative in groups" },
@@ -203,14 +188,9 @@ const results = [
   },
   {
     min: 76, max: 90,
-    icon: "🌟", badge: "INFLUENTIAL STUDENT", level: "Level 4",
-    title: "You Are an <span>Influential Student</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are confident. You take initiative. People notice you.\n\n👉 Your presence has influence.",
-    meaning: "You demonstrate confidence, proactiveness, and peer influence. You are already leading — even without a title. But influence must become: 👉 Purpose-driven leadership.",
+    badge: "INFLUENTIAL STUDENT",
+    title: "Influential Student",
     remark: "You're confident, proactive, and already influencing your peers. With your relational skills, you're positioned to drive positive change in your community.",
-    reflections: ["What am I influencing others towards?", "Am I leading with purpose or popularity?"],
-    nextStep: "Move from influence → to purpose.",
     tips: [
       { h: "Growth Edge", b: "Influence must become purpose-driven leadership" },
       { h: "Next Level Path", b: "Develop clear purpose · Lead meaningful initiatives · Use influence responsibly" },
@@ -220,14 +200,9 @@ const results = [
   },
   {
     min: 91, max: 100,
-    icon: "🔥", badge: "FUTURE LEADER", level: "Level 5",
-    title: "You Are a <span>Future Leader</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are not just preparing for success…\n👉 You are preparing for impact.\n\nYou think beyond yourself. You act with purpose.",
-    meaning: "You demonstrate purpose-driven thinking, a leadership mindset, and responsibility for impact. You are ready for leadership roles.",
+    badge: "FUTURE LEADER",
+    title: "Future Leader",
     remark: "You demonstrate exceptional leadership potential! You're purpose-driven, strategic, and ready to take on significant leadership roles that can inspire and guide others toward meaningful change.",
-    reflections: ["What difference will I make in the world?", "Who will grow because of me?"],
-    nextStep: "Lead with purpose. Impact with intention.",
     tips: [
       { h: "Growth Edge", b: "Growth must become legacy — your impact must extend beyond campus" },
       { h: "Next Level Path", b: "Lead real-world projects · Mentor peers · Create impact beyond campus" },
@@ -441,7 +416,7 @@ export default function CampusQuiz() {
                   </div>
 
                   <div className="cert-body">
-                    <span className="cert-certifies-line">— This certifies that —</span>
+                    <span className="cert-certifies-line">— <strong> This certifies that </strong> —</span>
                     <span className="cert-name">{userName}</span>
                     <span className="cert-org-line">
                       {userOrganization && <>{userOrganization} &nbsp;·&nbsp; </>}
@@ -459,32 +434,22 @@ export default function CampusQuiz() {
                     <div style={{marginBottom:'16px'}}>
                       <div className="cert-badge">
                         <span className="cert-badge-dot"></span>
-                        <span className="cert-badge-icon">{result.icon}</span>
                         <span className="cert-badge-text">{result.badge}</span>
                         <span className="cert-badge-dot"></span>
                       </div>
-                      <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'10px',color:'rgba(122,95,0,0.6)',letterSpacing:'1.5px',textTransform:'uppercase',marginTop:'6px'}}>{result.level}</p>
                     </div>
 
-                    <h3 className="cert-profile-title" dangerouslySetInnerHTML={{ __html: result.title }}/>
+                    <h3 className="cert-profile-title">{result.title}</h3>
                     <div className="cert-orn">
                       <div className="cert-orn-line"></div>
                       <span className="cert-orn-star">✦</span>
                       <div className="cert-orn-line"></div>
                     </div>
 
-                    {/* Journey / Welcome */}
-                    <div style={{textAlign:'left',maxWidth:'500px',margin:'0 auto 20px',background:'rgba(201,162,39,0.07)',border:'1px solid rgba(201,162,39,0.28)',borderRadius:'12px',padding:'16px 20px'}}>
-                      <p style={{fontFamily:'Cinzel,serif',fontSize:'9px',fontWeight:'700',letterSpacing:'2px',textTransform:'uppercase',color:'#8a6200',marginBottom:'8px'}}>❤️ {result.journeyTitle}</p>
-                      <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'12.5px',color:'#3d2e00',lineHeight:'1.85',whiteSpace:'pre-line'}}>{result.journeyBody}</p>
-                    </div>
+                    {/* Remark */}
+                    <p className="cert-remark">{result.remark}</p>
 
-                    {/* What This Means */}
-                    <div style={{textAlign:'left',maxWidth:'500px',margin:'0 auto 20px',background:'rgba(201,162,39,0.04)',border:'1px solid rgba(201,162,39,0.18)',borderRadius:'12px',padding:'16px 20px'}}>
-                      <p style={{fontFamily:'Cinzel,serif',fontSize:'9px',fontWeight:'700',letterSpacing:'2px',textTransform:'uppercase',color:'#8a6200',marginBottom:'8px'}}>🧠 What This Means About You</p>
-                      <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'12.5px',color:'#3d2e00',lineHeight:'1.8'}}>{result.meaning}</p>
-                    </div>
-
+                    {/* Insights */}
                     <span className="cert-insights-title">✦ &nbsp; Leadership Insights &nbsp; ✦</span>
                     <div className="cert-insights-grid">
                       {result.tips.map((tip,i)=>(
@@ -495,16 +460,6 @@ export default function CampusQuiz() {
                       ))}
                     </div>
 
-                    {/* Personal Reflection */}
-                    <div style={{textAlign:'left',maxWidth:'500px',margin:'0 auto 20px',background:'rgba(201,162,39,0.04)',border:'1px solid rgba(201,162,39,0.18)',borderRadius:'12px',padding:'16px 20px'}}>
-                      <p style={{fontFamily:'Cinzel,serif',fontSize:'9px',fontWeight:'700',letterSpacing:'2px',textTransform:'uppercase',color:'#8a6200',marginBottom:'10px'}}>🔥 Personal Reflection</p>
-                      {result.reflections.map((r,i)=>(
-                        <p key={i} style={{fontFamily:'DM Sans,sans-serif',fontSize:'12.5px',color:'#3d2e00',lineHeight:'1.8',marginBottom:'6px'}}>• {r}</p>
-                      ))}
-                    </div>
-
-                    {/* Next Step */}
-                    <p style={{fontFamily:'DM Sans,sans-serif',fontSize:'12px',color:'rgba(122,95,0,0.7)',fontStyle:'italic',marginBottom:'16px'}}>👉 {result.nextStep}</p>
                     <p className="cert-assessment-note">
                       {ASSESSMENT_TYPE} &nbsp;·&nbsp; www.livingleadershipacademy.com
                     </p>
@@ -517,8 +472,7 @@ export default function CampusQuiz() {
                       <span className="cert-sig-role">Founder &amp; CEO</span>
                     </div>
                     <div className="cert-seal">
-                      <span className="cert-seal-icon">🦁</span>
-                      <span className="cert-seal-label">Official</span>
+                      <img src="/Logo.jpeg" alt="Living Leadership Academy" style={{width: '72px', height: '72px', borderRadius: '50%', border: '2px solid #c9a227'}} />
                     </div>
                     <div className="cert-date">
                       <span className="cert-date-label">Issued on</span>

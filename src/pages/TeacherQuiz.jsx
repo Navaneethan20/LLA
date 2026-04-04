@@ -18,6 +18,119 @@ const optionVariants = {
   selected: { opacity: 1, y: 0, scale: 1.05, boxShadow: "0 0 20px rgba(245,197,24,0.5)" }
 };
 
+/* ─────────────────────────────────────────
+   CERTIFICATE STYLES (From StudentQuiz)
+───────────────────────────────────────── */
+const certCSS = `
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+  @keyframes certIn {
+    0%   { opacity:0; transform:scale(0.86) translateY(28px); }
+    65%  { opacity:1; transform:scale(1.02) translateY(-4px); }
+    100% { opacity:1; transform:scale(1) translateY(0); }
+  }
+  @keyframes shimmerMove {
+    0%   { background-position: -500px 0; }
+    100% { background-position: 500px 0; }
+  }
+  @keyframes sealGlow {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.5), 0 6px 24px rgba(0,0,0,0.4); }
+    50%      { box-shadow: 0 0 0 10px rgba(201,162,39,0), 0 6px 24px rgba(0,0,0,0.4); }
+  }
+  @keyframes dotPulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:0.5; transform:scale(0.7); }
+  }
+
+  .cert-root { animation: certIn 0.75s cubic-bezier(.22,.68,0,1.2) both; }
+  .cert-card {
+    position: relative;
+    background: linear-gradient(160deg,#fffef8 0%,#fdf6e3 35%,#fef8ed 65%,#fffdf7 100%);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #c9a227, 0 0 0 6px rgba(201,162,39,0.14), 0 32px 90px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.95);
+  }
+  .cert-ring1 { position:absolute; inset:10px; border:2px solid rgba(201,162,39,0.55); border-radius:14px; pointer-events:none; z-index:2; }
+  .cert-ring2 { position:absolute; inset:15px; border:1px solid rgba(201,162,39,0.22); border-radius:10px; pointer-events:none; z-index:2; }
+  .cert-texture { position:absolute; inset:0; pointer-events:none; z-index:0; background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(201,162,39,0.04) 28px, rgba(201,162,39,0.04) 29px); }
+  .cert-watermark { position:absolute; inset:0; z-index:0; pointer-events:none; display:flex; align-items:center; justify-content:center; font-family:'Cinzel',serif; font-size:180px; font-weight:900; color:#8a6a00; opacity:0.03; user-select:none; letter-spacing:-6px; line-height:1; }
+  .cert-corner { position:absolute; width:56px; height:56px; z-index:3; }
+  .cert-corner svg { width:100%; height:100%; }
+  .cert-corner.tl { top:20px; left:20px; }
+  .cert-corner.tr { top:20px; right:20px; transform:scaleX(-1); }
+  .cert-corner.bl { bottom:20px; left:20px; transform:scaleY(-1); }
+  .cert-corner.br { bottom:20px; right:20px; transform:scale(-1,-1); }
+  .cert-shimmer { height:4px; position:relative; z-index:10; border-radius:22px 22px 0 0; background:linear-gradient(90deg,#8a6200,#d4a800,#ffe566,#f5c518,#d4a800,#8a6200); background-size:500px 100%; animation:shimmerMove 3s linear infinite; }
+  .cert-header { position:relative; z-index:5; background:linear-gradient(135deg,#09152c 0%,#0d1b3e 45%,#13224a 100%); padding:24px 36px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .cert-header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,#f5c518 20%,#c9a227 50%,#f5c518 80%,transparent); }
+  .cert-logo-row { display:flex; align-items:center; gap:14px; }
+  .cert-logo-img { width:54px; height:54px; border-radius:11px; border:2px solid #c9a227; object-fit:cover; flex-shrink:0; box-shadow:0 4px 14px rgba(0,0,0,0.4); }
+  .cert-logo-name { font-family:'Cinzel',serif; font-size:16px; font-weight:700; color:#f5c518; letter-spacing:0.5px; line-height:1.2; display:block; }
+  .cert-logo-tagline { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:rgba(245,197,24,0.5); display:block; margin-top:3px; }
+  .cert-header-right { text-align:right; }
+  .cert-cert-of { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,197,24,0.45); display:block; margin-bottom:3px; }
+  .cert-cert-title { font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#f5c518; letter-spacing:1px; }
+  .cert-body { position:relative; z-index:4; padding:40px 52px 36px; text-align:center; }
+  .cert-certifies-line { font-family:'Playfair Display',serif; font-style:italic; font-size:13px; color:rgba(122,95,0,0.75); letter-spacing:1.5px; margin-bottom:12px; display:block; }
+  .cert-name { font-family:'Cinzel',serif; font-weight:700; font-size:clamp(24px,4.5vw,38px); line-height:1.15; background:linear-gradient(135deg,#7a4f00 0%,#b8860b 35%,#d4a800 55%,#8a6200 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:6px; display:block; letter-spacing:0.5px; }
+  .cert-org-line { font-family:'DM Sans',sans-serif; font-size:11px; color:#8a7040; letter-spacing:1px; margin-bottom:22px; display:block; }
+  .cert-orn { display:flex; align-items:center; gap:10px; max-width:460px; margin:0 auto 22px; }
+  .cert-orn-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,#c9a227 40%,#c9a227 60%,transparent); }
+  .cert-orn-star { font-size:13px; color:#c9a227; line-height:1; }
+  .cert-badge { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,#09152c,#0d1b3e,#13224a); border:1.5px solid #c9a227; border-radius:40px; padding:9px 26px; margin-bottom:18px; box-shadow:0 4px 20px rgba(201,162,39,0.25); }
+  .cert-badge-icon { font-size:18px; line-height:1; }
+  .cert-badge-text { font-family:'Cinzel',serif; font-size:11px; font-weight:700; color:#f5c518; letter-spacing:3px; text-transform:uppercase; }
+  .cert-badge-dot { width:7px; height:7px; border-radius:50%; background:#f5c518; animation:dotPulse 2s ease-in-out infinite; }
+  .cert-profile-title { font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(20px,3.5vw,30px); line-height:1.25; color:#1a1000; margin-bottom:16px; }
+  .cert-profile-title span { color:#b8860b; }
+  .cert-remark { font-family:'DM Sans',sans-serif; font-size:13.5px; color:#3d2e00; line-height:1.9; max-width:500px; margin:0 auto 28px; }
+  .cert-insights-title { font-family:'Cinzel',serif; font-size:9px; letter-spacing:3.5px; text-transform:uppercase; color:#8a6200; margin-bottom:16px; display:block; }
+  .cert-insights-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:500px; margin:0 auto 28px; text-align:left; }
+  .cert-insight { background:rgba(201,162,39,0.07); border:1px solid rgba(201,162,39,0.32); border-radius:10px; padding:13px 15px; }
+  .cert-insight-h { font-family:'Cinzel',serif; font-size:8px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#8a6200; display:block; margin-bottom:5px; }
+  .cert-insight-b { font-family:'DM Sans',sans-serif; font-size:12px; color:#3d2e00; line-height:1.55; }
+  .cert-assessment-note { font-family:'DM Sans',sans-serif; font-size:10px; color:rgba(122,95,0,0.6); letter-spacing:0.8px; margin-top:6px; }
+  .cert-footer { position:relative; z-index:5; background:linear-gradient(135deg,#09152c 0%,#0d1b3e 45%,#13224a 100%); border-top:2px solid #c9a227; padding:20px 48px; display:flex; align-items:center; justify-content:space-between; gap:16px; border-radius:0 0 20px 20px; }
+  .cert-sig { text-align:center; }
+  .cert-sig-name { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:#f5c518; display:block; margin-bottom:6px; }
+  .cert-sig-line { width:130px; height:1px; background:linear-gradient(90deg,transparent,rgba(245,197,24,0.5),transparent); margin:0 auto 6px; }
+  .cert-sig-role { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,197,24,0.45); }
+  .cert-seal { width:72px; height:72px; border-radius:50%; background:radial-gradient(circle,#1e3060 0%,#0a1630 100%); border:2px solid #c9a227; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; animation:sealGlow 3s ease-in-out infinite; }
+  .cert-seal-icon { font-size:26px; line-height:1; display:block; }
+  .cert-seal-label { font-family:'Cinzel',serif; font-size:6px; font-weight:700; color:#c9a227; letter-spacing:1.5px; text-transform:uppercase; margin-top:3px; }
+  .cert-date { text-align:right; }
+  .cert-date-label { font-family:'DM Sans',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,197,24,0.45); display:block; margin-bottom:4px; }
+  .cert-date-value { font-family:'Cinzel',serif; font-size:12px; font-weight:600; color:#f5c518; }
+  .cert-actions { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:22px; }
+  .cert-btn-enroll { background:linear-gradient(135deg,#f5c518,#e6b800); color:#0d1b3e; padding:13px 34px; border-radius:40px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:700; text-decoration:none; display:inline-block; border:none; cursor:pointer; box-shadow:0 6px 28px rgba(245,197,24,0.32); transition:transform 0.2s,box-shadow 0.2s; }
+  .cert-btn-enroll:hover { transform:translateY(-2px); box-shadow:0 10px 36px rgba(245,197,24,0.42); }
+  .cert-btn-retake { background:transparent; color:#f5c518; padding:12px 28px; border-radius:40px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; border:1.5px solid rgba(245,197,24,0.4); cursor:pointer; transition:border-color 0.2s,background 0.2s; }
+  .cert-btn-retake:hover { border-color:#f5c518; background:rgba(245,197,24,0.06); }
+  .cert-website-note { text-align:center; margin-top:14px; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(245,197,24,0.3); }
+
+  @media(max-width:620px){
+    .cert-header{ padding:18px 20px; }
+    .cert-body{ padding:30px 22px 26px; }
+    .cert-insights-grid{ grid-template-columns:1fr; }
+    .cert-footer{ padding:18px 22px; flex-direction:column; align-items:center; text-align:center; }
+    .cert-sig{ display:none; }
+    .cert-date{ text-align:center; }
+    .cert-corner{ width:40px; height:40px; }
+  }
+`;
+
+const Corner = () => (
+  <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 3 L26 3 L26 7 L7 7 L7 26 L3 26 Z" fill="#c9a227" opacity="0.75"/>
+    <path d="M5 5 L22 5 L22 8 L8 8 L8 22 L5 22 Z" fill="none" stroke="#c9a227" strokeWidth="0.75" opacity="0.45"/>
+    <circle cx="4.5" cy="4.5" r="3.5" fill="#c9a227" opacity="0.85"/>
+    <circle cx="26" cy="4.5" r="1.8" fill="#c9a227" opacity="0.55"/>
+    <circle cx="4.5" cy="26" r="1.8" fill="#c9a227" opacity="0.55"/>
+    <path d="M30 3 L33 3 L33 5 L30 5 Z" fill="#c9a227" opacity="0.35"/>
+    <path d="M3 30 L5 30 L5 33 L3 33 Z" fill="#c9a227" opacity="0.35"/>
+  </svg>
+);
+
 const questions = [
   {
     q: "When I make a mistake in my teaching…",
@@ -85,20 +198,9 @@ const results = [
   {
     min: 91,
     max: 100,
-    icon: "🔥",
     badge: "TRANSFORMATIONAL LEADER",
-    title: "You Are a <span>Transformational Leader</span>",
-    levelLabel: "Level 5 (91–100)",
-    welcome: "Welcome to the Living Leadership Family. You are not just an educator… You are a life shaper. Your students don't just remember lessons — They remember who they became because of you.",
-    realityTitle: "Your Leadership Reality",
-    reality: "You demonstrate strong character, emotional intelligence, and purpose-driven leadership. You are building something bigger than a classroom.",
-    blindSpotTitle: "Your Blind Spot",
-    blindSpot: "Even at this level: Impact must become legacy.",
-    growthTitle: "Your Growth Journey",
-    growth: ["Mentoring educators", "Building leadership systems", "Expanding societal impact"],
-    reflectionTitle: "Personal Reflection",
-    reflection: ["How can I build leaders who build others?", "What impact will continue after me?"],
-    commitment: "Lead Beyond Yourself",
+    title: "Transformational Leader",
+    remark: "Welcome to the Living Leadership Family. You are not just an educator… You are a life shaper. Your students don't just remember lessons — They remember who they became because of you.",
     tips: [
       { h: "Leadership Reality", b: "Strong character, emotional intelligence, purpose-driven leadership" },
       { h: "Blind Spot", b: "Impact must become legacy" },
@@ -109,20 +211,9 @@ const results = [
   {
     min: 76,
     max: 90,
-    icon: "🌟",
     badge: "INFLUENTIAL EDUCATOR",
-    title: "You Are an <span>Influential Educator</span>",
-    levelLabel: "Level 4 (76–90)",
-    welcome: "Welcome to the Living Leadership Family. You are not just teaching… You are shaping lives. Students remember you. They are influenced by you. That is rare and powerful.",
-    realityTitle: "Your Leadership Reality",
-    reality: "You demonstrate strong communication, leadership presence, and the ability to inspire. You are already a leader in your environment.",
-    blindSpotTitle: "Your Blind Spot",
-    blindSpot: "But leadership at this level demands more: Influence must become impact.",
-    growthTitle: "Your Growth Journey",
-    growth: ["Mentoring students as leaders", "Expanding influence beyond classroom", "Creating systems of impact"],
-    reflectionTitle: "Personal Reflection",
-    reflection: ["Who is becoming a leader because of me?", "What legacy am I building as an educator?"],
-    commitment: "Multiply Your Leadership Impact",
+    title: "Influential Educator",
+    remark: "Welcome to the Living Leadership Family. You are not just teaching… You are shaping lives. Students remember you. They are influenced by you. That is rare and powerful.",
     tips: [
       { h: "Leadership Reality", b: "Strong communication, leadership presence, ability to inspire" },
       { h: "Blind Spot", b: "Influence must become impact" },
@@ -133,20 +224,9 @@ const results = [
   {
     min: 61,
     max: 75,
-    icon: "🌳",
     badge: "ENGAGING EDUCATOR",
-    title: "You Are an <span>Engaging Educator</span>",
-    levelLabel: "Level 3 (61–75)",
-    welcome: "Welcome to the Living Leadership Family. Students don't just learn from you… They feel connected to you. Your classroom has life. Your presence has warmth. And that is powerful.",
-    realityTitle: "Your Leadership Reality",
-    reality: "You are strong in student connection, responsibility, and engagement. You are already influencing — whether you realize it or not.",
-    blindSpotTitle: "Your Blind Spot",
-    blindSpot: "You are engaging students… But are you developing leaders?",
-    growthTitle: "Your Growth Journey",
-    growth: ["Leadership expansion", "Influence beyond classroom", "Student leadership development"],
-    reflectionTitle: "Personal Reflection",
-    reflection: ["Am I creating followers or future leaders?", "How far does my influence go beyond my class?"],
-    commitment: "Step Into Leadership Influence",
+    title: "Engaging Educator",
+    remark: "Welcome to the Living Leadership Family. Students don't just learn from you… They feel connected to you. Your classroom has life. Your presence has warmth. And that is powerful.",
     tips: [
       { h: "Leadership Reality", b: "Strong student connection, responsibility, and engagement" },
       { h: "Blind Spot", b: "Engaging students — but are you developing leaders?" },
@@ -157,20 +237,9 @@ const results = [
   {
     min: 41,
     max: 60,
-    icon: "🌿",
     badge: "DEVELOPING EDUCATOR",
-    title: "You Are a <span>Developing Educator</span>",
-    levelLabel: "Level 2 (41–60)",
-    welcome: "Welcome to the Living Leadership Family. You are growing. You are trying. You are becoming aware. And that's a powerful place to be. You are no longer just teaching… You are beginning to think like a leader.",
-    realityTitle: "Your Leadership Reality",
-    reality: "You are improving your teaching and beginning reflection. You care. You are making an effort. But consistency is still forming.",
-    blindSpotTitle: "Your Blind Spot",
-    blindSpot: "Inconsistent leadership behavior, emotional reactions under pressure, and limited relational depth.",
-    growthTitle: "Your Growth Journey",
-    growth: ["Consistency in behavior", "Stronger emotional control", "Deeper student relationships"],
-    reflectionTitle: "Personal Reflection",
-    reflection: ["When I am stressed, do I respond or react?", "Do my students trust me or just listen to me?"],
-    commitment: "Unlock Your Next Level as an Educator",
+    title: "Developing Educator",
+    remark: "Welcome to the Living Leadership Family. You are growing. You are trying. You are becoming aware. And that's a powerful place to be. You are no longer just teaching… You are beginning to think like a leader.",
     tips: [
       { h: "Leadership Reality", b: "Improving teaching, beginning reflection, making consistent effort" },
       { h: "Blind Spot", b: "Inconsistent leadership behavior, emotional reactions under pressure" },
@@ -181,20 +250,9 @@ const results = [
   {
     min: 0,
     max: 40,
-    icon: "🌱",
     badge: "INSTRUCTOR",
-    title: "You Are an <span>Instructor</span>",
-    levelLabel: "Level 1 (0–40)",
-    welcome: "Welcome to the Living Leadership Family. You are showing up. You are teaching. You are doing your responsibility. And that matters more than you think. But deep inside… there may be a question: \"Am I truly impacting my students… or just completing lessons?\"",
-    realityTitle: "Your Leadership Reality",
-    reality: "Right now, your focus is on content delivery. Your classroom is functional — but leadership is still developing. Students are learning subjects… But are they learning from you?",
-    blindSpotTitle: "Your Blind Spot",
-    blindSpot: "Limited leadership awareness, low emotional connection, and reactive teaching under pressure.",
-    growthTitle: "Your Growth Journey",
-    growth: ["Mindset shift (Teacher → Leader)", "Emotional intelligence", "Awareness of student needs"],
-    reflectionTitle: "Personal Reflection",
-    reflection: ["What do my students feel when they enter my class?", "Do they remember my lessons… or my impact?"],
-    commitment: "Start Your Leadership Transformation",
+    title: "Instructor",
+    remark: "Welcome to the Living Leadership Family. You are showing up. You are teaching. You are doing your responsibility. And that matters more than you think. But deep inside… there may be a question: \"Am I truly impacting my students… or just completing lessons?\"",
     tips: [
       { h: "Leadership Reality", b: "Focus on content delivery; classroom is functional but leadership is developing" },
       { h: "Blind Spot", b: "Limited leadership awareness, low emotional connection, reactive under pressure" },
@@ -338,9 +396,11 @@ Commitment: ${result.commitment}
   };
 
   const progressPercent = ((current + 1) / 13) * 100;
+  const currentDate = new Date().toLocaleDateString('en-IN');
 
   return (
     <div className="min-h-screen relative text-white font-['DM_Sans'] overflow-hidden">
+      <style>{certCSS}</style>
       <div className="absolute inset-0 bg-[#0d1b3e]/90 -z-10"></div>
       <header className="bg-[#0b1832] text-white py-2 text-center border-b border-[#f5c518]/20">
         <p className="text-sm font-bold">Living Leadership Academy</p>
@@ -366,7 +426,7 @@ Commitment: ${result.commitment}
             ← Back to Assessment Selection
           </a>
           <div className="inline-flex items-center gap-2 bg-[rgba(245,197,24,0.1)] border border-[rgba(245,197,24,0.3)] text-[#f5c518] px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider mb-5">
-            👩‍🏫 Teacher Leadership Assessment
+            Teacher Leadership Assessment
           </div>
           <h1 className="font-['Playfair_Display'] text-3xl md:text-4xl font-black mb-2 leading-tight">
             Discover Your <span className="text-[#f5c518]">Teaching Leadership</span>
@@ -552,78 +612,130 @@ Commitment: ${result.commitment}
 
         {/* Result Card */}
         {showResult && result && (
-          <div className="bg-[#111e3d] border-4 border-[#f5c518] rounded-3xl p-8 md:p-12 animate-fadeIn">
-            {/* Header */}
-            <div className="text-center mb-8">
-              <div className="text-6xl mb-5">{result.icon}</div>
-              <div className="inline-block bg-[#f5c518] text-[#0d1b3e] text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-2xl mb-2">
-                {result.badge}
+          <div className="cert-root">
+
+            <div className="cert-card">
+              {/* Line 614 omitted */}
+              <div className="cert-shimmer"></div>
+
+              {/* Line 617 omitted */}
+              <div className="cert-texture" aria-hidden="true"></div>
+              <div className="cert-ring1" aria-hidden="true"></div>
+              <div className="cert-ring2" aria-hidden="true"></div>
+              <div className="cert-watermark" aria-hidden="true">LLA</div>
+
+              {/* Line 623 omitted */}
+              <div className="cert-corner tl"><Corner/></div>
+              <div className="cert-corner tr"><Corner/></div>
+              <div className="cert-corner bl"><Corner/></div>
+              <div className="cert-corner br"><Corner/></div>
+
+              {/* Line 629 omitted */}
+              <div className="cert-header">
+                <div className="cert-logo-row">
+                  <img src="/Logo.jpeg" alt="Living Leadership Academy" className="cert-logo-img"/>
+                  <div>
+                    <span className="cert-logo-name">Living Leadership</span>
+                    <span className="cert-logo-tagline">Academy · India</span>
+                  </div>
+                </div>
+                <div className="cert-header-right">
+                  <span className="cert-cert-of">Certificate of</span>
+                  <span className="cert-cert-title">Leadership Profile</span>
+                </div>
               </div>
-              <p className="text-[#8fa0c0] text-xs mb-4">{result.levelLabel}</p>
-              <h2 className="font-['Playfair_Display'] text-3xl font-black mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: result.title }}></h2>
-            </div>
 
-            {/* What We See In You */}
-            <div className="bg-[rgba(245,197,24,0.06)] border border-[rgba(245,197,24,0.2)] rounded-2xl p-6 mb-5">
-              <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">What We See in You</h4>
-              <p className="text-sm text-[#e8ecf5] leading-relaxed">{result.welcome}</p>
-            </div>
+              {/* Line 644 omitted */}
+              <div className="cert-body">
+                <span className="cert-certifies-line">—<strong> This certifies that </strong> —</span>
 
-            {/* 2-col: Reality + Blind Spot */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-              <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5">
-                <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.realityTitle}</h4>
-                <p className="text-sm text-[#e8ecf5] leading-relaxed">{result.reality}</p>
+                <span className="cert-name">{userName}</span>
+
+                <span className="cert-org-line">
+                  {userOrganization && <>{userOrganization} &nbsp;·&nbsp; </>}
+                  {userCity && userState ? `${userCity}, ${userState}` : (userCity || userState)}
+                </span>
+
+                {/* Line 655 omitted */}
+                <div className="cert-orn">
+                  <div className="cert-orn-line"></div>
+                  <span className="cert-orn-star">✦</span>
+                  <div className="cert-orn-line"></div>
+                  <span className="cert-orn-star">✦</span>
+                  <div className="cert-orn-line"></div>
+                </div>
+
+                {/* Line 664 omitted */}
+                <div style={{marginBottom:'16px'}}>
+                  <div className="cert-badge">
+                    <span className="cert-badge-dot"></span>
+                    <span className="cert-badge-text">{result.badge}</span>
+                    <span className="cert-badge-dot"></span>
+                  </div>
+                </div>
+
+                {/* Line 674 omitted */}
+                <h3 className="cert-profile-title">{result.title}</h3>
+
+                {/* Line 677 omitted */}
+                <div className="cert-orn">
+                  <div className="cert-orn-line"></div>
+                  <span className="cert-orn-star">✦</span>
+                  <div className="cert-orn-line"></div>
+                  <span className="cert-orn-star">✦</span>
+                  <div className="cert-orn-line"></div>
+                </div>
+
+                {/* Line 686 omitted */}
+                <p className="cert-remark">{result.remark}</p>
+
+                {/* Line 689 omitted */}
+                <span className="cert-insights-title">✦ &nbsp; Leadership Insights &nbsp; ✦</span>
+                <div className="cert-insights-grid">
+                  {result.tips.map((tip,i)=>(
+                    <div key={i} className="cert-insight">
+                      <span className="cert-insight-h">{tip.h}</span>
+                      <span className="cert-insight-b">{tip.b}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Line 700 omitted */}
+                <p className="cert-assessment-note">
+                  {ASSESSMENT_TYPE} &nbsp;·&nbsp; www.livingleadershipacademy.com
+                </p>
               </div>
-              <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5">
-                <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.blindSpotTitle}</h4>
-                <p className="text-sm text-[#e8ecf5] leading-relaxed">{result.blindSpot}</p>
+
+              {/* Line 706 omitted */}
+              <div className="cert-footer">
+                {/* Line 708 omitted */}
+                <div className="cert-sig">
+                  <span className="cert-sig-name">Satheesh Kumar S</span>
+                  <div className="cert-sig-line"></div>
+                  <span className="cert-sig-role">Founder &amp; CEO</span>
+                </div>
+
+                {/* Line 715 omitted */}
+                <div className="cert-seal">
+                  <img src="/Logo.jpeg" alt="Living Leadership Academy" style={{width: '72px', height: '72px', borderRadius: '50%', border: '2px solid #c9a227'}} />
+                </div>
+
+                {/* Line 721 omitted */}
+                <div className="cert-date">
+                  <span className="cert-date-label">Issued on</span>
+                  <span className="cert-date-value">{currentDate}</span>
+                </div>
               </div>
+
+            </div>{/* Line 728 omitted */}
+
+                            {/* Line 730 omitted */}
+            <div className="cert-actions">
+              <a href="/CorporatePrograms" className="cert-btn-enroll">Enroll in Program →</a>
+              <button onClick={retakeQuiz} className="cert-btn-retake">Retake Assessment</button>
             </div>
 
-            {/* Growth Journey */}
-            <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5 mb-5">
-              <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.growthTitle}</h4>
-              <ul className="space-y-2">
-                {result.growth.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#e8ecf5]">
-                    <span className="text-[#f5c518] mt-0.5">→</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Personal Reflection */}
-            <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-5 mb-8">
-              <h4 className="text-xs uppercase tracking-wider text-[#f5c518] font-semibold mb-3">{result.reflectionTitle}</h4>
-              <ul className="space-y-2">
-                {result.reflection.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-[#e8ecf5] italic">
-                    <span className="text-[#f5c518] not-italic mt-0.5">●</span>
-                    <span>"{item}"</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="h-px bg-[rgba(245,197,24,0.2)] mb-8"></div>
-
-            {/* Commitment CTA */}
-            <div className="text-center">
-              <p className="text-xs uppercase tracking-wider text-[#8fa0c0] mb-4 font-semibold">Your Commitment</p>
-              <div className="flex gap-3 justify-center flex-wrap">
-                <a href="/CorporatePrograms" className="bg-[#f5c518] text-[#0d1b3e] px-6 py-3 rounded-2xl text-sm font-bold no-underline inline-block hover:bg-[#e6b800] transition-colors">
-                  {result.commitment}
-                </a>
-                <button
-                  onClick={retakeQuiz}
-                  className="border-2 border-[rgba(245,197,24,0.4)] text-[#f5c518] px-5 py-2.5 rounded-2xl text-sm font-semibold cursor-pointer bg-transparent hover:border-[#f5c518] transition-colors"
-                >
-                  Retake Assessment
-                </button>
-              </div>
-            </div>
+            <p className="cert-website-note">www.livingleadershipacademy.com</p>
           </div>
         )}
 

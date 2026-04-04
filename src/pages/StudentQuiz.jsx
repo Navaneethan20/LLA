@@ -42,8 +42,8 @@ const questions = [
 const results = [
   {
     min: 54, max: 60,
-    icon: "🔥", badge: "IMPACT LEADER",
-    title: "You Are an <span>Impact Leader</span>",
+    badge: "IMPACT LEADER",
+    title: "Impact Leader",
     remark: "You are not just doing well — you are making a difference. You think about others, act with purpose, and demonstrate strong values, a leadership mindset, and deep responsibility. You are becoming a role model.",
     tips: [
       { h: "Strengths", b: "Strong values, leadership mindset, responsibility" },
@@ -54,8 +54,8 @@ const results = [
   },
   {
     min: 45, max: 53,
-    icon: "🌟", badge: "INFLUENCING LEADER",
-    title: "You Are an <span>Influencing Leader</span>",
+    badge: "INFLUENCING LEADER",
+    title: "Influencing Leader",
     remark: "You are confident, you take initiative, and others listen to you. You already have influence and are making an impact through your communication, presence, and leadership.",
     tips: [
       { h: "Strengths", b: "Communication, initiative, leadership presence" },
@@ -66,8 +66,8 @@ const results = [
   },
   {
     min: 36, max: 44,
-    icon: "🌳", badge: "EMERGING LEADER",
-    title: "You Are an <span>Emerging Leader</span>",
+    badge: "EMERGING LEADER",
+    title: "Emerging Leader",
     remark: "You are becoming someone others can rely on. You demonstrate responsibility, teamwork, and positive behavior — and you are starting to stand out. That is a big step.",
     tips: [
       { h: "Strengths", b: "Responsibility, teamwork, positive behavior" },
@@ -78,8 +78,8 @@ const results = [
   },
   {
     min: 24, max: 35,
-    icon: "🌿", badge: "GROWING STAGE",
-    title: "You Are in the <span>Growing Stage</span>",
+    badge: "GROWING STAGE",
+    title: "Growing Stage",
     remark: "You are growing, trying, and becoming better. You show effort, willingness to improve, and early awareness — but consistency is still developing. Sometimes you may start strong and stop halfway.",
     tips: [
       { h: "Strengths", b: "Effort, willingness to improve, early awareness" },
@@ -90,8 +90,8 @@ const results = [
   },
   {
     min: 12, max: 23,
-    icon: "🌱", badge: "SEED STAGE",
-    title: "You Are at the <span>Seed Stage</span>",
+    badge: "SEED STAGE",
+    title: "Seed Stage",
     remark: "Every strong tree begins as a seed — and right now, you are just beginning your leadership journey. You may feel unsure or still figuring things out. That's okay. This stage is not a weakness; it is the beginning of growth.",
     tips: [
       { h: "Strengths", b: "Learning basic habits, understanding right and wrong" },
@@ -643,7 +643,7 @@ export default function StudentQuiz() {
 
                   {/* ── BODY ── */}
                   <div className="cert-body">
-                    <span className="cert-certifies-line">— This certifies that —</span>
+                    <span className="cert-certifies-line">— <strong>This certifies that </strong>—</span>
 
                     <span className="cert-name">{userName}</span>
 
@@ -665,14 +665,13 @@ export default function StudentQuiz() {
                     <div style={{marginBottom:'16px'}}>
                       <div className="cert-badge">
                         <span className="cert-badge-dot"></span>
-                        <span className="cert-badge-icon">{result.icon}</span>
                         <span className="cert-badge-text">{result.badge}</span>
                         <span className="cert-badge-dot"></span>
                       </div>
                     </div>
 
                     {/* Profile title */}
-                    <h3 className="cert-profile-title" dangerouslySetInnerHTML={{ __html: result.title }}/>
+                    <h3 className="cert-profile-title">{result.title}</h3>
 
                     {/* Ornament divider */}
                     <div className="cert-orn">
@@ -684,7 +683,7 @@ export default function StudentQuiz() {
                     </div>
 
                     {/* Remark */}
-                    <p className="cert-remark">{result.remark.replace(/<[^>]+>/g,'')}</p>
+                    <p className="cert-remark">{result.remark}</p>
 
                     {/* Insights */}
                     <span className="cert-insights-title">✦ &nbsp; Leadership Insights &nbsp; ✦</span>
@@ -714,8 +713,7 @@ export default function StudentQuiz() {
 
                     {/* Official seal */}
                     <div className="cert-seal">
-                      <span className="cert-seal-icon">🦁</span>
-                      <span className="cert-seal-label">Official</span>
+                      <img src="/Logo.jpeg" alt="Living Leadership Academy" style={{width: '72px', height: '72px', borderRadius: '50%', border: '2px solid #c9a227'}} />
                     </div>
 
                     {/* Issue date */}

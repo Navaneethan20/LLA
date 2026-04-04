@@ -100,16 +100,9 @@ const results = [
   {
     min: 0,
     max: 40,
-    icon: "🌱",
     badge: "REACTIVE PARENT",
-    level: "Level 1",
-    title: "You Are a <span>Reactive Parent</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou deeply care for your child. Your intentions are right.\n\nBut parenting right now may feel like responding to situations as they come — sometimes with patience… sometimes with pressure… sometimes with emotion.\n\nAnd that's human.\n\nBut here's the truth:\n👉 Your child is not just watching what you say… They are becoming what you model.",
-    meaning: "Your parenting is currently shaped by situations, emotions, and immediate reactions. Your child is receiving guidance… but may not always feel consistent emotional safety.",
+    title: "Reactive Parent",
     remark: "Parenting is mostly situational and emotional reactions dominate. This is a common starting point, and with awareness, you can develop more intentional leadership in your parenting.",
-    reflections: ["How does my child feel when I correct them?", "Am I reacting… or leading?"],
-    nextStep: "Move from reacting → to raising with purpose.",
     tips: [
       { h: "Growth Edge", b: "Emotional reactions under stress, inconsistent responses, limited conscious parenting" },
       { h: "Next Level Path", b: "Emotional awareness · Pause before reaction · Intentional parenting choices" },
@@ -120,16 +113,9 @@ const results = [
   {
     min: 41,
     max: 60,
-    icon: "🌿",
     badge: "MANAGING PARENT",
-    level: "Level 2",
-    title: "You Are a <span>Managing Parent</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are trying to bring structure and discipline into your child's life. You care about doing things right.\n\nAnd that matters.\n\nBut sometimes, parenting may feel like managing behavior more than shaping the person.",
-    meaning: "You provide rules, structure, and direction — but emotional connection may still need strengthening.",
+    title: "Managing Parent",
     remark: "You provide structure and are growing in your awareness of parenting leadership. You balance discipline with care, creating a stable environment for your child.",
-    reflections: ["Does my child open up to me freely?", "Do I focus more on behavior or their heart?"],
-    nextStep: "Move from managing → to meaningful connection.",
     tips: [
       { h: "Growth Edge", b: "Focus more on control than connection, limited emotional depth, inconsistent awareness" },
       { h: "Next Level Path", b: "Build connection along with discipline · Listen more deeply · Understand before correcting" },
@@ -140,16 +126,9 @@ const results = [
   {
     min: 61,
     max: 75,
-    icon: "🌳",
     badge: "SUPPORTIVE PARENT",
-    level: "Level 3",
-    title: "You Are a <span>Supportive Parent</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYour child feels safe, supported, and encouraged around you. You are building something beautiful — a relationship based on trust.\n\nAnd that is powerful.",
-    meaning: "You are strong in emotional connection, encouragement, and support. Your child feels valued. But here's the deeper question: 👉 Are you only supporting… or also shaping?",
+    title: "Supportive Parent",
     remark: "You build strong connections and encourage your child's development. Your parenting creates a nurturing environment that fosters growth and confidence.",
-    reflections: ["Am I guiding my child or just supporting them?", "Am I preparing them for life or protecting them from it?"],
-    nextStep: "Move from support → to intentional leadership.",
     tips: [
       { h: "Growth Edge", b: "Balance love with leadership, add structure and direction, build discipline with care" },
       { h: "Next Level Path", b: "Balance love with leadership · Add structure and direction · Build discipline with care" },
@@ -160,16 +139,9 @@ const results = [
   {
     min: 76,
     max: 90,
-    icon: "🌟",
     badge: "INTENTIONAL PARENT",
-    level: "Level 4",
-    title: "You Are an <span>Intentional Parent</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are a conscious parent. You think. You reflect. You act with purpose.\n\nYour parenting is not accidental — it is intentional.\n\nAnd your child is already benefiting from it.",
-    meaning: "You demonstrate awareness, values-based parenting, and emotional intelligence. You are shaping both character and confidence.",
+    title: "Intentional Parent",
     remark: "You practice conscious parenting, actively building values and leadership in your child. Your approach creates a strong foundation for character development.",
-    reflections: ["What kind of adult am I preparing my child to become?", "What values will they carry for life?"],
-    nextStep: "Move from intentional → to transformational parenting.",
     tips: [
       { h: "Growth Edge", b: "Expanding your impact beyond your home" },
       { h: "Next Level Path", b: "Build leadership in your child · Expose them to real-world responsibility · Create a value-driven family culture" },
@@ -180,16 +152,9 @@ const results = [
   {
     min: 91,
     max: 100,
-    icon: "🔥",
     badge: "TRANSFORMATIONAL PARENT",
-    level: "Level 5",
-    title: "You Are a <span>Transformational Parent</span>",
-    journeyTitle: "Your Journey Begins Here",
-    journeyBody: "Welcome to the Living Leadership Family.\n\nYou are not just raising a child…\n👉 You are shaping a future leader.\n\nYour parenting reflects purpose, clarity, and deep responsibility.\n\nYour child is learning how to think, how to lead, and how to live.",
-    meaning: "You demonstrate strong values, emotional intelligence, and leadership-driven parenting. You are building something that goes beyond your family.",
+    title: "Transformational Parent",
     remark: "You shape character deeply and raise future leaders. Your parenting goes beyond the family, influencing society through the values and leadership you instill.",
-    reflections: ["How can my parenting influence others?", "What legacy am I leaving through my child?"],
-    nextStep: "Lead beyond your family.",
     tips: [
       { h: "Growth Edge", b: "Impact must become legacy — your influence can extend to your community and beyond" },
       { h: "Next Level Path", b: "Mentor other parents · Build systems at home · Expand influence into community" },
@@ -895,7 +860,7 @@ ${result.remark.replace(/<[^>]+>/g, '')}
 
               {/* ── BODY ── */}
               <div className="cert-body">
-                <span className="cert-certifies-line">— This certifies that —</span>
+                <span className="cert-certifies-line">— <strong>This certifies that </strong>—</span>
 
                 <span className="cert-name">{userName}</span>
 
@@ -917,14 +882,13 @@ ${result.remark.replace(/<[^>]+>/g, '')}
                 <div style={{marginBottom:'16px'}}>
                   <div className="cert-badge">
                     <span className="cert-badge-dot"></span>
-                    <span className="cert-badge-icon">{result.icon}</span>
                     <span className="cert-badge-text">{result.badge}</span>
                     <span className="cert-badge-dot"></span>
                   </div>
                 </div>
 
                 {/* Profile title */}
-                <h3 className="cert-profile-title" dangerouslySetInnerHTML={{ __html: result.title }}/>
+                <h3 className="cert-profile-title">{result.title}</h3>
 
                 {/* Ornament divider */}
                 <div className="cert-orn">
@@ -963,8 +927,7 @@ ${result.remark.replace(/<[^>]+>/g, '')}
                   <span className="cert-sig-role">Founder &amp; CEO</span>
                 </div>
                 <div className="cert-seal">
-                  <span className="cert-seal-icon">🦁</span>
-                  <span className="cert-seal-label">Official</span>
+                  <img src="/Logo.jpeg" alt="Living Leadership Academy" style={{width: '72px', height: '72px', borderRadius: '50%', border: '2px solid #c9a227'}} />
                 </div>
                 <div className="cert-date">
                   <span className="cert-date-label">Issued on</span>
